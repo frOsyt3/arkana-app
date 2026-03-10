@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Navbar } from "@/components/navbar"
 import { Mail, Phone, MapPin, Send, Clock, Globe, MessageSquare } from "lucide-react"
 import Link from "next/link"
+import { companyInfo } from "@/lib/company-data"
 
 export default function ContactPage() {
   return (
@@ -24,7 +25,7 @@ export default function ContactPage() {
               Contact Us
             </h1>
             
-            <p className="text-xl text-muted-foreground leading-relaxed">
+            <p className="text-xl text-gray-600 leading-relaxed">
               Ready to transform your business with technology? Get in touch with our IT consulting 
               team to discuss your project, challenges, or opportunities.
             </p>
@@ -42,7 +43,7 @@ export default function ContactPage() {
                 <h2 className="text-3xl font-bold text-secondary mb-4">
                   Let's Connect
                 </h2>
-                <p className="text-lg text-muted-foreground leading-relaxed">
+                <p className="text-lg text-gray-600 leading-relaxed">
                   Whether you need cloud migration, software development, or IT strategy consulting, 
                   our experts are ready to help.
                 </p>
@@ -55,9 +56,9 @@ export default function ContactPage() {
                       <Mail className="h-6 w-6 text-white" />
                     </div>
                     <div className="space-y-1">
-                      <CardTitle className="text-lg">Email</CardTitle>
+                      <CardTitle className="text-lg text-secondary">Email</CardTitle>
                       <CardDescription className="text-base">
-                        info@arkanatunas.co.id
+                        {companyInfo.contact.email.general}
                       </CardDescription>
                     </div>
                   </CardHeader>
@@ -69,9 +70,9 @@ export default function ContactPage() {
                       <Phone className="h-6 w-6 text-white" />
                     </div>
                     <div className="space-y-1">
-                      <CardTitle className="text-lg">Phone</CardTitle>
+                      <CardTitle className="text-lg text-secondary">Phone</CardTitle>
                       <CardDescription className="text-base">
-                        +62 21 1234 5678
+                        {companyInfo.contact.phone.main}
                       </CardDescription>
                     </div>
                   </CardHeader>
@@ -83,9 +84,9 @@ export default function ContactPage() {
                       <MapPin className="h-6 w-6 text-white" />
                     </div>
                     <div className="space-y-1">
-                      <CardTitle className="text-lg">Office</CardTitle>
+                      <CardTitle className="text-lg text-secondary">Office</CardTitle>
                       <CardDescription className="text-base">
-                        Jakarta, Indonesia
+                        {companyInfo.contact.address.fullAddress}
                       </CardDescription>
                     </div>
                   </CardHeader>
@@ -97,9 +98,10 @@ export default function ContactPage() {
                       <Clock className="h-6 w-6 text-white" />
                     </div>
                     <div className="space-y-1">
-                      <CardTitle className="text-lg">Business Hours</CardTitle>
+                      <CardTitle className="text-lg text-secondary">Business Hours</CardTitle>
                       <CardDescription className="text-base">
-                        Mon - Fri: 9:00 AM - 6:00 PM WIB
+                        {companyInfo.contact.businessHours.weekdays}<br />
+                        {companyInfo.contact.businessHours.saturday}
                       </CardDescription>
                     </div>
                   </CardHeader>
@@ -114,7 +116,7 @@ export default function ContactPage() {
                       key={social}
                       className="w-12 h-12 rounded-xl border-2 border-border hover:border-primary hover:bg-primary/5 transition-all flex items-center justify-center group"
                     >
-                      <Globe className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
+                      <Globe className="w-5 h-5 text-gray-600 group-hover:text-primary transition-colors" />
                     </button>
                   ))}
                 </div>
@@ -125,7 +127,7 @@ export default function ContactPage() {
             <div className="lg:col-span-3">
               <Card className="border-2 border-primary/20 shadow-xl bg-white">
                 <CardHeader>
-                  <CardTitle className="text-2xl text-secondary">Send us a Message</CardTitle>
+                  <CardTitle className="text-2xl text-secondary text-secondary">Send us a Message</CardTitle>
                   <CardDescription className="text-base">
                     Fill out the form below and we'll get back to you within 24 hours.
                   </CardDescription>
@@ -134,72 +136,72 @@ export default function ContactPage() {
                   <form className="space-y-6">
                     <div className="grid sm:grid-cols-2 gap-6">
                       <div className="space-y-2">
-                        <label className="text-sm font-medium text-foreground">
+                        <label className="text-sm font-medium text-secondary">
                           First Name *
                         </label>
                         <input
                           type="text"
                           placeholder="John"
-                          className="w-full px-4 py-3 rounded-lg border-2 border-border focus:border-primary focus:outline-none transition-colors"
+                          className="w-full px-4 py-3 rounded-lg border-2 border-border hover:border-primary/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300"
                           required
                         />
                       </div>
                       <div className="space-y-2">
-                        <label className="text-sm font-medium text-foreground">
+                        <label className="text-sm font-medium text-secondary">
                           Last Name *
                         </label>
                         <input
                           type="text"
                           placeholder="Doe"
-                          className="w-full px-4 py-3 rounded-lg border-2 border-border focus:border-primary focus:outline-none transition-colors"
+                          className="w-full px-4 py-3 rounded-lg border-2 border-border hover:border-primary/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300"
                           required
                         />
                       </div>
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-sm font-medium text-foreground">
+                      <label className="text-sm font-medium text-secondary">
                         Email *
                       </label>
                       <input
                         type="email"
                         placeholder="john.doe@example.com"
-                        className="w-full px-4 py-3 rounded-lg border-2 border-border focus:border-primary focus:outline-none transition-colors"
+                        className="w-full px-4 py-3 rounded-lg border-2 border-border hover:border-primary/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300"
                         required
                       />
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-sm font-medium text-foreground">
+                      <label className="text-sm font-medium text-secondary">
                         Phone Number
                       </label>
                       <input
                         type="tel"
                         placeholder="+62 812 3456 7890"
-                        className="w-full px-4 py-3 rounded-lg border-2 border-border focus:border-primary focus:outline-none transition-colors"
+                        className="w-full px-4 py-3 rounded-lg border-2 border-border hover:border-primary/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300"
                       />
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-sm font-medium text-foreground">
+                      <label className="text-sm font-medium text-secondary">
                         Subject *
                       </label>
                       <input
                         type="text"
                         placeholder="How can we help you?"
-                        className="w-full px-4 py-3 rounded-lg border-2 border-border focus:border-primary focus:outline-none transition-colors"
+                        className="w-full px-4 py-3 rounded-lg border-2 border-border hover:border-primary/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300"
                         required
                       />
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-sm font-medium text-foreground">
+                      <label className="text-sm font-medium text-secondary">
                         Message *
                       </label>
                       <textarea
                         rows={6}
                         placeholder="Tell us more about your inquiry..."
-                        className="w-full px-4 py-3 rounded-lg border-2 border-border focus:border-primary focus:outline-none transition-colors resize-none"
+                        className="w-full px-4 py-3 rounded-lg border-2 border-border hover:border-primary/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300 resize-none"
                         required
                       />
                     </div>
@@ -208,10 +210,10 @@ export default function ContactPage() {
                       <input
                         type="checkbox"
                         id="privacy"
-                        className="mt-1"
+                        className="mt-1 w-4 h-4 rounded border-2 border-border text-primary focus:ring-2 focus:ring-primary/20 focus:ring-offset-0 transition-all cursor-pointer"
                         required
                       />
-                      <label htmlFor="privacy" className="text-sm text-muted-foreground">
+                      <label htmlFor="privacy" className="text-sm text-gray-600 cursor-pointer">
                         I agree to the privacy policy and terms of service
                       </label>
                     </div>
@@ -235,7 +237,7 @@ export default function ContactPage() {
             <h2 className="text-4xl md:text-5xl font-bold text-secondary">
               Visit Our Office
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Come meet us in person at our Jakarta office
             </p>
           </div>
@@ -244,7 +246,7 @@ export default function ContactPage() {
             <div className="aspect-video bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
               <div className="text-center space-y-4">
                 <MapPin className="w-16 h-16 text-primary mx-auto" />
-                <p className="text-lg text-muted-foreground">
+                <p className="text-lg text-gray-600">
                   Interactive map will be displayed here
                 </p>
               </div>
@@ -260,7 +262,7 @@ export default function ContactPage() {
             <h2 className="text-4xl md:text-5xl font-bold text-secondary">
               Frequently Asked Questions
             </h2>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-lg text-gray-600">
               Quick answers to common questions
             </p>
           </div>
@@ -286,7 +288,7 @@ export default function ContactPage() {
             ].map((faq, index) => (
               <Card key={index} className="border-2 border-border hover:border-primary/50 transition-all bg-white">
                 <CardHeader>
-                  <CardTitle className="text-lg">{faq.question}</CardTitle>
+                  <CardTitle className="text-lg text-secondary">{faq.question}</CardTitle>
                   <CardDescription className="text-base pt-2">
                     {faq.answer}
                   </CardDescription>
@@ -296,7 +298,7 @@ export default function ContactPage() {
           </div>
 
           <div className="text-center mt-12">
-            <p className="text-muted-foreground mb-4">
+            <p className="text-gray-600 mb-4">
               Have more questions?
             </p>
             <Button variant="outline" size="lg" asChild>
@@ -305,40 +307,10 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="bg-secondary text-white py-16 md:py-20 mt-auto">
-        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
-          <div className="grid md:grid-cols-4 gap-12 mb-12">
-            <div className="md:col-span-2 space-y-4">
-              <h3 className="text-2xl font-bold">PT. Arkana Tunas Persada</h3>
-              <p className="text-white/80 max-w-md leading-relaxed">
-                Building excellence and delivering innovation for a sustainable future.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4 text-lg">Quick Links</h4>
-              <ul className="space-y-3 text-white/80">
-                <li><Link href="/about" className="hover:text-primary transition-colors">About Us</Link></li>
-                <li><Link href="/projects" className="hover:text-primary transition-colors">Our Projects</Link></li>
-                <li><Link href="/careers" className="hover:text-primary transition-colors">Careers</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4 text-lg">Connect</h4>
-              <ul className="space-y-3 text-white/80">
-                <li><Link href="/insight" className="hover:text-primary transition-colors">Insights</Link></li>
-                <li><Link href="/contact" className="hover:text-primary transition-colors">Contact Us</Link></li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-white/10 pt-8">
-            <p className="text-sm text-white/60 text-center">
-              © 2026 PT. Arkana Tunas Persada. All rights reserved.
-            </p>
-          </div>
-        </div>
-      </footer>
     </div>
   )
 }
+
+
+
+

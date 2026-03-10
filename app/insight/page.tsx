@@ -84,7 +84,7 @@ export default function InsightPage() {
               Insights & Articles
             </h1>
             
-            <p className="text-xl text-muted-foreground leading-relaxed">
+            <p className="text-xl text-gray-600 leading-relaxed">
               Discover insights on cloud computing, digital transformation, cybersecurity, 
               and emerging technologies from our expert IT consultants.
             </p>
@@ -103,7 +103,7 @@ export default function InsightPage() {
                 </div>
               </div>
               <CardHeader className="space-y-4 p-8 lg:p-12">
-                <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                <div className="flex items-center gap-4 text-sm text-gray-600">
                   <span className="px-3 py-1 bg-primary/10 text-primary rounded-full font-medium">Featured</span>
                   <div className="flex items-center gap-2">
                     <Calendar className="w-4 h-4" />
@@ -175,7 +175,7 @@ export default function InsightPage() {
                       <span className="px-3 py-1 bg-primary/10 text-primary rounded-full font-medium text-xs">
                         {article.category}
                       </span>
-                      <div className="flex items-center gap-1 text-muted-foreground">
+                      <div className="flex items-center gap-1 text-gray-600">
                         <Clock className="w-3 h-3" />
                         {article.readTime}
                       </div>
@@ -191,7 +191,7 @@ export default function InsightPage() {
                   </CardHeader>
                   
                   <CardContent className="space-y-4">
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <div className="flex items-center gap-2 text-sm text-gray-600">
                       <Calendar className="w-4 h-4" />
                       {article.date}
                     </div>
@@ -240,47 +240,14 @@ export default function InsightPage() {
                   Subscribe
                 </Button>
               </div>
-              <p className="text-sm text-muted-foreground text-center mt-4">
+              <p className="text-sm text-gray-600 text-center mt-4">
                 No spam. Unsubscribe at any time.
               </p>
             </CardContent>
           </Card>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="bg-secondary text-white py-16 md:py-20 mt-auto">
-        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
-          <div className="grid md:grid-cols-4 gap-12 mb-12">
-            <div className="md:col-span-2 space-y-4">
-              <h3 className="text-2xl font-bold">PT. Arkana Tunas Persada</h3>
-              <p className="text-white/80 max-w-md leading-relaxed">
-                Building excellence and delivering innovation for a sustainable future.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4 text-lg">Quick Links</h4>
-              <ul className="space-y-3 text-white/80">
-                <li><Link href="/about" className="hover:text-primary transition-colors">About Us</Link></li>
-                <li><Link href="/projects" className="hover:text-primary transition-colors">Our Projects</Link></li>
-                <li><Link href="/careers" className="hover:text-primary transition-colors">Careers</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4 text-lg">Connect</h4>
-              <ul className="space-y-3 text-white/80">
-                <li><Link href="/insight" className="hover:text-primary transition-colors">Insights</Link></li>
-                <li><Link href="/contact" className="hover:text-primary transition-colors">Contact Us</Link></li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-white/10 pt-8">
-            <p className="text-sm text-white/60 text-center">
-              © 2026 PT. Arkana Tunas Persada. All rights reserved.
-            </p>
-          </div>
-        </div>
-      </footer>
     </div>
   )
 }
+

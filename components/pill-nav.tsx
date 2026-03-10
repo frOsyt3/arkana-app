@@ -43,6 +43,7 @@ const PillNav: React.FC<PillNavProps> = ({
   const pathname = usePathname();
   const resolvedPillTextColor = pillTextColor ?? baseColor;
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [clickedIndex, setClickedIndex] = useState<number | null>(null);
   const circleRefs = useRef<Array<HTMLSpanElement | null>>([]);
   const tlRefs = useRef<Array<gsap.core.Timeline | null>>([]);
   const activeTweenRefs = useRef<Array<gsap.core.Tween | null>>([]);
@@ -165,6 +166,11 @@ const PillNav: React.FC<PillNavProps> = ({
     });
   };
 
+  const handleClick = (i: number) => {
+    setClickedIndex(i);
+    setTimeout(() => setClickedIndex(null), 500);
+  };
+
   const handleLogoEnter = () => {
     const img = logoImgRef.current;
     if (!img) return;
@@ -257,40 +263,22 @@ const PillNav: React.FC<PillNavProps> = ({
         aria-label="Primary"
         style={cssVars}
       >
-        {isRouterLink(items?.[0]?.href) ? (
-          <Link
-            href={items[0].href}
-            aria-label="Home"
-            onMouseEnter={handleLogoEnter}
-            role="menuitem"
-            ref={el => {
-              logoRef.current = el;
-            }}
-            className="inline-flex items-center justify-center"
-            style={{
-              width: 'var(--logo)',
-              height: 'var(--logo)'
-            }}
-          >
-            <img src={logo} alt={logoAlt} ref={logoImgRef} className="w-full h-full object-contain block" />
-          </Link>
-        ) : (
-          <a
-            href={items?.[0]?.href || '#'}
-            aria-label="Home"
-            onMouseEnter={handleLogoEnter}
-            ref={el => {
-              logoRef.current = el;
-            }}
-            className="inline-flex items-center justify-center"
-            style={{
-              width: 'var(--logo)',
-              height: 'var(--logo)'
-            }}
-          >
-            <img src={logo} alt={logoAlt} ref={logoImgRef} className="w-full h-full object-contain block" />
-          </a>
-        )}
+        <Link
+          href="/"
+          aria-label="Home"
+          onMouseEnter={handleLogoEnter}
+          role="menuitem"
+          ref={el => {
+            logoRef.current = el;
+          }}
+          className="inline-flex items-center justify-center"
+          style={{
+            width: 'var(--logo)',
+            height: 'var(--logo)'
+          }}
+        >
+          <img src={logo} alt={logoAlt} ref={logoImgRef} className="w-full h-full object-contain block" />
+        </Link>
 
         <div
           ref={navItemsRef}
@@ -306,13 +294,17 @@ const PillNav: React.FC<PillNavProps> = ({
             style={{ gap: 'var(--pill-gap)' }}
           >
             {items.map((item, i) => {
-              const isActive = activeHref === item.href;
+              const isActive = activeHref === item.href || pathname === item.href;
+              const isClicked = clickedIndex === i;
 
               const pillStyle: React.CSSProperties = {
-                background: 'var(--pill-bg, #fff)',
-                color: 'var(--pill-text, var(--base, #000))',
+                background: isActive ? 'var(--base, #000)' : 'var(--pill-bg, #fff)',
+                color: isActive ? 'var(--hover-text, #fff)' : 'var(--pill-text, var(--base, #000))',
                 paddingLeft: 'var(--pill-pad-x)',
-                paddingRight: 'var(--pill-pad-x)'
+                paddingRight: 'var(--pill-pad-x)',
+                boxShadow: isActive ? '0 0 25px rgba(93, 184, 186, 0.5), 0 0 12px rgba(93, 184, 186, 0.3)' : 'none',
+                transition: 'all 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
+                transform: isClicked ? 'scale(0.97)' : 'scale(1)'
               };
 
               const PillContent = (
@@ -347,11 +339,17 @@ const PillNav: React.FC<PillNavProps> = ({
                     </span>
                   </span>
                   {isActive && (
-                    <span
-                      className="absolute left-1/2 -bottom-[6px] -translate-x-1/2 w-3 h-3 rounded-full z-[4]"
-                      style={{ background: 'var(--base, #000)' }}
-                      aria-hidden="true"
-                    />
+                    <>
+                      <span
+                        className="absolute left-1/2 -bottom-[6px] -translate-x-1/2 w-3 h-3 rounded-full z-[4]"
+                        style={{ 
+                          background: '#5db8ba',
+                          boxShadow: '0 0 12px rgba(93, 184, 186, 0.6), 0 0 6px rgba(93, 184, 186, 0.4)',
+                          animation: 'softPulse 2.5s ease-in-out infinite'
+                        }}
+                        aria-hidden="true"
+                      />
+                    </>
                   )}
                 </>
               );
@@ -370,6 +368,7 @@ const PillNav: React.FC<PillNavProps> = ({
                       aria-label={item.ariaLabel || item.label}
                       onMouseEnter={() => handleEnter(i)}
                       onMouseLeave={() => handleLeave(i)}
+                      onClick={() => handleClick(i)}
                     >
                       {PillContent}
                     </Link>
@@ -382,6 +381,7 @@ const PillNav: React.FC<PillNavProps> = ({
                       aria-label={item.ariaLabel || item.label}
                       onMouseEnter={() => handleEnter(i)}
                       onMouseLeave={() => handleLeave(i)}
+                      onClick={() => handleClick(i)}
                     >
                       {PillContent}
                     </a>
@@ -425,9 +425,12 @@ const PillNav: React.FC<PillNavProps> = ({
       >
         <ul className="list-none m-0 p-[3px] flex flex-col gap-[3px]">
           {items.map(item => {
+            const isActive = pathname === item.href;
             const defaultStyle: React.CSSProperties = {
-              background: 'var(--pill-bg, #fff)',
-              color: 'var(--pill-text, #fff)'
+              background: isActive ? 'var(--base, #000)' : 'var(--pill-bg, #fff)',
+              color: isActive ? 'var(--hover-text, #fff)' : 'var(--pill-text, #fff)',
+              boxShadow: isActive ? '0 0 20px rgba(93, 184, 186, 0.5)' : 'none',
+              transition: 'all 0.5s cubic-bezier(0.16, 1, 0.3, 1)'
             };
             const hoverIn = (e: React.MouseEvent<HTMLAnchorElement>) => {
               e.currentTarget.style.background = 'var(--base)';

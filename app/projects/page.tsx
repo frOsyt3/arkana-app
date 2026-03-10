@@ -1,8 +1,9 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Navbar } from "@/components/navbar"
-import { Building2, Code, Factory, Zap, CheckCircle2, ArrowRight, Award, Package } from "lucide-react"
+import { Building2, Code, Factory, Zap, CheckCircle2, ArrowRight, Award, Package, Star, Users } from "lucide-react"
 import Link from "next/link"
+import { companyInfo } from "@/lib/company-data"
 
 export default function ProjectsPage() {
   const projects = [
@@ -76,7 +77,7 @@ export default function ProjectsPage() {
               Our Projects
             </h1>
             
-            <p className="text-xl text-muted-foreground leading-relaxed">
+            <p className="text-xl text-gray-600 leading-relaxed">
               Explore our portfolio of successful IT consulting projects, from enterprise 
               software development to cloud transformation and digital innovation initiatives.
             </p>
@@ -90,19 +91,19 @@ export default function ProjectsPage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
             <div>
               <div className="text-4xl font-bold text-primary mb-2">100+</div>
-              <div className="text-muted-foreground">Projects Delivered</div>
+              <div className="text-gray-600 font-medium">Projects Delivered</div>
             </div>
             <div>
               <div className="text-4xl font-bold text-primary mb-2">98%</div>
-              <div className="text-muted-foreground">Success Rate</div>
+              <div className="text-gray-600 font-medium">Success Rate</div>
             </div>
             <div>
               <div className="text-4xl font-bold text-primary mb-2">50+</div>
-              <div className="text-muted-foreground">Happy Clients</div>
+              <div className="text-gray-600 font-medium">Happy Clients</div>
             </div>
             <div>
               <div className="text-4xl font-bold text-primary mb-2">15+</div>
-              <div className="text-muted-foreground">Years Experience</div>
+              <div className="text-gray-600 font-medium">Years Experience</div>
             </div>
           </div>
         </div>
@@ -115,7 +116,7 @@ export default function ProjectsPage() {
             <h2 className="text-4xl md:text-5xl font-bold text-secondary">
               Featured Projects
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               A selection of our most impactful and innovative projects
             </p>
           </div>
@@ -144,23 +145,23 @@ export default function ProjectsPage() {
                     
                     <div>
                       <div className="text-sm text-primary font-medium mb-2">{project.category}</div>
-                      <CardTitle className="text-2xl group-hover:text-primary transition-colors">
+                      <CardTitle className="text-2xl text-secondary group-hover:text-primary transition-colors">
                         {project.title}
                       </CardTitle>
                     </div>
                     
-                    <CardDescription className="text-base leading-relaxed">
+                    <CardDescription className="text-base leading-relaxed text-gray-600">
                       {project.description}
                     </CardDescription>
                   </CardHeader>
                   
                   <CardContent className="space-y-4">
-                    <div className="flex gap-4 text-sm text-muted-foreground">
+                    <div className="flex gap-4 text-sm text-gray-600">
                       <div>
-                        <span className="font-medium text-foreground">Duration:</span> {project.stats.duration}
+                        <span className="font-medium text-secondary">Duration:</span> {project.stats.duration}
                       </div>
                       <div>
-                        <span className="font-medium text-foreground">Scale:</span> {project.stats.scale}
+                        <span className="font-medium text-secondary">Scale:</span> {project.stats.scale}
                       </div>
                     </div>
                     
@@ -168,7 +169,7 @@ export default function ProjectsPage() {
                       {project.tags.map((tag, tagIndex) => (
                         <span 
                           key={tagIndex}
-                          className="px-3 py-1 bg-muted text-muted-foreground rounded-full text-xs font-medium"
+                          className="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-xs font-medium"
                         >
                           {tag}
                         </span>
@@ -194,7 +195,7 @@ export default function ProjectsPage() {
             <h2 className="text-4xl md:text-5xl font-bold text-secondary">
               Our Process
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               A proven methodology for delivering successful projects
             </p>
           </div>
@@ -209,8 +210,8 @@ export default function ProjectsPage() {
               <Card key={index} className="relative border-2 border-border hover:border-primary/50 transition-all hover:shadow-xl bg-white">
                 <CardHeader className="space-y-4">
                   <div className="text-6xl font-bold text-primary/20">{phase.step}</div>
-                  <CardTitle className="text-xl">{phase.title}</CardTitle>
-                  <CardDescription>{phase.description}</CardDescription>
+                  <CardTitle className="text-xl text-secondary">{phase.title}</CardTitle>
+                  <CardDescription className="text-gray-600">{phase.description}</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <CheckCircle2 className="w-6 h-6 text-primary" />
@@ -221,15 +222,94 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Client Success Stories / Testimonials */}
+      <section className="py-24 md:py-32 bg-white">
+        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
+          <div className="text-center mb-16 space-y-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-secondary">
+              Client Success Stories
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Real results and feedback from our satisfied clients
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {companyInfo.testimonials.map((testimonial, index) => (
+              <Card 
+                key={index}
+                className="border-2 border-border hover:border-primary/50 transition-all hover:shadow-xl bg-white"
+              >
+                <CardHeader className="space-y-4">
+                  {/* Rating Stars */}
+                  <div className="flex gap-1">
+                    {[...Array(testimonial.rating)].map((_, i) => (
+                      <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                    ))}
+                  </div>
+                  
+                  <CardDescription className="text-base leading-relaxed text-gray-600">
+                    "{testimonial.content}"
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center flex-shrink-0">
+                      <Users className="w-6 h-6 text-primary" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-secondary">{testimonial.name}</p>
+                      <p className="text-sm text-gray-600">{testimonial.role}</p>
+                      <p className="text-sm text-gray-600">{testimonial.company}</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Client Logos */}
       <section className="py-24 md:py-32 bg-gradient-to-b from-muted/30 to-white">
+        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
+          <div className="text-center mb-16 space-y-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-secondary">
+              Our Clients
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Trusted by leading organizations across multiple industries
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+            {companyInfo.clients.map((client, index) => (
+              <Card 
+                key={index}
+                className="border-2 border-border hover:border-primary/50 transition-all hover:shadow-lg bg-white flex items-center justify-center p-6 aspect-square"
+              >
+                <div className="text-center">
+                  <div className="w-16 h-16 mx-auto mb-3 rounded-xl bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center">
+                    <Building2 className="w-8 h-8 text-primary" />
+                  </div>
+                  <p className="text-xs font-medium text-secondary">{client.name}</p>
+                  <p className="text-xs text-gray-600 mt-1">{client.industry}</p>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-24 md:py-32 bg-white">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <Card className="max-w-4xl mx-auto border-2 border-primary/20 shadow-2xl bg-white">
             <CardHeader className="text-center space-y-4 pb-8">
               <CardTitle className="text-3xl md:text-4xl text-secondary">
                 Let's Build Your Next Project
               </CardTitle>
-              <CardDescription className="text-lg">
+              <CardDescription className="text-lg text-gray-600">
                 Ready to turn your vision into reality? Get in touch with our team today.
               </CardDescription>
             </CardHeader>
@@ -244,40 +324,6 @@ export default function ProjectsPage() {
           </Card>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="bg-secondary text-white py-16 md:py-20 mt-auto">
-        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
-          <div className="grid md:grid-cols-4 gap-12 mb-12">
-            <div className="md:col-span-2 space-y-4">
-              <h3 className="text-2xl font-bold">PT. Arkana Tunas Persada</h3>
-              <p className="text-white/80 max-w-md leading-relaxed">
-                Building excellence and delivering innovation for a sustainable future.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4 text-lg">Quick Links</h4>
-              <ul className="space-y-3 text-white/80">
-                <li><Link href="/about" className="hover:text-primary transition-colors">About Us</Link></li>
-                <li><Link href="/projects" className="hover:text-primary transition-colors">Our Projects</Link></li>
-                <li><Link href="/careers" className="hover:text-primary transition-colors">Careers</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4 text-lg">Connect</h4>
-              <ul className="space-y-3 text-white/80">
-                <li><Link href="/insight" className="hover:text-primary transition-colors">Insights</Link></li>
-                <li><Link href="/contact" className="hover:text-primary transition-colors">Contact Us</Link></li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-white/10 pt-8">
-            <p className="text-sm text-white/60 text-center">
-              © 2026 PT. Arkana Tunas Persada. All rights reserved.
-            </p>
-          </div>
-        </div>
-      </footer>
     </div>
   )
 }

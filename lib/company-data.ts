@@ -1,0 +1,290 @@
+export const companyInfo = {
+  name: "PT. Arkana Tunas Persada",
+  tagline: "Building Excellence, Delivering Innovation",
+  description: "Leading IT consulting firm specializing in digital transformation, cloud solutions, and enterprise technology strategy.",
+  
+  contact: {
+    email: {
+      general: "info@arkana.co.id",
+      sales: "sales@arkana.co.id",
+      support: "support@arkana.co.id",
+      career: "career@arkana.co.id"
+    },
+    phone: {
+      main: "+62 21 5790 4567",
+      whatsapp: "+62 812 3456 7890"
+    },
+    address: {
+      street: "Jl. Sudirman Kav. 52-53",
+      city: "Jakarta Selatan",
+      province: "DKI Jakarta",
+      postalCode: "12190",
+      country: "Indonesia",
+      fullAddress: "Jl. Sudirman Kav. 52-53, Jakarta Selatan 12190, Indonesia"
+    },
+    businessHours: {
+      weekdays: "Monday - Friday: 9:00 AM - 6:00 PM",
+      saturday: "Saturday: 9:00 AM - 1:00 PM",
+      sunday: "Sunday: Closed"
+    }
+  },
+
+  socialMedia: {
+    linkedin: "https://linkedin.com/company/arkana-tunas-persada",
+    instagram: "https://instagram.com/arkana.id",
+    twitter: "https://twitter.com/arkana_id",
+    facebook: "https://facebook.com/arkana.id",
+    youtube: "https://youtube.com/@arkanaid"
+  },
+
+  stats: {
+    projectsCompleted: "100+",
+    activeClients: "50+",
+    yearsExperience: "15+",
+    teamMembers: "75+",
+    successRate: "98%",
+    countries: "5+"
+  },
+
+  mission: "To empower businesses through cutting-edge technology solutions and strategic IT consulting. We transform complex technical challenges into competitive advantages, enabling our clients to innovate, scale, and succeed in the digital era.",
+
+  vision: "To be Indonesia's most trusted IT consulting partner, renowned for delivering transformative technology solutions that drive business growth. We envision a future where every organization harnesses the full potential of digital innovation.",
+
+  coreValues: [
+    {
+      title: "Technical Excellence",
+      description: "Mastering the latest technologies to deliver superior solutions",
+      icon: "Award"
+    },
+    {
+      title: "Client-Centric Approach",
+      description: "Your success is our priority in every engagement",
+      icon: "Users"
+    },
+    {
+      title: "Innovation & Agility",
+      description: "Embracing change and continuously improving our craft",
+      icon: "Zap"
+    },
+    {
+      title: "Integrity & Trust",
+      description: "Building lasting partnerships through transparency and reliability",
+      icon: "Shield"
+    }
+  ],
+
+  clients: [
+    {
+      name: "Bank Nusantara",
+      logo: "/clients/client-1.png",
+      industry: "Banking"
+    },
+    {
+      name: "Retailindo Group",
+      logo: "/clients/client-2.png",
+      industry: "Retail"
+    },
+    {
+      name: "Garuda Manufacturing",
+      logo: "/clients/client-3.png",
+      industry: "Manufacturing"
+    },
+    {
+      name: "Kementerian Digital",
+      logo: "/clients/client-4.png",
+      industry: "Government"
+    },
+    {
+      name: "HealthTech Indonesia",
+      logo: "/clients/client-5.png",
+      industry: "Healthcare"
+    },
+    {
+      name: "TokoBaik Marketplace",
+      logo: "/clients/client-6.png",
+      industry: "E-commerce"
+    }
+  ],
+
+  testimonials: [
+    {
+      name: "Budi Santoso",
+      role: "CTO",
+      company: "Bank Nusantara",
+      content: "Arkana helped us migrate our entire banking infrastructure to the cloud with zero downtime. Their expertise in AWS and security compliance was exceptional. The project was completed ahead of schedule and under budget.",
+      rating: 5,
+      image: "/testimonials/person-1.jpg"
+    },
+    {
+      name: "Sarah Wijaya",
+      role: "Head of Digital Transformation",
+      company: "Retailindo Group",
+      content: "Working with Arkana was a game-changer for our digital transformation journey. They not only delivered a robust e-commerce platform but also trained our team on best practices. Highly recommended!",
+      rating: 5,
+      image: "/testimonials/person-2.jpg"
+    },
+    {
+      name: "Michael Tan",
+      role: "IT Director",
+      company: "Garuda Manufacturing",
+      content: "The custom ERP solution developed by Arkana transformed our operations. Their team understood our business needs perfectly and delivered a solution that exceeded expectations. Outstanding work!",
+      rating: 5,
+      image: "/testimonials/person-3.jpg"
+    }
+  ],
+
+  team: [
+    {
+      name: "Rama Prasetyo",
+      role: "CEO & Founder",
+      bio: "15+ years leading technology transformations for Fortune 500 companies. Former VP of Engineering at major tech firms.",
+      image: "/team/member-1.jpg",
+      linkedin: "https://linkedin.com/in/rama-prasetyo"
+    },
+    {
+      name: "Diana Kusuma",
+      role: "CTO",
+      bio: "Cloud architecture expert with extensive experience in AWS, Azure, and GCP. Certified Solutions Architect Professional.",
+      image: "/team/member-2.jpg",
+      linkedin: "https://linkedin.com/in/diana-kusuma"
+    },
+    {
+      name: "Arif Wibowo",
+      role: "Head of Operations",
+      bio: "Specialized in agile project delivery and client relationship management. MBA from top business school.",
+      image: "/team/member-3.jpg",
+      linkedin: "https://linkedin.com/in/arif-wibowo"
+    },
+    {
+      name: "Linda Hartono",
+      role: "Head of Technology",
+      bio: "Full-stack architect with passion for building scalable systems. Open source contributor and tech community leader.",
+      image: "/team/member-4.jpg",
+      linkedin: "https://linkedin.com/in/linda-hartono"
+    }
+  ],
+
+  services: [
+    {
+      title: "Cloud Solutions",
+      description: "End-to-end cloud migration, architecture design, and optimization for AWS, Azure, and Google Cloud platforms.",
+      icon: "Cloud",
+      features: [
+        "Cloud Migration Strategy",
+        "Multi-Cloud Architecture",
+        "Cloud Cost Optimization",
+        "DevOps & Automation"
+      ]
+    },
+    {
+      title: "Digital Transformation",
+      description: "Comprehensive digital transformation consulting to modernize your business operations and technology infrastructure.",
+      icon: "Zap",
+      features: [
+        "Digital Strategy Planning",
+        "Legacy System Modernization",
+        "Process Automation",
+        "Change Management"
+      ]
+    },
+    {
+      title: "Custom Software Development",
+      description: "Design and development of tailored software solutions including enterprise applications, web, and mobile platforms.",
+      icon: "Code",
+      features: [
+        "Enterprise Application Development",
+        "Web & Mobile Apps",
+        "API Development & Integration",
+        "Microservices Architecture"
+      ]
+    },
+    {
+      title: "IT Consulting",
+      description: "Strategic IT consulting to align technology initiatives with business goals and drive innovation.",
+      icon: "Lightbulb",
+      features: [
+        "IT Strategy & Planning",
+        "Technology Assessment",
+        "Architecture Consulting",
+        "Vendor Selection"
+      ]
+    },
+    {
+      title: "Cybersecurity",
+      description: "Comprehensive security solutions to protect your digital assets and ensure compliance with industry standards.",
+      icon: "Shield",
+      features: [
+        "Security Assessment",
+        "Penetration Testing",
+        "Security Operations Center",
+        "Compliance Management"
+      ]
+    },
+    {
+      title: "Data & Analytics",
+      description: "Turn data into actionable insights with advanced analytics, business intelligence, and AI/ML solutions.",
+      icon: "BarChart",
+      features: [
+        "Data Warehouse & ETL",
+        "Business Intelligence Dashboards",
+        "Predictive Analytics",
+        "AI/ML Implementation"
+      ]
+    }
+  ],
+
+  certifications: [
+    {
+      name: "AWS Partner",
+      level: "Advanced Consulting Partner",
+      logo: "/certifications/aws.png"
+    },
+    {
+      name: "Microsoft Partner",
+      level: "Gold Partner",
+      logo: "/certifications/microsoft.png"
+    },
+    {
+      name: "ISO Certification",
+      level: "ISO 27001:2013",
+      logo: "/certifications/iso.png"
+    }
+  ],
+
+  companyHistory: [
+    {
+      year: "2010",
+      title: "Company Founded",
+      description: "Arkana was established with a vision to transform Indonesian businesses through technology"
+    },
+    {
+      year: "2015",
+      title: "Regional Expansion",
+      description: "Expanded operations across Southeast Asia with offices in Singapore and Malaysia"
+    },
+    {
+      year: "2020",
+      title: "Cloud Excellence Award",
+      description: "Recognized as Top Cloud Solutions Provider in Indonesia by industry leaders"
+    },
+    {
+      year: "2025",
+      title: "Digital Innovation Leader",
+      description: "Serving 50+ enterprise clients with 100+ successful digital transformation projects"
+    }
+  ]
+}
+
+export const servicesDetailed = companyInfo.services
+
+export const getContactEmail = (type: 'general' | 'sales' | 'support' | 'career' = 'general') => {
+  return companyInfo.contact.email[type]
+}
+
+export const getFullAddress = () => {
+  return companyInfo.contact.address.fullAddress
+}
+
+export const getSocialMediaLinks = () => {
+  return companyInfo.socialMedia
+}
