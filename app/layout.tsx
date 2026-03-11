@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "PT. Arkana Tunas Persada - Company Profile",
+  title: "PT. Arkana Tunas Persada - IT Company",
   description: "Building Excellence, Delivering Innovation - PT. Arkana Tunas Persada",
 };
 
