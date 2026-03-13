@@ -24,7 +24,7 @@ export const companyInfo = {
     },
     businessHours: {
       weekdays: "Monday - Friday: 9:00 AM - 6:00 PM",
-      saturday: "Saturday: 9:00 AM - 1:00 PM",
+      saturday: "Saturday: 9:00 AM - 3:00 PM",
       sunday: "Sunday: Closed"
     }
   },
