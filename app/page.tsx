@@ -237,7 +237,7 @@ export default function Home() {
                 Our Services
               </h2>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Comprehensive IT solutions tailored to your business needs
+                End-to-end IT solutions, from consulting to implementation, tailored to your business needs.
               </p>
             </div>
           </FadeInWhenVisible>
