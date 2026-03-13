@@ -179,14 +179,14 @@ export const companyInfo = {
       ]
     },
     {
-      title: "Digital Transformation",
-      description: "Comprehensive digital transformation consulting to modernize your business operations and technology infrastructure.",
-      icon: "Zap",
+      title: "Software & Application Development",
+      description: "Developing web-based and mobile applications, information systems, and custom software tailored specifically to client business goals.",
+      icon: "Code2",
       features: [
-        "Digital Strategy Planning",
-        "Legacy System Modernization",
-        "Process Automation",
-        "Change Management"
+        "Web & Mobile Applications",
+        "Custom ERP / Dashboard",
+        "API Development & Integration",
+        "System Modernization"
       ]
     },
     {
