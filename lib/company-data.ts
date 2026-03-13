@@ -43,9 +43,9 @@ export const companyInfo = {
     countries: "5+"
   },
 
-  mission: "To empower businesses through cutting-edge technology solutions and strategic IT consulting. We transform complex technical challenges into competitive advantages, enabling our clients to innovate, scale, and succeed in the digital era.",
+  mission: "Delivering Information Technology consulting services, including system needs analysis, solution design, and implementation assistance for customers.",
 
-  vision: "To be Indonesia's most trusted IT consulting partner, renowned for delivering transformative technology solutions that drive business growth. We envision a future where every organization harnesses the full potential of digital innovation.",
+  vision: "Becoming One of the Trusted IT Consultants and Information Technology System Integration.",
 
   coreValues: [
     {
