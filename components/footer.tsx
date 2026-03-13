@@ -87,12 +87,12 @@ export function Footer() {
             <div>
               <h3 className="text-lg font-bold mb-4">Our Services</h3>
               <ul className="space-y-3">
-                <li className="text-sm text-gray-300">Cloud Solutions</li>
-                <li className="text-sm text-gray-300">Digital Transformation</li>
-                <li className="text-sm text-gray-300">Custom Software Development</li>
-                <li className="text-sm text-gray-300">IT Consulting</li>
-                <li className="text-sm text-gray-300">Cybersecurity</li>
-                <li className="text-sm text-gray-300">Data & Analytics</li>
+                <li className="text-sm text-gray-300">IT Consulting & System Integration</li>
+                <li className="text-sm text-gray-300">Software & Application Development</li>
+                <li className="text-sm text-gray-300">IT Infrastructure, Server & Networking</li>
+                <li className="text-sm text-gray-300">Cloud & Data Services</li>
+                <li className="text-sm text-gray-300">System Security & UI/UX Design</li>
+                <li className="text-sm text-gray-300">Goods & Services Procurement</li>
               </ul>
             </div>
           </FadeInWhenVisible>
