@@ -5,22 +5,22 @@ export const companyInfo = {
   
   contact: {
     email: {
-      general: "info@arkana.co.id",
+      general: "admin@arkanacorp.id",
       sales: "sales@arkana.co.id",
       support: "support@arkana.co.id",
       career: "career@arkana.co.id"
     },
     phone: {
-      main: "+62 21 5790 4567",
-      whatsapp: "+62 812 3456 7890"
+      main: "+62 22 8202 5644",
+      whatsapp: "+62 851 1731 3740"
     },
     address: {
-      street: "Jl. Sudirman Kav. 52-53",
-      city: "Jakarta Selatan",
-      province: "DKI Jakarta",
-      postalCode: "12190",
+      street: "Jl. Sarijadi Blok 24 No 155",
+      city: "Kota Bandung",
+      province: "Jawa Barat",
+      postalCode: "40164",
       country: "Indonesia",
-      fullAddress: "Jl. Sudirman Kav. 52-53, Jakarta Selatan 12190, Indonesia"
+      fullAddress: "Jl. Sarijadi Blok 24 No 155, Kota Bandung 40164, Indonesia"
     },
     businessHours: {
       weekdays: "Monday - Friday: 9:00 AM - 6:00 PM",
@@ -30,11 +30,8 @@ export const companyInfo = {
   },
 
   socialMedia: {
-    linkedin: "https://linkedin.com/company/arkana-tunas-persada",
-    instagram: "https://instagram.com/arkana.id",
-    twitter: "https://twitter.com/arkana_id",
-    facebook: "https://facebook.com/arkana.id",
-    youtube: "https://youtube.com/@arkanaid"
+    linkedin: "https://linkedin.com/company/pt-arkana-tunas-persada",
+    instagram: "https://instagram.com/hexamind.id"
   },
 
   stats: {
