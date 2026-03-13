@@ -190,47 +190,47 @@ export const companyInfo = {
       ]
     },
     {
-      title: "Custom Software Development",
-      description: "Design and development of tailored software solutions including enterprise applications, web, and mobile platforms.",
+      title: "IT Infrastructure, Server & Networking",
+      description: "Planning and implementing IT infrastructure including servers, networks, and data centers to ensure reliable and secure system performance.",
       icon: "Code",
       features: [
-        "Enterprise Application Development",
-        "Web & Mobile Apps",
-        "API Development & Integration",
-        "Microservices Architecture"
+        "Server Setup & Management",
+        "Network Architecture",
+        "Data Center Implementation",
+        "Performance Monitoring"
       ]
     },
     {
-      title: "IT Consulting",
-      description: "Strategic IT consulting to align technology initiatives with business goals and drive innovation.",
+      title: "Cloud & Data Services",
+      description: "Providing cloud solutions, data management, hosting, and storage that are flexible, scalable, and secure for any business scale.",
       icon: "Lightbulb",
       features: [
-        "IT Strategy & Planning",
-        "Technology Assessment",
-        "Architecture Consulting",
-        "Vendor Selection"
+        "Cloud Migration & Strategy",
+        "Data Hosting & Storage",
+        "Scalable Architecture",
+        "Backup & Disaster Recovery"
       ]
     },
     {
-      title: "Cybersecurity",
-      description: "Comprehensive security solutions to protect your digital assets and ensure compliance with industry standards.",
+      title: "System Security & UI/UX Design",
+      description: "Ensuring information system security against cyber threats while designing modern, responsive, and user-friendly interfaces.",
       icon: "Shield",
       features: [
-        "Security Assessment",
-        "Penetration Testing",
-        "Security Operations Center",
-        "Compliance Management"
+        "Cyber Threat Protection",
+        "Access Control & Monitoring",
+        "UI/UX Research & Design",
+        "Responsive Web Design"
       ]
     },
     {
-      title: "Data & Analytics",
-      description: "Turn data into actionable insights with advanced analytics, business intelligence, and AI/ML solutions.",
+      title: "Goods & Services Procurement",
+      description: "TServing procurement of IT equipment, software, office supplies, and operational support through certified government and commercial platforms.",
       icon: "BarChart",
       features: [
-        "Data Warehouse & ETL",
-        "Business Intelligence Dashboards",
-        "Predictive Analytics",
-        "AI/ML Implementation"
+        "Software & Hardware Supply",
+        "e-Katalog & INAPROC",
+        "LPSE & SIPLah Registered",
+        "Office Operational Support"
       ]
     }
   ],
