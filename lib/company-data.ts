@@ -6,9 +6,9 @@ export const companyInfo = {
   contact: {
     email: {
       general: "admin@arkanacorp.id",
-      sales: "sales@arkana.co.id",
-      support: "support@arkana.co.id",
-      career: "career@arkana.co.id"
+      sales: "sales@arkanacorp.co.id",
+      support: "support@arkanacorp.co.id",
+      career: "career@arkanacorp.co.id"
     },
     phone: {
       main: "+62 22 8202 5644",
