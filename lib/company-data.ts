@@ -49,24 +49,29 @@ export const companyInfo = {
 
   coreValues: [
     {
-      title: "Technical Excellence",
-      description: "Mastering the latest technologies to deliver superior solutions",
-      icon: "Award"
+      title: "Integrity",
+      description: "We uphold integrity in all of our actions.",
+      icon: "ShieldCheck"
     },
     {
-      title: "Client-Centric Approach",
-      description: "Your success is our priority in every engagement",
-      icon: "Users"
+      title: "Innovation",
+      description: "We continuously innovate to deliver the best solutions to our customers using the latest technology.",
+      icon: "Lightbulb"
     },
     {
-      title: "Innovation & Agility",
-      description: "Embracing change and continuously improving our craft",
-      icon: "Zap"
+      title: "Customer Satisfaction",
+      description: "We prioritize customer satisfaction in every service we provide.",
+      icon: "Star"
     },
     {
-      title: "Integrity & Trust",
-      description: "Building lasting partnerships through transparency and reliability",
-      icon: "Shield"
+      title: "Quality",
+      description: "We are committed to delivering the highest quality in everything we do.",
+      icon: "BadgeCheck"
+    },
+    {
+      title: "Teamwork",
+      description: "We work together as a team to achieve our goals.",
+      icon: "Handshake"
     }
   ],
 
