@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { Mail, Phone, MapPin, Linkedin, Instagram, Twitter, Facebook, Youtube } from "lucide-react"
+import { Mail, Phone, MapPin, Linkedin, Instagram, Twitter, Facebook } from "lucide-react"
 import { companyInfo } from "@/lib/company-data"
 import { FadeInWhenVisible } from "@/components/animations"
 
@@ -43,33 +43,6 @@ export function Footer() {
                   aria-label="Instagram"
                 >
                   <Instagram className="w-5 h-5" />
-                </a>
-                <a 
-                  href={companyInfo.socialMedia.twitter}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-lg bg-white/10 hover:bg-primary flex items-center justify-center transition-all duration-300 hover:scale-110 hover:rotate-6 hover:shadow-lg"
-                  aria-label="Twitter"
-                >
-                  <Twitter className="w-5 h-5" />
-                </a>
-                <a 
-                  href={companyInfo.socialMedia.facebook}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-lg bg-white/10 hover:bg-primary flex items-center justify-center transition-all duration-300 hover:scale-110 hover:rotate-6 hover:shadow-lg"
-                  aria-label="Facebook"
-                >
-                  <Facebook className="w-5 h-5" />
-                </a>
-                <a 
-                  href={companyInfo.socialMedia.youtube}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-lg bg-white/10 hover:bg-primary flex items-center justify-center transition-all duration-300 hover:scale-110 hover:rotate-6 hover:shadow-lg"
-                  aria-label="YouTube"
-                >
-                  <Youtube className="w-5 h-5" />
                 </a>
               </div>
             </div>
