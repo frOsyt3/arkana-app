@@ -168,14 +168,20 @@ export const companyInfo = {
 
   services: [
     {
-      title: "Cloud Solutions",
-      description: "End-to-end cloud migration, architecture design, and optimization for AWS, Azure, and Google Cloud platforms.",
-      icon: "Cloud",
+      title: "IT Consulting & System Integration",
+      description: "Providing IT consulting, system planning, integration, and optimization to meet client business needs across government and private sectors.",
+      icon: (
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-8 h-8">
+        <rect x="6" y="6" width="36" height="36" rx="4" stroke="currentColor" strokeWidth="2.5" fill="none"/>
+        <path d="M16 22l-4 4 4 4M32 22l4 4-4 4" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M22 32l4-8" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"/>
+      </svg>
+    ),
       features: [
-        "Cloud Migration Strategy",
-        "Multi-Cloud Architecture",
-        "Cloud Cost Optimization",
-        "DevOps & Automation"
+        "System Needs Analysis",
+        "Technology Road Mapping",
+        "Managed Services & Maintenance",
+        "Implementation Assistance"
       ]
     },
     {
