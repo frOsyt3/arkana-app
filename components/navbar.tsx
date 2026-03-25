@@ -20,27 +20,27 @@ export function Navbar() {
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = lastScrollY
-    
+
     // Hide navbar when scrolling down, show when scrolling up
     if (latest > previous && latest > 100) {
       setIsHidden(true)
     } else {
       setIsHidden(false)
     }
-    
+
     setLastScrollY(latest)
   })
 
   return (
-    <motion.header 
+    <motion.header
       className="sticky top-0 z-50 w-full bg-transparent"
       initial={{ y: 0 }}
-      animate={{ 
+      animate={{
         y: isHidden ? -100 : 0,
         opacity: isHidden ? 0 : 1
       }}
-      transition={{ 
-        duration: 0.3, 
+      transition={{
+        duration: 0.3,
         ease: "easeInOut"
       }}
     >

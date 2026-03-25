@@ -177,7 +177,7 @@ export default function CareersPage() {
       </section>
 
       {/* Benefits */}
-      <section className="py-24 md:py-32 bg-gradient-to-b from-muted/30 to-white">
+      <section className="py-24 md:py-32 bg-white">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <div className="text-center mb-16 space-y-4">
             <h2 className="text-4xl md:text-5xl font-bold text-secondary">
@@ -275,7 +275,7 @@ export default function CareersPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 md:py-32 bg-gradient-to-b from-muted/30 to-white">
+      <section className="py-24 md:py-32 bg-white">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <Card className="max-w-4xl mx-auto border-2 border-primary/20 shadow-2xl bg-white">
             <CardHeader className="text-center space-y-4 pb-8">

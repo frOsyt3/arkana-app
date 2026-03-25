@@ -50,56 +50,75 @@ export default function ContactPage() {
               </div>
 
               <div className="space-y-6">
-                <Card className="border-2 border-border hover:border-primary/50 transition-all bg-white">
-                  <CardHeader className="flex-row items-start gap-4 space-y-0">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center flex-shrink-0">
-                      <Mail className="h-6 w-6 text-white" />
-                    </div>
-                    <div className="space-y-1">
-                      <CardTitle className="text-lg text-secondary">Email</CardTitle>
-                      <CardDescription className="text-base">
-                        {companyInfo.contact.email.general}
-                      </CardDescription>
-                    </div>
-                  </CardHeader>
-                </Card>
+                <a 
+                  href={`mailto:${companyInfo.contact.email.general}`}
+                  className="block group"
+                >
+                  <Card className="border-2 border-border group-hover:border-primary/50 group-hover:shadow-md transition-all bg-white cursor-pointer h-full">
+                    <CardHeader className="flex-row items-start gap-4 space-y-0">
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                        <Mail className="h-6 w-6 text-white" />
+                      </div>
+                      <div className="space-y-1">
+                        <CardTitle className="text-lg text-secondary group-hover:text-primary transition-colors">Email</CardTitle>
+                        <CardDescription className="text-base group-hover:text-gray-900 transition-colors">
+                          {companyInfo.contact.email.general}
+                        </CardDescription>
+                      </div>
+                    </CardHeader>
+                  </Card>
+                </a>
 
-                <Card className="border-2 border-border hover:border-primary/50 transition-all bg-white">
-                  <CardHeader className="flex-row items-start gap-4 space-y-0">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center flex-shrink-0">
-                      <Phone className="h-6 w-6 text-white" />
-                    </div>
-                    <div className="space-y-1">
-                      <CardTitle className="text-lg text-secondary">Phone</CardTitle>
-                      <CardDescription className="text-base">
-                        {companyInfo.contact.phone.main}
-                      </CardDescription>
-                    </div>
-                  </CardHeader>
-                </Card>
+                <a 
+                  href={`https://wa.me/${companyInfo.contact.phone.main.replace(/\D/g, '')}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block group"
+                >
+                  <Card className="border-2 border-border group-hover:border-primary/50 group-hover:shadow-md transition-all bg-white cursor-pointer h-full">
+                    <CardHeader className="flex-row items-start gap-4 space-y-0">
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                        <Phone className="h-6 w-6 text-white" />
+                      </div>
+                      <div className="space-y-1">
+                        <CardTitle className="text-lg text-secondary group-hover:text-primary transition-colors">Phone (WhatsApp)</CardTitle>
+                        <CardDescription className="text-base group-hover:text-gray-900 transition-colors">
+                          {companyInfo.contact.phone.main}
+                        </CardDescription>
+                      </div>
+                    </CardHeader>
+                  </Card>
+                </a>
 
-                <Card className="border-2 border-border hover:border-primary/50 transition-all bg-white">
-                  <CardHeader className="flex-row items-start gap-4 space-y-0">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center flex-shrink-0">
-                      <MapPin className="h-6 w-6 text-white" />
-                    </div>
-                    <div className="space-y-1">
-                      <CardTitle className="text-lg text-secondary">Office</CardTitle>
-                      <CardDescription className="text-base">
-                        {companyInfo.contact.address.fullAddress}
-                      </CardDescription>
-                    </div>
-                  </CardHeader>
-                </Card>
+                <a 
+                  href={companyInfo.contact.address.googleMapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block group"
+                >
+                  <Card className="border-2 border-border group-hover:border-primary/50 group-hover:shadow-md transition-all bg-white cursor-pointer h-full">
+                    <CardHeader className="flex-row items-start gap-4 space-y-0">
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                        <MapPin className="h-6 w-6 text-white" />
+                      </div>
+                      <div className="space-y-1">
+                        <CardTitle className="text-lg text-secondary group-hover:text-primary transition-colors">Office</CardTitle>
+                        <CardDescription className="text-base group-hover:text-gray-900 transition-colors">
+                          {companyInfo.contact.address.fullAddress}
+                        </CardDescription>
+                      </div>
+                    </CardHeader>
+                  </Card>
+                </a>
 
-                <Card className="border-2 border-border hover:border-primary/50 transition-all bg-white">
+                <Card className="border-2 border-border bg-white h-full">
                   <CardHeader className="flex-row items-start gap-4 space-y-0">
                     <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center flex-shrink-0">
                       <Clock className="h-6 w-6 text-white" />
                     </div>
                     <div className="space-y-1">
                       <CardTitle className="text-lg text-secondary">Business Hours</CardTitle>
-                      <CardDescription className="text-base">
+                      <CardDescription className="text-base text-gray-600">
                         {companyInfo.contact.businessHours.weekdays}<br />
                         {companyInfo.contact.businessHours.saturday}
                       </CardDescription>
@@ -142,7 +161,7 @@ export default function ContactPage() {
                         <input
                           type="text"
                           placeholder="John"
-                          className="w-full px-4 py-3 rounded-lg border-2 border-border hover:border-primary/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300"
+                          className="w-full px-4 py-3 rounded-lg border-2 border-border hover:border-primary/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300 text-gray-900 placeholder:text-gray-600 bg-white"
                           required
                         />
                       </div>
@@ -153,7 +172,7 @@ export default function ContactPage() {
                         <input
                           type="text"
                           placeholder="Doe"
-                          className="w-full px-4 py-3 rounded-lg border-2 border-border hover:border-primary/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300"
+                          className="w-full px-4 py-3 rounded-lg border-2 border-border hover:border-primary/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300 text-gray-900 placeholder:text-gray-600 bg-white"
                           required
                         />
                       </div>
@@ -166,7 +185,7 @@ export default function ContactPage() {
                       <input
                         type="email"
                         placeholder="john.doe@example.com"
-                        className="w-full px-4 py-3 rounded-lg border-2 border-border hover:border-primary/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300"
+                        className="w-full px-4 py-3 rounded-lg border-2 border-border hover:border-primary/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300 text-gray-900 placeholder:text-gray-600 bg-white"
                         required
                       />
                     </div>
@@ -178,7 +197,7 @@ export default function ContactPage() {
                       <input
                         type="tel"
                         placeholder="+62 812 3456 7890"
-                        className="w-full px-4 py-3 rounded-lg border-2 border-border hover:border-primary/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300"
+                        className="w-full px-4 py-3 rounded-lg border-2 border-border hover:border-primary/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300 text-gray-900 placeholder:text-gray-600 bg-white"
                       />
                     </div>
 
@@ -189,7 +208,7 @@ export default function ContactPage() {
                       <input
                         type="text"
                         placeholder="How can we help you?"
-                        className="w-full px-4 py-3 rounded-lg border-2 border-border hover:border-primary/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300"
+                        className="w-full px-4 py-3 rounded-lg border-2 border-border hover:border-primary/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300 text-gray-900 placeholder:text-gray-600 bg-white"
                         required
                       />
                     </div>
@@ -201,7 +220,7 @@ export default function ContactPage() {
                       <textarea
                         rows={6}
                         placeholder="Tell us more about your inquiry..."
-                        className="w-full px-4 py-3 rounded-lg border-2 border-border hover:border-primary/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300 resize-none"
+                        className="w-full px-4 py-3 rounded-lg border-2 border-border hover:border-primary/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300 resize-none text-gray-900 placeholder:text-gray-600 bg-white"
                         required
                       />
                     </div>
@@ -231,7 +250,7 @@ export default function ContactPage() {
       </section>
 
       {/* Map Section */}
-      <section className="py-24 md:py-32 bg-gradient-to-b from-muted/30 to-white">
+      <section className="py-24 md:py-32 bg-white">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <div className="text-center mb-12 space-y-4">
             <h2 className="text-4xl md:text-5xl font-bold text-secondary">

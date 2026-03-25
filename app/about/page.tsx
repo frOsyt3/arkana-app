@@ -9,24 +9,24 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
-      
+
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-b from-primary/10 to-white">
         <div className="absolute top-20 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float" />
-        
+
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 relative py-24 md:py-32">
           <div className="max-w-3xl mx-auto text-center space-y-6">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium">
               <Award className="w-4 h-4" />
               Our Story
             </div>
-            
+
             <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-secondary">
               About Arkana
             </h1>
-            
+
             <p className="text-xl text-gray-600 leading-relaxed">
-              PT. Arkana Tunas Persada is a leading IT consulting firm specializing in 
+              PT. Arkana Tunas Persada is a leading IT consulting firm specializing in
               digital transformation, cloud solutions, and enterprise technology strategy.
             </p>
           </div>
@@ -46,8 +46,8 @@ export default function AboutPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-lg text-gray-600 leading-relaxed">
-                  To empower businesses through cutting-edge technology solutions and strategic 
-                  IT consulting. We transform complex technical challenges into competitive advantages, 
+                  To empower businesses through cutting-edge technology solutions and strategic
+                  IT consulting. We transform complex technical challenges into competitive advantages,
                   enabling our clients to innovate, scale, and succeed in the digital era.
                 </p>
               </CardContent>
@@ -62,8 +62,8 @@ export default function AboutPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-lg text-gray-600 leading-relaxed">
-                  To be Indonesia's most trusted IT consulting partner, renowned for delivering 
-                  transformative technology solutions that drive business growth. We envision a future 
+                  To be Indonesia's most trusted IT consulting partner, renowned for delivering
+                  transformative technology solutions that drive business growth. We envision a future
                   where every organization harnesses the full potential of digital innovation.
                 </p>
               </CardContent>
@@ -210,11 +210,10 @@ export default function AboutPage() {
 
             <div className="space-y-12">
               {companyInfo.companyHistory.map((milestone, index) => (
-                <div 
+                <div
                   key={index}
-                  className={`flex flex-col lg:flex-row gap-8 items-center ${
-                    index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
-                  }`}
+                  className={`flex flex-col lg:flex-row gap-8 items-center ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
+                    }`}
                 >
                   {/* Content */}
                   <div className={`flex-1 ${index % 2 === 0 ? 'lg:text-right' : 'lg:text-left'}`}>
@@ -247,49 +246,48 @@ export default function AboutPage() {
       </section>
 
       {/* Leadership Team */}
-      <section className="py-24 md:py-32 bg-gradient-to-b from-muted/30 to-white">
+      <section className="py-24 md:py-32 bg-white">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
-          <div className="text-center mb-16 space-y-4">
+          <div className="text-center mb-20 space-y-3">
+            <p className="text-sm font-semibold tracking-widest text-primary uppercase">The People</p>
             <h2 className="text-4xl md:text-5xl font-bold text-secondary">
-              Leadership Team
+              Our Team
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Meet the experts driving innovation and excellence at Arkana
-            </p>
+            <div className="w-12 h-px bg-primary mx-auto mt-2" />
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-12">
             {companyInfo.team.map((member, index) => (
-              <Card 
+              <div
                 key={index}
-                className="group border-2 border-border hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-2 bg-white overflow-hidden"
+                className="group flex flex-col items-center text-center space-y-5 transition-all duration-300"
               >
-                {/* Image Placeholder */}
-                <div className="aspect-square bg-gradient-to-br from-primary/20 to-secondary/20 relative overflow-hidden">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <Users className="w-24 h-24 text-primary/40" />
-                  </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                  
-                  {/* LinkedIn Icon on Hover */}
+                {/* Circular Avatar */}
+                <div className="relative w-28 h-28 rounded-full bg-gradient-to-br from-primary/15 to-secondary/15 flex items-center justify-center ring-1 ring-primary/10 group-hover:ring-primary/40 transition-all duration-300 group-hover:shadow-lg group-hover:shadow-primary/10">
+                  <Users className="w-12 h-12 text-primary/40" />
+                  {/* LinkedIn on hover */}
                   <a
                     href={member.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="absolute bottom-4 right-4 w-10 h-10 rounded-lg bg-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0 hover:scale-110"
+                    className="absolute inset-0 rounded-full bg-primary/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   >
-                    <Linkedin className="w-5 h-5 text-primary" />
+                    <Linkedin className="w-6 h-6 text-white" />
                   </a>
                 </div>
 
-                <CardHeader className="text-center pb-2">
-                  <CardTitle className="text-xl text-secondary">{member.name}</CardTitle>
-                  <CardDescription className="text-primary font-medium">{member.role}</CardDescription>
-                </CardHeader>
-                <CardContent className="text-center">
-                  <p className="text-sm text-gray-600">{member.bio}</p>
-                </CardContent>
-              </Card>
+                {/* Info */}
+                <div className="space-y-1">
+                  <h3 className="text-lg font-semibold text-secondary tracking-tight">{member.name}</h3>
+                  <p className="text-sm font-medium text-primary">{member.role}</p>
+                </div>
+
+                {/* Divider */}
+                <div className="w-8 h-px bg-primary/20 group-hover:w-16 group-hover:bg-primary/50 transition-all duration-300" />
+
+                {/* Bio */}
+                <p className="text-sm text-gray-500 leading-relaxed">{member.bio}</p>
+              </div>
             ))}
           </div>
         </div>
@@ -309,7 +307,7 @@ export default function AboutPage() {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {companyInfo.certifications.map((cert, index) => (
-              <Card 
+              <Card
                 key={index}
                 className="border-2 border-border hover:border-primary/50 transition-all hover:shadow-xl bg-white text-center p-8"
               >
@@ -347,40 +345,6 @@ export default function AboutPage() {
           </Card>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="bg-secondary text-white py-16 md:py-20 mt-auto">
-        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
-          <div className="grid md:grid-cols-4 gap-12 mb-12">
-            <div className="md:col-span-2 space-y-4">
-              <h3 className="text-2xl font-bold">PT. Arkana Tunas Persada</h3>
-              <p className="text-white/80 max-w-md leading-relaxed">
-                Building excellence and delivering innovation for a sustainable future.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4 text-lg">Quick Links</h4>
-              <ul className="space-y-3 text-white/80">
-                <li><Link href="/about" className="hover:text-primary transition-colors">About Us</Link></li>
-                <li><Link href="/projects" className="hover:text-primary transition-colors">Our Projects</Link></li>
-                <li><Link href="/careers" className="hover:text-primary transition-colors">Careers</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4 text-lg">Connect</h4>
-              <ul className="space-y-3 text-white/80">
-                <li><Link href="/insight" className="hover:text-primary transition-colors">Insights</Link></li>
-                <li><Link href="/contact" className="hover:text-primary transition-colors">Contact Us</Link></li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-white/10 pt-8">
-            <p className="text-sm text-white/60 text-center">
-              © 2026 PT. Arkana Tunas Persada. All rights reserved.
-            </p>
-          </div>
-        </div>
-      </footer>
     </div>
   )
 }

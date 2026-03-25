@@ -2,7 +2,7 @@ export const companyInfo = {
   name: "PT. Arkana Tunas Persada",
   tagline: "Building Excellence, Delivering Innovation",
   description: "Leading IT consulting firm specializing in digital transformation, cloud solutions, and enterprise technology strategy.",
-  
+
   contact: {
     email: {
       general: "admin@arkanacorp.id",
@@ -20,7 +20,8 @@ export const companyInfo = {
       province: "Jawa Barat",
       postalCode: "40164",
       country: "Indonesia",
-      fullAddress: "Jl. Sarijadi Blok 24 No 155, Kota Bandung 40164, Indonesia"
+      fullAddress: "Jl. Sarijadi Blok 24 No 155, Kota Bandung 40164, Indonesia",
+      googleMapsUrl: "https://maps.app.goo.gl/3S7XNXvHYNNC2JXn6"
     },
     businessHours: {
       weekdays: "Monday - Friday: 9:00 AM - 6:00 PM",
@@ -192,7 +193,7 @@ export const companyInfo = {
     {
       title: "IT Infrastructure, Server & Networking",
       description: "Planning and implementing IT infrastructure including servers, networks, and data centers to ensure reliable and secure system performance.",
-      icon: "Code",
+      icon: "Server",
       features: [
         "Server Setup & Management",
         "Network Architecture",
@@ -203,7 +204,7 @@ export const companyInfo = {
     {
       title: "Cloud & Data Services",
       description: "Providing cloud solutions, data management, hosting, and storage that are flexible, scalable, and secure for any business scale.",
-      icon: "Lightbulb",
+      icon: "CloudCog",
       features: [
         "Cloud Migration & Strategy",
         "Data Hosting & Storage",
