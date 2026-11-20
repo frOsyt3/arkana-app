@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Navbar } from "@/components/navbar"
-import { Building2, Users, Lightbulb, ArrowRight, CheckCircle2, Award, Code, BadgeCheck } from "lucide-react"
+import { Building2, Users, Lightbulb, ArrowRight, CheckCircle2, Code, BadgeCheck, Download, MapPin } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { companyInfo } from "@/lib/company-data"
@@ -12,15 +12,10 @@ import { FadeInWhenVisible } from "@/components/animations"
 import { serviceIcons } from "@/components/service-icons"
 import { InfiniteSlider } from "@/components/ui/infinite-slider"
 
-// Facts taken from the company profile (Compro) – keep these verifiable.
-const heroFacts = [
-  { value: "6", label: "Service Lines" },
-  { value: "4", label: "Procurement Platforms" },
-  { value: "B2G·B2B", label: "Government & Private" },
-]
+const companyProfilePdf = "/files/company-profile-pt-arkana-tunas-persada.pdf"
 
 // Procurement platforms Arkana is registered on (logos live in public/images/platforms).
-// logoClass sets each logo's height so wide, square, and tall marks look the same size.
+// logoClass/miniClass set each logo's height (card / hero row) so wide, square, and tall marks look the same size.
 const procurementPlatforms = [
   {
     name: "e-Katalog",
@@ -29,6 +24,7 @@ const procurementPlatforms = [
     width: 512,
     height: 151,
     logoClass: "h-11 sm:h-12",
+    miniClass: "h-6",
   },
   {
     name: "INAPROC",
@@ -37,6 +33,7 @@ const procurementPlatforms = [
     width: 252,
     height: 252,
     logoClass: "h-16 sm:h-20",
+    miniClass: "h-8",
   },
   {
     name: "LPSE",
@@ -45,6 +42,7 @@ const procurementPlatforms = [
     width: 287,
     height: 117,
     logoClass: "h-14 sm:h-16",
+    miniClass: "h-7",
   },
   {
     name: "Digipay",
@@ -53,6 +51,7 @@ const procurementPlatforms = [
     width: 312,
     height: 453,
     logoClass: "h-20 sm:h-24",
+    miniClass: "h-10",
   },
 ]
 
@@ -62,10 +61,10 @@ const procurementCommitments = [
   "On-time delivery and after-sales support",
 ]
 
-// Real client logos – add new entries here (logos live in public/images/clients).
+// Real client logos. Add new entries here (logos live in public/images/clients).
 const trustedClients = [
   {
-    name: "Kementerian Keuangan – Direktorat Jenderal Pajak (DJP)",
+    name: "Kementerian Keuangan, Direktorat Jenderal Pajak (DJP)",
     logo: "/images/clients/kemenkeu-djp.png",
     width: 569,
     height: 209,
@@ -102,14 +101,14 @@ export default function Home() {
     <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
 
-      {/* Hero Section - Clean & Modern */}
+      {/* Hero Section */}
       <section className="relative overflow-hidden bg-white">
         {/* Decorative elements */}
         <div className="absolute top-20 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float" />
         <div className="absolute bottom-20 left-0 w-96 h-96 bg-secondary/5 rounded-full blur-3xl" style={{ animationDelay: '3s' }} />
 
-        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 relative py-24 md:py-32 lg:py-40">
-          <div className="grid lg:grid-cols-2 gap-16 xl:gap-20 items-center">
+        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12 relative pt-32 pb-16 lg:pb-12">
+          <div className="grid items-center gap-16 lg:grid-cols-[1.05fr_1fr] xl:gap-20">
             {/* Left content */}
             <motion.div
               className="space-y-8 max-w-xl"
@@ -117,25 +116,22 @@ export default function Home() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              <motion.div
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium"
+              <motion.p
+                className="text-sm font-semibold uppercase tracking-[0.2em] text-primary"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.5 }}
               >
-                <Award className="w-4 h-4" />
-                IT Solutions &amp; Procurement · Bandung
-              </motion.div>
+                PT. Arkana Tunas Persada
+              </motion.p>
 
               <motion.h1
-                className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-secondary"
+                className="text-4xl font-bold leading-[1.1] tracking-tight text-secondary md:text-5xl xl:text-[3.5rem]"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.6 }}
               >
-                Digital
-                <span className="block text-primary mt-2">Transformation</span>
-                <span className="block text-secondary mt-2">Experts</span>
+                IT Solutions &amp; <span className="text-primary">Procurement Partner</span> for Government and Enterprise
               </motion.h1>
 
               <motion.p
@@ -144,8 +140,8 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.6 }}
               >
-                PT. Arkana Tunas Persada is your trusted IT consulting partner, delivering
-                innovative technology solutions and digital transformation strategies.
+                Consulting, software development, IT infrastructure, and registered procurement. We support you from
+                planning and implementation through after-sales service, for public and private sectors across Indonesia.
               </motion.p>
 
               <motion.div
@@ -155,29 +151,46 @@ export default function Home() {
                 transition={{ delay: 0.5, duration: 0.6 }}
               >
                 <Button size="lg" className="group" asChild>
-                  <Link href="#services">
-                    Explore Our Services
+                  <Link href="/contact">
+                    Schedule a Consultation
                     <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </Button>
-                <Button size="lg" variant="outline" asChild>
-                  <Link href="/contact">Get in Touch</Link>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  asChild
+                  className="border-2 border-secondary bg-transparent text-secondary shadow-none hover:border-secondary hover:bg-secondary hover:text-white"
+                >
+                  <a href={companyProfilePdf} download>
+                    <Download className="mr-2 h-5 w-5" />
+                    Download Company Profile
+                  </a>
                 </Button>
               </motion.div>
 
-              {/* Stats */}
+              {/* Registered platforms */}
               <motion.div
-                className="grid grid-cols-3 gap-8 pt-8"
+                className="border-t border-slate-200 pt-6"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.7, duration: 0.6 }}
               >
-                {heroFacts.map((fact) => (
-                  <div key={fact.label}>
-                    <div className="text-3xl font-bold text-secondary">{fact.value}</div>
-                    <div className="text-sm text-gray-600">{fact.label}</div>
-                  </div>
-                ))}
+                <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-gray-500">
+                  Registered on
+                </p>
+                <div className="flex flex-wrap items-center gap-x-8 gap-y-4">
+                  {procurementPlatforms.map((platform) => (
+                    <Image
+                      key={platform.name}
+                      src={platform.logo}
+                      alt={platform.name}
+                      width={platform.width}
+                      height={platform.height}
+                      className={`${platform.miniClass} w-auto opacity-60 grayscale transition duration-300 hover:opacity-100 hover:grayscale-0`}
+                    />
+                  ))}
+                </div>
               </motion.div>
             </motion.div>
 
@@ -192,27 +205,27 @@ export default function Home() {
                 {/* Accent block behind the photo */}
                 <div className="absolute -top-6 -right-6 w-2/3 h-2/3 rounded-3xl bg-gradient-to-br from-primary/25 to-secondary/10" />
 
-                <div className="relative aspect-[5/4] overflow-hidden rounded-3xl shadow-2xl shadow-secondary/20 ring-1 ring-black/5">
+                <div className="relative aspect-square overflow-hidden rounded-3xl shadow-2xl shadow-secondary/20 ring-1 ring-black/5">
                   <Image
                     src="/images/hero-team.jpg"
                     alt="Arkana team working on IT infrastructure and software projects"
                     fill
                     priority
-                    sizes="(min-width: 1024px) 50vw, 100vw"
-                    className="object-cover"
+                    sizes="(min-width: 1024px) 45vw, 100vw"
+                    className="object-cover object-[60%_center]"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-secondary/40 via-transparent to-transparent" />
                 </div>
 
-                {/* Floating credential card */}
-                <div className="absolute -bottom-8 -left-8 max-w-xs rounded-2xl bg-white p-5 shadow-xl shadow-secondary/10 ring-1 ring-black/5">
+                {/* Floating location card */}
+                <div className="absolute -bottom-8 -left-8 rounded-2xl bg-white p-5 shadow-xl shadow-secondary/10 ring-1 ring-black/5">
                   <div className="flex items-center gap-3">
                     <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-primary/10">
-                      <BadgeCheck className="h-5 w-5 text-primary" />
+                      <MapPin className="h-5 w-5 text-primary" />
                     </div>
                     <div>
-                      <p className="text-sm font-semibold text-secondary">Registered Procurement Partner</p>
-                      <p className="text-xs text-gray-500">e-Katalog · INAPROC · LPSE · Digipay</p>
+                      <p className="text-sm font-semibold text-secondary">Based in Bandung, Indonesia</p>
+                      <p className="text-xs text-gray-500">Serving clients nationwide</p>
                     </div>
                   </div>
                 </div>

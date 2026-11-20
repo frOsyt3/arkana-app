@@ -16,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "PT. Arkana Tunas Persada - IT Company",
-  description: "Building Excellence, Delivering Innovation - PT. Arkana Tunas Persada",
+  title: "PT. Arkana Tunas Persada | IT Solutions & Procurement Partner",
+  description: "IT solutions and registered procurement partner for government and enterprise across Indonesia.",
 };
 
 export default function RootLayout({

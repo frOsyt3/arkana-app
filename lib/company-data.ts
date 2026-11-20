@@ -24,8 +24,8 @@ export const companyInfo = {
       googleMapsUrl: "https://maps.app.goo.gl/3S7XNXvHYNNC2JXn6"
     },
     businessHours: {
-      weekdays: "Monday - Friday: 9:00 AM - 6:00 PM",
-      saturday: "Saturday: 9:00 AM - 3:00 PM",
+      weekdays: "Monday to Friday: 9:00 AM to 6:00 PM",
+      saturday: "Saturday: 9:00 AM to 3:00 PM",
       sunday: "Sunday: Closed"
     }
   },
