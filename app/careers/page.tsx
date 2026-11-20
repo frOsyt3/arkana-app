@@ -265,7 +265,7 @@ export default function CareersPage() {
 
           <div className="text-center mt-12">
             <p className="text-gray-600 mb-4">
-              Don't see a position that fits? We're always looking for talented people.
+              Don&apos;t see a position that fits? We&apos;re always looking for talented people.
             </p>
             <Button size="lg" variant="outline">
               Send Us Your CV

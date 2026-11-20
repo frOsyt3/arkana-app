@@ -171,7 +171,7 @@ export const companyInfo = {
     {
       title: "IT Consulting & System Integration",
       description: "Providing IT consulting, system planning, integration, and optimization to meet client business needs across government and private sectors.",
-      icon: "MonitorCheck",
+      icon: "consulting",
       features: [
         "System Needs Analysis",
         "Technology Road Mapping",
@@ -182,7 +182,7 @@ export const companyInfo = {
     {
       title: "Software & Application Development",
       description: "Developing web-based and mobile applications, information systems, and custom software tailored specifically to client business goals.",
-      icon: "Code2",
+      icon: "software",
       features: [
         "Web & Mobile Applications",
         "Custom ERP / Dashboard",
@@ -193,7 +193,7 @@ export const companyInfo = {
     {
       title: "IT Infrastructure, Server & Networking",
       description: "Planning and implementing IT infrastructure including servers, networks, and data centers to ensure reliable and secure system performance.",
-      icon: "Server",
+      icon: "infrastructure",
       features: [
         "Server Setup & Management",
         "Network Architecture",
@@ -204,7 +204,7 @@ export const companyInfo = {
     {
       title: "Cloud & Data Services",
       description: "Providing cloud solutions, data management, hosting, and storage that are flexible, scalable, and secure for any business scale.",
-      icon: "CloudCog",
+      icon: "cloud",
       features: [
         "Cloud Migration & Strategy",
         "Data Hosting & Storage",
@@ -215,7 +215,7 @@ export const companyInfo = {
     {
       title: "System Security & UI/UX Design",
       description: "Ensuring information system security against cyber threats while designing modern, responsive, and user-friendly interfaces.",
-      icon: "Shield",
+      icon: "security",
       features: [
         "Cyber Threat Protection",
         "Access Control & Monitoring",
@@ -226,7 +226,7 @@ export const companyInfo = {
     {
       title: "Goods & Services Procurement",
       description: "TServing procurement of IT equipment, software, office supplies, and operational support through certified government and commercial platforms.",
-      icon: "BarChart",
+      icon: "procurement",
       features: [
         "Software & Hardware Supply",
         "e-Katalog & INAPROC",

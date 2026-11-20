@@ -2,7 +2,6 @@
 
 import * as React from "react"
 import { motion, useScroll, useMotionValueEvent } from "framer-motion"
-import Link from "next/link"
 import PillNav from "./pill-nav"
 
 const navItems = [

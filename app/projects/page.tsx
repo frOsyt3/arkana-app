@@ -241,7 +241,7 @@ export default function ProjectsPage() {
                 className="group flex flex-col relative p-6 transition-all duration-300 hover:-translate-y-2 bg-transparent"
               >
                 {/* Decorative Quote Mark */}
-                <span className="absolute top-0 left-2 text-7xl text-primary/10 font-serif leading-none select-none">"</span>
+                <span className="absolute top-0 left-2 text-7xl text-primary/10 font-serif leading-none select-none">&ldquo;</span>
                 
                 <div className="relative z-10 space-y-6 flex-1">
                   <div className="flex gap-1 mb-6">
@@ -251,7 +251,7 @@ export default function ProjectsPage() {
                   </div>
                   
                   <p className="text-lg leading-relaxed text-gray-600 italic">
-                    "{testimonial.content}"
+                    &ldquo;{testimonial.content}&rdquo;
                   </p>
                 </div>
 
@@ -308,7 +308,7 @@ export default function ProjectsPage() {
           <Card className="max-w-4xl mx-auto border-2 border-primary/20 shadow-2xl bg-white">
             <CardHeader className="text-center space-y-4 pb-8">
               <CardTitle className="text-3xl md:text-4xl text-secondary">
-                Let's Build Your Next Project
+                Let&apos;s Build Your Next Project
               </CardTitle>
               <CardDescription className="text-lg text-gray-600">
                 Ready to turn your vision into reality? Get in touch with our team today.

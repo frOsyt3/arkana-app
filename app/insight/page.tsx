@@ -2,7 +2,6 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Navbar } from "@/components/navbar"
 import { BookOpen, TrendingUp, Lightbulb, Users, ArrowRight, Calendar, Clock } from "lucide-react"
-import Link from "next/link"
 
 export default function InsightPage() {
   const articles = [

@@ -6,13 +6,20 @@ import { usePathname } from "next/navigation"
 
 export function PageLoadingIndicator() {
   const pathname = usePathname()
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
+  const [prevPathname, setPrevPathname] = useState(pathname)
+
+  // Restart the bar when the route changes (state adjusted during render, not in an effect).
+  if (pathname !== prevPathname) {
+    setPrevPathname(pathname)
+    setIsLoading(true)
+  }
 
   useEffect(() => {
-    setIsLoading(true)
+    if (!isLoading) return
     const timer = setTimeout(() => setIsLoading(false), 400)
     return () => clearTimeout(timer)
-  }, [pathname])
+  }, [isLoading, pathname])
 
   if (!isLoading) return null
 

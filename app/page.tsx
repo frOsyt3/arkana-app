@@ -3,11 +3,12 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Navbar } from "@/components/navbar"
-import { Building2, Users, Lightbulb, ArrowRight, CheckCircle2, TrendingUp, Award, Target, Cloud, Code, Shield, Zap, BarChart, MonitorCheck, Code2, Star, Server, CloudCog } from "lucide-react"
+import { Building2, Users, Lightbulb, ArrowRight, CheckCircle2, Award, Code, Star } from "lucide-react"
 import Link from "next/link"
 import { companyInfo } from "@/lib/company-data"
 import { motion } from "framer-motion"
 import { FadeInWhenVisible } from "@/components/animations"
+import { serviceIcons } from "@/components/service-icons"
 
 export default function Home() {
   return (
@@ -244,10 +245,7 @@ export default function Home() {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {companyInfo.services.map((service, index) => {
-              const icons: Record<string, any> = {
-                Cloud, Code, Shield, Zap, Lightbulb, BarChart, MonitorCheck, Code2, Server, CloudCog
-              };
-              const IconComponent = icons[service.icon] || Code;
+              const IconComponent = serviceIcons[service.icon] || Code;
 
               return (
                 <Card
@@ -256,7 +254,7 @@ export default function Home() {
                 >
                   <CardHeader className="space-y-4">
                     <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg shadow-primary/20">
-                      <IconComponent className="h-7 w-7 text-white" />
+                      <IconComponent className="h-8 w-8 text-white" />
                     </div>
                     <CardTitle className="text-xl text-secondary text-secondary">{service.title}</CardTitle>
                     <CardDescription className="text-base">
@@ -288,7 +286,7 @@ export default function Home() {
               Trusted by Industry Leaders
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              We've partnered with leading organizations across various industries
+              We&apos;ve partnered with leading organizations across various industries
             </p>
           </div>
 
@@ -330,7 +328,7 @@ export default function Home() {
                 className="group flex flex-col relative p-6 transition-all duration-300 hover:-translate-y-2 bg-transparent"
               >
                 {/* Decorative Quote Mark */}
-                <span className="absolute top-0 left-2 text-7xl text-primary/10 font-serif leading-none select-none">"</span>
+                <span className="absolute top-0 left-2 text-7xl text-primary/10 font-serif leading-none select-none">&ldquo;</span>
 
                 <div className="relative z-10 space-y-6 flex-1">
                   <div className="flex gap-1 mb-6">
@@ -340,7 +338,7 @@ export default function Home() {
                   </div>
 
                   <p className="text-lg leading-relaxed text-gray-600 italic">
-                    "{testimonial.content}"
+                    &ldquo;{testimonial.content}&rdquo;
                   </p>
                 </div>
 
@@ -375,7 +373,7 @@ export default function Home() {
                 Ready to Work Together?
               </CardTitle>
               <CardDescription className="text-lg max-w-2xl mx-auto">
-                Let's discuss how we can help bring your vision to life.
+                Let&apos;s discuss how we can help bring your vision to life.
                 Our team is ready to collaborate on your next project.
               </CardDescription>
             </CardHeader>

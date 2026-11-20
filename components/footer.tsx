@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { Mail, Phone, MapPin, Linkedin, Instagram, Twitter, Facebook } from "lucide-react"
+import { Mail, Phone, MapPin, Linkedin, Instagram } from "lucide-react"
 import { companyInfo } from "@/lib/company-data"
 import { FadeInWhenVisible } from "@/components/animations"
 

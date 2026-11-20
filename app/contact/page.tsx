@@ -41,7 +41,7 @@ export default function ContactPage() {
             <div className="lg:col-span-2 space-y-8">
               <div>
                 <h2 className="text-3xl font-bold text-secondary mb-4">
-                  Let's Connect
+                  Let&apos;s Connect
                 </h2>
                 <p className="text-lg text-gray-600 leading-relaxed">
                   Whether you need cloud migration, software development, or IT strategy consulting, 
@@ -148,7 +148,7 @@ export default function ContactPage() {
                 <CardHeader>
                   <CardTitle className="text-2xl text-secondary text-secondary">Send us a Message</CardTitle>
                   <CardDescription className="text-base">
-                    Fill out the form below and we'll get back to you within 24 hours.
+                    Fill out the form below and we&apos;ll get back to you within 24 hours.
                   </CardDescription>
                 </CardHeader>
                 <CardContent>

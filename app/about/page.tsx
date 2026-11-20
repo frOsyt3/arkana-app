@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Navbar } from "@/components/navbar"
-import { Target, Users, Award, TrendingUp, Globe, Heart, Shield, Zap, Linkedin, Calendar, ArrowRight } from "lucide-react"
+import { Target, Users, Award, TrendingUp, Globe, Heart, Shield, Zap, Linkedin, Calendar } from "lucide-react"
 import Link from "next/link"
 import { companyInfo } from "@/lib/company-data"
 
@@ -62,7 +62,7 @@ export default function AboutPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-lg text-gray-600 leading-relaxed">
-                  To be Indonesia's most trusted IT consulting partner, renowned for delivering
+                  To be Indonesia&apos;s most trusted IT consulting partner, renowned for delivering
                   transformative technology solutions that drive business growth. We envision a future
                   where every organization harnesses the full potential of digital innovation.
                 </p>
