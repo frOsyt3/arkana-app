@@ -1,6 +1,9 @@
 import {
+  date,
   index,
+  integer,
   jsonb,
+  primaryKey,
   pgEnum,
   pgTable,
   text,
@@ -97,6 +100,60 @@ export const leadActivities = pgTable(
   (t) => [index("lead_activities_lead_idx").on(t.leadId, t.createdAt)]
 )
 
+export const articleStatus = pgEnum("article_status", ["draft", "scheduled", "published"])
+
+export const articles = pgTable(
+  "articles",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    slug: text("slug").notNull().unique(),
+    title: text("title").notNull().default(""),
+    excerpt: text("excerpt").notNull().default(""),
+    /** Rich text from the editor, stored as HTML and sanitised again on render. */
+    content: text("content").notNull().default(""),
+    coverUrl: text("cover_url"),
+    category: text("category").notNull().default("General"),
+    tags: text("tags").array().notNull().default([]),
+    authorId: uuid("author_id").references(() => users.id, { onDelete: "set null" }),
+    status: articleStatus("status").notNull().default("draft"),
+    /** Go live time. A scheduled article becomes public once this has passed. */
+    publishedAt: timestamp("published_at", { withTimezone: true }),
+    metaTitle: text("meta_title"),
+    metaDescription: text("meta_description"),
+    readingMinutes: integer("reading_minutes").notNull().default(1),
+    views: integer("views").notNull().default(0),
+    createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+    updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
+  },
+  (t) => [index("articles_status_published_idx").on(t.status, t.publishedAt)]
+)
+
+export const articleViews = pgTable(
+  "article_views",
+  {
+    articleId: uuid("article_id")
+      .notNull()
+      .references(() => articles.id, { onDelete: "cascade" }),
+    day: date("day").notNull(),
+    count: integer("count").notNull().default(0),
+  },
+  (t) => [primaryKey({ columns: [t.articleId, t.day] })]
+)
+
+/** Uploaded images, kept in Postgres as base64 so no extra storage service is needed. */
+export const media = pgTable("media", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  mime: text("mime").notNull(),
+  data: text("data").notNull(),
+  size: integer("size").notNull(),
+  width: integer("width"),
+  height: integer("height"),
+  uploadedBy: uuid("uploaded_by").references(() => users.id, { onDelete: "set null" }),
+  createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+})
+
+export type Article = typeof articles.$inferSelect
+export type ArticleStatus = (typeof articleStatus.enumValues)[number]
 export type User = typeof users.$inferSelect
 export type Lead = typeof leads.$inferSelect
 export type LeadActivity = typeof leadActivities.$inferSelect

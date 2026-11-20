@@ -40,7 +40,7 @@ export const adminModules: AdminModule[] = [
     label: "Insights",
     icon: FileText,
     group: "Content",
-    ready: false,
+    ready: true,
     summary: "Write articles with a rich text editor, cover image, category, and SEO fields, then publish or schedule them.",
   },
   {

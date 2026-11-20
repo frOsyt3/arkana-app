@@ -199,3 +199,66 @@ a:not([class*="button"]):hover {
   );
   background-size: 1000px 100%;
 }
+
+/* Article content, shared by the admin editor and the public article page. */
+.article-body {
+  color: #3f4f5a;
+  font-size: 1.0625rem;
+  line-height: 1.8;
+}
+.article-body > * + * { margin-top: 1.1em; }
+.article-body h2 {
+  margin-top: 1.9em;
+  color: #1f3442;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+}
+.article-body h3 {
+  margin-top: 1.6em;
+  color: #1f3442;
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+.article-body h2 + *, .article-body h3 + * { margin-top: 0.6em; }
+.article-body a { color: #2f7f81; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.article-body strong { color: #1f3442; }
+.article-body ul, .article-body ol { padding-left: 1.4em; }
+.article-body ul { list-style: disc; }
+.article-body ol { list-style: decimal; }
+.article-body li + li { margin-top: 0.35em; }
+.article-body li::marker { color: #4a9698; }
+.article-body li > p { margin: 0; }
+.article-body blockquote {
+  border-left: 3px solid #5db8ba;
+  background: #f4fafa;
+  border-radius: 0 10px 10px 0;
+  padding: 0.9em 1.2em;
+  color: #2d4451;
+  font-style: italic;
+}
+.article-body code {
+  background: #f1f4f6;
+  border-radius: 5px;
+  padding: 0.1em 0.35em;
+  font-size: 0.9em;
+}
+.article-body pre { background: #1f3442; color: #e7ecef; border-radius: 10px; padding: 1em 1.2em; overflow-x: auto; }
+.article-body pre code { background: none; padding: 0; color: inherit; }
+.article-body img { border-radius: 12px; max-width: 100%; height: auto; }
+.article-body img.ProseMirror-selectednode { outline: 3px solid #5db8ba; }
+.article-body hr { border: 0; border-top: 1px solid #e7ecef; margin: 2em 0; }
+.article-body table { width: 100%; border-collapse: collapse; font-size: 0.95em; display: block; overflow-x: auto; }
+.article-body th, .article-body td { border: 1px solid #e7ecef; padding: 0.55em 0.8em; text-align: left; vertical-align: top; min-width: 90px; }
+.article-body th { background: #f8fafb; color: #1f3442; font-weight: 700; }
+.article-body th > p, .article-body td > p { margin: 0; }
+.article-body .selectedCell { background: rgba(93, 184, 186, 0.12); }
+.article-body p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  color: #a3b1ba;
+  pointer-events: none;
+}

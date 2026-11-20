@@ -13,6 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://arkanacorp.id"),
   title: "PT. Arkana Tunas Persada | IT Solutions & Procurement Partner",
   description: "IT solutions and registered procurement partner for government and enterprise across Indonesia.",
 };

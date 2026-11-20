@@ -15,6 +15,12 @@
   "dependencies": {
     "@neondatabase/serverless": "^1.2.1",
     "@radix-ui/react-slot": "^1.2.4",
+    "@tiptap/extension-image": "^3.35.0",
+    "@tiptap/extension-table": "^3.35.0",
+    "@tiptap/extensions": "^3.35.0",
+    "@tiptap/pm": "^3.35.0",
+    "@tiptap/react": "^3.35.0",
+    "@tiptap/starter-kit": "^3.35.0",
     "bcryptjs": "^3.0.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -26,6 +32,7 @@
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-use-measure": "^2.1.7",
+    "sanitize-html": "^2.18.2",
     "server-only": "^0.0.1",
     "tailwind-merge": "^3.4.0",
     "zod": "^4.6.7"
@@ -35,6 +42,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/sanitize-html": "^2.16.2",
     "dotenv": "^18.0.10",
     "drizzle-kit": "^0.31.11",
     "eslint": "^9",
