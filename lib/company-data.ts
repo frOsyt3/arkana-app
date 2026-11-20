@@ -225,7 +225,7 @@ export const companyInfo = {
     },
     {
       title: "Goods & Services Procurement",
-      description: "TServing procurement of IT equipment, software, office supplies, and operational support through certified government and commercial platforms.",
+      description: "Serving procurement of IT equipment, software, office supplies, and operational support through certified government and commercial platforms.",
       icon: "procurement",
       features: [
         "Software & Hardware Supply",

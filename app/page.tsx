@@ -3,12 +3,99 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Navbar } from "@/components/navbar"
-import { Building2, Users, Lightbulb, ArrowRight, CheckCircle2, Award, Code, Star } from "lucide-react"
+import { Building2, Users, Lightbulb, ArrowRight, CheckCircle2, Award, Code, BadgeCheck } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 import { companyInfo } from "@/lib/company-data"
 import { motion } from "framer-motion"
 import { FadeInWhenVisible } from "@/components/animations"
 import { serviceIcons } from "@/components/service-icons"
+import { InfiniteSlider } from "@/components/ui/infinite-slider"
+
+// Facts taken from the company profile (Compro) – keep these verifiable.
+const heroFacts = [
+  { value: "6", label: "Service Lines" },
+  { value: "4", label: "Procurement Platforms" },
+  { value: "B2G·B2B", label: "Government & Private" },
+]
+
+// Procurement platforms Arkana is registered on (logos live in public/images/platforms).
+// logoClass sets each logo's height so wide, square, and tall marks look the same size.
+const procurementPlatforms = [
+  {
+    name: "e-Katalog",
+    detail: "LKPP electronic catalogue",
+    logo: "/images/platforms/e-katalog.png",
+    width: 512,
+    height: 151,
+    logoClass: "h-11 sm:h-12",
+  },
+  {
+    name: "INAPROC",
+    detail: "National e-procurement portal",
+    logo: "/images/platforms/inaproc.png",
+    width: 252,
+    height: 252,
+    logoClass: "h-16 sm:h-20",
+  },
+  {
+    name: "LPSE",
+    detail: "Electronic procurement service",
+    logo: "/images/platforms/lpse.png",
+    width: 287,
+    height: 117,
+    logoClass: "h-14 sm:h-16",
+  },
+  {
+    name: "Digipay",
+    detail: "Kemenkeu government marketplace",
+    logo: "/images/platforms/digipay.png",
+    width: 312,
+    height: 453,
+    logoClass: "h-20 sm:h-24",
+  },
+]
+
+const procurementCommitments = [
+  "Transparent, documented process",
+  "Goods matched to your specifications",
+  "On-time delivery and after-sales support",
+]
+
+// Real client logos – add new entries here (logos live in public/images/clients).
+const trustedClients = [
+  {
+    name: "Kementerian Keuangan – Direktorat Jenderal Pajak (DJP)",
+    logo: "/images/clients/kemenkeu-djp.png",
+    width: 569,
+    height: 209,
+  },
+]
+
+// The slider needs enough items to fill its width; repeat the list until it does.
+const sliderClients = Array.from(
+  { length: Math.max(1, Math.ceil(6 / trustedClients.length)) },
+  () => trustedClients
+).flat()
+
+const advantages = [
+  {
+    title: "Tailored Solutions",
+    description: "Every client is different. We design IT solutions specifically for your needs so they are on target, effective, and add real value to your business.",
+  },
+  {
+    title: "Continuous Innovation",
+    description: "We keep up with technology and apply current methods and tools so every solution stays relevant, efficient, and competitive.",
+  },
+  {
+    title: "Product & Service Quality",
+    description: "Structured planning, implementation, and testing ensure every product and service meets high standards of quality and reliability.",
+  },
+  {
+    title: "Professional Customer Service",
+    description: "Responsive and communicative support, from the first consultation through after-sales assistance.",
+  },
+]
 
 export default function Home() {
   return (
@@ -37,7 +124,7 @@ export default function Home() {
                 transition={{ delay: 0.2, duration: 0.5 }}
               >
                 <Award className="w-4 h-4" />
-                Excellence in Innovation
+                IT Solutions &amp; Procurement · Bandung
               </motion.div>
 
               <motion.h1
@@ -67,9 +154,11 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.6 }}
               >
-                <Button size="lg" className="group">
-                  Explore Our Work
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                <Button size="lg" className="group" asChild>
+                  <Link href="#services">
+                    Explore Our Services
+                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  </Link>
                 </Button>
                 <Button size="lg" variant="outline" asChild>
                   <Link href="/contact">Get in Touch</Link>
@@ -83,18 +172,12 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.7, duration: 0.6 }}
               >
-                <div>
-                  <div className="text-3xl font-bold text-secondary">100+</div>
-                  <div className="text-sm text-gray-600">Projects</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-bold text-secondary">50+</div>
-                  <div className="text-sm text-gray-600">Clients</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-bold text-secondary">15+</div>
-                  <div className="text-sm text-gray-600">Years</div>
-                </div>
+                {heroFacts.map((fact) => (
+                  <div key={fact.label}>
+                    <div className="text-3xl font-bold text-secondary">{fact.value}</div>
+                    <div className="text-sm text-gray-600">{fact.label}</div>
+                  </div>
+                ))}
               </motion.div>
             </motion.div>
 
@@ -105,27 +188,64 @@ export default function Home() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.4, duration: 0.8, ease: "easeOut" }}
             >
-              <div className="relative w-full aspect-square">
-                {/* Geometric shapes */}
-                <div className="absolute inset-0 grid grid-cols-2 gap-4">
-                  <div className="bg-gradient-to-br from-primary to-primary/80 rounded-3xl shadow-2xl shadow-primary/20 hover:scale-105 transition-transform duration-500" />
-                  <div className="bg-gradient-to-br from-secondary to-secondary/80 rounded-3xl shadow-2xl shadow-secondary/20 hover:scale-105 transition-transform duration-500" style={{ marginTop: '3rem' }} />
+              <div className="relative">
+                {/* Accent block behind the photo */}
+                <div className="absolute -top-6 -right-6 w-2/3 h-2/3 rounded-3xl bg-gradient-to-br from-primary/25 to-secondary/10" />
+
+                <div className="relative aspect-[5/4] overflow-hidden rounded-3xl shadow-2xl shadow-secondary/20 ring-1 ring-black/5">
+                  <Image
+                    src="/images/hero-team.jpg"
+                    alt="Arkana team working on IT infrastructure and software projects"
+                    fill
+                    priority
+                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-secondary/40 via-transparent to-transparent" />
                 </div>
 
-                {/* Floating elements */}
-                {/* <div className="absolute top-10 -right-10 w-32 h-32 bg-white rounded-2xl shadow-xl p-4 animate-float">
-                  <div className="w-full h-full flex items-center justify-center">
-                    <TrendingUp className="w-16 h-16 text-primary" />
+                {/* Floating credential card */}
+                <div className="absolute -bottom-8 -left-8 max-w-xs rounded-2xl bg-white p-5 shadow-xl shadow-secondary/10 ring-1 ring-black/5">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-primary/10">
+                      <BadgeCheck className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold text-secondary">Registered Procurement Partner</p>
+                      <p className="text-xs text-gray-500">e-Katalog · INAPROC · LPSE · Digipay</p>
+                    </div>
                   </div>
                 </div>
-                
-                <div className="absolute bottom-10 -left-10 w-32 h-32 bg-white rounded-2xl shadow-xl p-4 animate-float" style={{ animationDelay: '2s' }}>
-                  <div className="w-full h-full flex items-center justify-center">
-                    <Target className="w-16 h-16 text-secondary" />
-                  </div>
-                </div> */}
               </div>
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Trusted Clients Strip */}
+      <section aria-label="Trusted by" className="border-y border-slate-100 bg-white py-10">
+        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
+          <div className="flex flex-col items-center gap-6 md:flex-row md:gap-10">
+            <p className="shrink-0 text-center text-xs font-semibold uppercase tracking-[0.2em] text-gray-500 md:w-48 md:text-left">
+              Trusted by
+            </p>
+            <InfiniteSlider
+              gap={72}
+              duration={30}
+              durationOnHover={60}
+              className="w-full [mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent)]"
+            >
+              {sliderClients.map((client, index) => (
+                <Image
+                  key={`${client.name}-${index}`}
+                  src={client.logo}
+                  alt={client.name}
+                  width={client.width}
+                  height={client.height}
+                  className="h-12 w-auto opacity-70 grayscale transition duration-300 hover:opacity-100 hover:grayscale-0"
+                />
+              ))}
+            </InfiniteSlider>
           </div>
         </div>
       </section>
@@ -230,7 +350,7 @@ export default function Home() {
       </section>
 
       {/* Services Detail Section */}
-      <section className="py-24 md:py-32 bg-white">
+      <section id="services" className="scroll-mt-24 py-24 md:py-32 bg-white">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <FadeInWhenVisible>
             <div className="text-center mb-16 space-y-4">
@@ -278,82 +398,112 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Client Logos Section */}
-      <section className="py-24 md:py-32 bg-gradient-to-b from-muted/30 to-white">
-        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
-          <div className="text-center mb-16 space-y-4">
-            <h2 className="text-4xl md:text-5xl font-bold text-secondary">
-              Trusted by Industry Leaders
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              We&apos;ve partnered with leading organizations across various industries
-            </p>
-          </div>
+      {/* Procurement Credentials Section */}
+      <section id="procurement" className="relative overflow-hidden bg-white py-24 md:py-32">
+        {/* Soft background accent */}
+        <div className="pointer-events-none absolute -right-40 top-1/2 h-[520px] w-[520px] -translate-y-1/2 rounded-full bg-primary/5 blur-3xl" />
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
-            {companyInfo.clients.map((client, index) => (
-              <Card
-                key={index}
-                className="border-2 border-border hover:border-primary/50 transition-all hover:shadow-lg bg-white flex items-center justify-center p-6 aspect-square"
-              >
-                <div className="text-center">
-                  <div className="w-16 h-16 mx-auto mb-3 rounded-xl bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center">
-                    <Building2 className="w-8 h-8 text-primary" />
-                  </div>
-                  <p className="text-xs font-medium text-secondary">{client.name}</p>
-                  <p className="text-xs text-gray-600 mt-1">{client.industry}</p>
+        <div className="relative mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
+          <div className="grid items-center gap-14 lg:grid-cols-[1fr_1.15fr] lg:gap-20">
+            {/* Copy */}
+            <FadeInWhenVisible>
+              <div className="space-y-7">
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
+                  Procurement Credentials
+                </p>
+                <h2 className="text-4xl font-bold leading-tight text-secondary md:text-5xl">
+                  Registered on Indonesia&apos;s official procurement platforms
+                </h2>
+                <p className="text-lg leading-relaxed text-gray-600">
+                  We supply software, licences, IT equipment, electronics, and supporting goods through certified
+                  government and commercial channels, with a process that is transparent, specification-compliant,
+                  and on time.
+                </p>
+                <ul className="space-y-3 pt-1">
+                  {procurementCommitments.map((item) => (
+                    <li key={item} className="flex items-center gap-3 text-secondary">
+                      <span className="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-primary/10">
+                        <CheckCircle2 className="h-4 w-4 text-primary" />
+                      </span>
+                      <span className="font-medium">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <div className="pt-2">
+                  <Button size="lg" asChild className="group">
+                    <Link href="/contact">
+                      Request a Quotation
+                      <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                    </Link>
+                  </Button>
                 </div>
-              </Card>
-            ))}
+              </div>
+            </FadeInWhenVisible>
+
+            {/* Logo grid */}
+            <div className="rounded-[2rem] border border-slate-200/80 bg-gradient-to-br from-slate-50 to-white p-4 shadow-[0_30px_80px_-40px_rgba(61,90,108,0.35)] sm:p-6">
+              <div className="grid grid-cols-2 gap-4 sm:gap-5">
+                {procurementPlatforms.map((platform, index) => (
+                  <FadeInWhenVisible key={platform.name} delay={0.1 + index * 0.1} className="h-full">
+                    <div className="group relative flex h-full flex-col rounded-2xl border border-slate-200/80 bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/10 sm:p-6">
+                      <span className="absolute right-4 top-4 inline-flex items-center gap-1 rounded-full bg-primary/10 px-2.5 py-1 text-[11px] font-semibold text-primary">
+                        <BadgeCheck className="h-3.5 w-3.5" />
+                        Registered
+                      </span>
+
+                      <div className="flex h-32 items-center justify-center pt-6 sm:pt-4">
+                        <Image
+                          src={platform.logo}
+                          alt={`${platform.name} logo`}
+                          width={platform.width}
+                          height={platform.height}
+                          className={`${platform.logoClass} w-auto max-w-[85%] object-contain transition-transform duration-300 group-hover:scale-105`}
+                        />
+                      </div>
+
+                      <div className="mt-auto border-t border-slate-100 pt-4">
+                        <p className="font-semibold text-secondary">{platform.name}</p>
+                        <p className="mt-0.5 text-xs leading-relaxed text-gray-500">{platform.detail}</p>
+                      </div>
+                    </div>
+                  </FadeInWhenVisible>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
-
-      {/* Testimonials Section */}
-      <section className="py-24 md:py-32 bg-white">
+      {/* Advantages Section (from the company profile) */}
+      <section className="py-24 md:py-32 bg-secondary text-white">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
-          <div className="text-center mb-16 space-y-4">
-            <h2 className="text-4xl md:text-5xl font-bold text-secondary">
-              Client Testimonials
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Hear what our clients say about working with us
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
-            {companyInfo.testimonials.map((testimonial, index) => (
-              <div
-                key={index}
-                className="group flex flex-col relative p-6 transition-all duration-300 hover:-translate-y-2 bg-transparent"
-              >
-                {/* Decorative Quote Mark */}
-                <span className="absolute top-0 left-2 text-7xl text-primary/10 font-serif leading-none select-none">&ldquo;</span>
-
-                <div className="relative z-10 space-y-6 flex-1">
-                  <div className="flex gap-1 mb-6">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                    ))}
-                  </div>
-
-                  <p className="text-lg leading-relaxed text-gray-600 italic">
-                    &ldquo;{testimonial.content}&rdquo;
-                  </p>
-                </div>
-
-                <div className="mt-8 pt-6 border-t border-gray-100 flex items-center gap-4 relative z-10 opacity-90 group-hover:opacity-100 transition-opacity">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                    <Users className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-secondary">{testimonial.name}</p>
-                    <p className="text-sm font-medium text-primary">{testimonial.role}</p>
-                    <p className="text-xs text-gray-500">{testimonial.company}</p>
-                  </div>
-                </div>
+          <div className="grid gap-16 lg:grid-cols-[1fr_1.4fr] lg:gap-24">
+            <FadeInWhenVisible>
+              <div className="space-y-6 lg:sticky lg:top-32">
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">Our Advantages</p>
+                <h2 className="text-4xl md:text-5xl font-bold leading-tight">
+                  Why clients work with Arkana
+                </h2>
+                <p className="text-lg leading-relaxed text-white/70">
+                  From the first consultation to after-sales support, we focus on solutions that fit, last, and deliver measurable value.
+                </p>
               </div>
-            ))}
+            </FadeInWhenVisible>
+
+            <div className="divide-y divide-white/10 border-y border-white/10">
+              {advantages.map((item, index) => (
+                <FadeInWhenVisible key={item.title} delay={index * 0.08}>
+                  <div className="grid grid-cols-[auto_1fr] gap-6 py-8 md:gap-10">
+                    <span className="text-4xl font-bold text-primary/80 tabular-nums md:text-5xl">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <div className="space-y-2">
+                      <h3 className="text-xl font-semibold md:text-2xl">{item.title}</h3>
+                      <p className="leading-relaxed text-white/70">{item.description}</p>
+                    </div>
+                  </div>
+                </FadeInWhenVisible>
+              ))}
+            </div>
           </div>
         </div>
       </section>
