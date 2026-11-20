@@ -1,9 +1,10 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Navbar } from "@/components/navbar"
-import { Mail, Phone, MapPin, Send, Clock, Globe, MessageSquare } from "lucide-react"
+import { Mail, Phone, MapPin, Clock, Globe, MessageSquare } from "lucide-react"
 import Link from "next/link"
 import { companyInfo } from "@/lib/company-data"
+import { ContactForm } from "@/components/contact-form"
 
 export default function ContactPage() {
   return (
@@ -69,26 +70,28 @@ export default function ContactPage() {
                   </Card>
                 </a>
 
-                <a 
-                  href={`https://wa.me/${companyInfo.contact.phone.main.replace(/\D/g, '')}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block group"
-                >
-                  <Card className="border-2 border-border group-hover:border-primary/50 group-hover:shadow-md transition-all bg-white cursor-pointer h-full">
-                    <CardHeader className="flex-row items-start gap-4 space-y-0">
-                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                        <Phone className="h-6 w-6 text-white" />
-                      </div>
-                      <div className="space-y-1">
-                        <CardTitle className="text-lg text-secondary group-hover:text-primary transition-colors">Phone (WhatsApp)</CardTitle>
-                        <CardDescription className="text-base group-hover:text-gray-900 transition-colors">
-                          {companyInfo.contact.phone.main}
-                        </CardDescription>
-                      </div>
-                    </CardHeader>
-                  </Card>
-                </a>
+                {companyInfo.contact.showPhone && (
+                  <a 
+                    href={`https://wa.me/${companyInfo.contact.phone.main.replace(/\D/g, '')}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block group"
+                  >
+                    <Card className="border-2 border-border group-hover:border-primary/50 group-hover:shadow-md transition-all bg-white cursor-pointer h-full">
+                      <CardHeader className="flex-row items-start gap-4 space-y-0">
+                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                          <Phone className="h-6 w-6 text-white" />
+                        </div>
+                        <div className="space-y-1">
+                          <CardTitle className="text-lg text-secondary group-hover:text-primary transition-colors">Phone (WhatsApp)</CardTitle>
+                          <CardDescription className="text-base group-hover:text-gray-900 transition-colors">
+                            {companyInfo.contact.phone.main}
+                          </CardDescription>
+                        </div>
+                      </CardHeader>
+                    </Card>
+                  </a>
+                )}
 
                 <a 
                   href={companyInfo.contact.address.googleMapsUrl}
@@ -148,100 +151,11 @@ export default function ContactPage() {
                 <CardHeader>
                   <CardTitle className="text-2xl text-secondary text-secondary">Send us a Message</CardTitle>
                   <CardDescription className="text-base">
-                    Fill out the form below and we&apos;ll get back to you within 24 hours.
+                    Fill out the form below and our team will get back to you within one working day.
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <form className="space-y-6">
-                    <div className="grid sm:grid-cols-2 gap-6">
-                      <div className="space-y-2">
-                        <label className="text-sm font-medium text-secondary">
-                          First Name *
-                        </label>
-                        <input
-                          type="text"
-                          placeholder="John"
-                          className="w-full px-4 py-3 rounded-lg border-2 border-border hover:border-primary/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300 text-gray-900 placeholder:text-gray-600 bg-white"
-                          required
-                        />
-                      </div>
-                      <div className="space-y-2">
-                        <label className="text-sm font-medium text-secondary">
-                          Last Name *
-                        </label>
-                        <input
-                          type="text"
-                          placeholder="Doe"
-                          className="w-full px-4 py-3 rounded-lg border-2 border-border hover:border-primary/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300 text-gray-900 placeholder:text-gray-600 bg-white"
-                          required
-                        />
-                      </div>
-                    </div>
-
-                    <div className="space-y-2">
-                      <label className="text-sm font-medium text-secondary">
-                        Email *
-                      </label>
-                      <input
-                        type="email"
-                        placeholder="john.doe@example.com"
-                        className="w-full px-4 py-3 rounded-lg border-2 border-border hover:border-primary/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300 text-gray-900 placeholder:text-gray-600 bg-white"
-                        required
-                      />
-                    </div>
-
-                    <div className="space-y-2">
-                      <label className="text-sm font-medium text-secondary">
-                        Phone Number
-                      </label>
-                      <input
-                        type="tel"
-                        placeholder="+62 812 3456 7890"
-                        className="w-full px-4 py-3 rounded-lg border-2 border-border hover:border-primary/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300 text-gray-900 placeholder:text-gray-600 bg-white"
-                      />
-                    </div>
-
-                    <div className="space-y-2">
-                      <label className="text-sm font-medium text-secondary">
-                        Subject *
-                      </label>
-                      <input
-                        type="text"
-                        placeholder="How can we help you?"
-                        className="w-full px-4 py-3 rounded-lg border-2 border-border hover:border-primary/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300 text-gray-900 placeholder:text-gray-600 bg-white"
-                        required
-                      />
-                    </div>
-
-                    <div className="space-y-2">
-                      <label className="text-sm font-medium text-secondary">
-                        Message *
-                      </label>
-                      <textarea
-                        rows={6}
-                        placeholder="Tell us more about your inquiry..."
-                        className="w-full px-4 py-3 rounded-lg border-2 border-border hover:border-primary/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300 resize-none text-gray-900 placeholder:text-gray-600 bg-white"
-                        required
-                      />
-                    </div>
-
-                    <div className="flex items-start gap-3">
-                      <input
-                        type="checkbox"
-                        id="privacy"
-                        className="mt-1 w-4 h-4 rounded border-2 border-border text-primary focus:ring-2 focus:ring-primary/20 focus:ring-offset-0 transition-all cursor-pointer"
-                        required
-                      />
-                      <label htmlFor="privacy" className="text-sm text-gray-600 cursor-pointer">
-                        I agree to the privacy policy and terms of service
-                      </label>
-                    </div>
-
-                    <Button size="lg" className="w-full group">
-                      Send Message
-                      <Send className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                    </Button>
-                  </form>
+                  <ContactForm />
                 </CardContent>
               </Card>
             </div>

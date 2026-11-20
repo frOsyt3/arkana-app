@@ -4,6 +4,8 @@ export const companyInfo = {
   description: "Leading IT consulting firm specializing in digital transformation, cloud solutions, and enterprise technology strategy.",
 
   contact: {
+    // Phone numbers are hidden on the site while this is false.
+    showPhone: false,
     email: {
       general: "admin@arkanacorp.id",
       sales: "sales@arkanacorp.co.id",

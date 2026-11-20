@@ -109,13 +109,15 @@ export function Footer() {
                     {companyInfo.contact.address.fullAddress}
                   </div>
                 </li>
-                <li className="flex items-start gap-3">
-                  <Phone className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                  <div className="text-sm text-gray-300">
-                    <div className="font-medium text-white mb-1">Phone</div>
-                    {companyInfo.contact.phone.main}
-                  </div>
-                </li>
+                {companyInfo.contact.showPhone && (
+                  <li className="flex items-start gap-3">
+                    <Phone className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <div className="text-sm text-gray-300">
+                      <div className="font-medium text-white mb-1">Phone</div>
+                      {companyInfo.contact.phone.main}
+                    </div>
+                  </li>
+                )}
                 <li className="flex items-start gap-3">
                   <Mail className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                   <div className="text-sm text-gray-300">
