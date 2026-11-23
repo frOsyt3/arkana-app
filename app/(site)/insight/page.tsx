@@ -1,4 +1,4 @@
-import type { Metadata } from "next"
+import { pageMetadata } from "@/lib/seo"
 import Link from "next/link"
 import { ArrowRight, BookOpen, Clock } from "lucide-react"
 import { Navbar } from "@/components/navbar"
@@ -6,12 +6,12 @@ import { Button } from "@/components/ui/button"
 import { InsightCard, InsightCover, formatArticleDate } from "@/components/insight-card"
 import { listPublishedArticles } from "@/lib/articles"
 
-export const metadata: Metadata = {
-  title: "Insights | PT. Arkana Tunas Persada",
+export const metadata = pageMetadata({
+  title: "Insights",
   description:
     "Practical articles on IT procurement, cloud, security, and infrastructure for companies and government agencies in Indonesia.",
-  alternates: { canonical: "/insight" },
-}
+  path: "/insight",
+})
 
 export default async function InsightPage({ searchParams }: { searchParams: Promise<{ category?: string }> }) {
   const { category } = await searchParams

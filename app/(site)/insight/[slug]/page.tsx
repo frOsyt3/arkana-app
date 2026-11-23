@@ -20,12 +20,12 @@ async function load({ params, searchParams }: Props) {
 
 export async function generateMetadata(props: Props): Promise<Metadata> {
   const { row, isPreview } = await load(props)
-  if (!row) return { title: "Article not found | Arkana" }
+  if (!row) return { title: "Article not found" }
   const a = row.article
-  const title = a.metaTitle || `${a.title} | Arkana`
+  const title = a.metaTitle || a.title
   const description = a.metaDescription || a.excerpt
   return {
-    title,
+    title: a.metaTitle ? { absolute: a.metaTitle } : a.title,
     description,
     alternates: { canonical: `/insight/${a.slug}` },
     robots: isPreview ? { index: false, follow: false } : undefined,
@@ -35,6 +35,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
       description,
       url: `/insight/${a.slug}`,
       siteName: "PT. Arkana Tunas Persada",
+      locale: "en_US",
       publishedTime: a.publishedAt?.toISOString(),
       modifiedTime: a.updatedAt.toISOString(),
       section: a.category,

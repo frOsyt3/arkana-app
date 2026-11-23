@@ -1,8 +1,16 @@
+import { pageMetadata } from "@/lib/seo"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Navbar } from "@/components/navbar"
 import { CheckCircle2, Star, Users, Building2 } from "lucide-react"
 import { companyInfo } from "@/lib/company-data"
 import { ProjectsShowcase } from "@/components/projects-showcase"
+
+export const metadata = pageMetadata({
+  title: "Projects",
+  description:
+    "Selected websites and web applications delivered by Arkana, from corporate sites to trade in platforms with admin dashboards.",
+  path: "/projects",
+})
 
 export default function ProjectsPage() {
   return (

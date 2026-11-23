@@ -1,3 +1,4 @@
+import { pageMetadata } from "@/lib/seo"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Navbar } from "@/components/navbar"
@@ -5,6 +6,13 @@ import { Mail, Phone, MapPin, Clock, Globe, MessageSquare } from "lucide-react"
 import Link from "next/link"
 import { companyInfo } from "@/lib/company-data"
 import { ContactForm } from "@/components/contact-form"
+
+export const metadata = pageMetadata({
+  title: "Contact Us",
+  description:
+    "Talk to Arkana about IT procurement, infrastructure, or software projects. Office in Sarijadi, Bandung. We reply within one working day.",
+  path: "/contact",
+})
 
 export default function ContactPage() {
   return (

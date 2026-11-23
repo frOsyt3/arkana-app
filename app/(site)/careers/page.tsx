@@ -1,8 +1,16 @@
+import { pageMetadata } from "@/lib/seo"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Navbar } from "@/components/navbar"
 import { Briefcase, MapPin, Clock, DollarSign, Users, Heart, TrendingUp, Zap, GraduationCap, Coffee, Trophy, Rocket } from "lucide-react"
 import Link from "next/link"
+
+export const metadata = pageMetadata({
+  title: "Careers",
+  description:
+    "Build a career in IT consulting, infrastructure, and software development with PT. Arkana Tunas Persada in Bandung.",
+  path: "/careers",
+})
 
 export default function CareersPage() {
   const jobs = [

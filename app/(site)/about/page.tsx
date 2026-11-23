@@ -1,9 +1,17 @@
+import { pageMetadata } from "@/lib/seo"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Navbar } from "@/components/navbar"
 import { Target, Users, Award, TrendingUp, Globe, Heart, Shield, Zap, Linkedin, Calendar } from "lucide-react"
 import Link from "next/link"
 import { companyInfo } from "@/lib/company-data"
+
+export const metadata = pageMetadata({
+  title: "About Us",
+  description:
+    "Meet PT. Arkana Tunas Persada, an IT solutions and procurement company in Bandung serving government agencies and enterprises across Indonesia.",
+  path: "/about",
+})
 
 export default function AboutPage() {
   return (
