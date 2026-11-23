@@ -20,7 +20,7 @@ async function load({ params, searchParams }: Props) {
 
 export async function generateMetadata(props: Props): Promise<Metadata> {
   const { row, isPreview } = await load(props)
-  if (!row) return { title: "Article not found" }
+  if (!row) return { title: "Artikel tidak ditemukan" }
   const a = row.article
   const title = a.metaTitle || a.title
   const description = a.metaDescription || a.excerpt
@@ -35,7 +35,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
       description,
       url: `/insight/${a.slug}`,
       siteName: "PT. Arkana Tunas Persada",
-      locale: "en_US",
+      locale: "id_ID",
       publishedTime: a.publishedAt?.toISOString(),
       modifiedTime: a.updatedAt.toISOString(),
       section: a.category,
@@ -70,6 +70,7 @@ export default async function ArticlePage(props: Props) {
     },
     mainEntityOfPage: `${site}/insight/${a.slug}`,
     keywords: a.tags.join(", ") || undefined,
+    inLanguage: "id",
   }
 
   return (
@@ -84,7 +85,7 @@ export default async function ArticlePage(props: Props) {
       {isPreview && a.status !== "published" && (
         <div className="border-b border-amber-200 bg-amber-50 px-6 py-2.5 text-center text-sm font-medium text-amber-800">
           <Eye className="mr-2 inline h-4 w-4" />
-          Preview only. Visitors cannot see this article until it is published.
+          Pratinjau. Pengunjung belum dapat melihat artikel ini sebelum diterbitkan.
         </div>
       )}
 
@@ -92,7 +93,7 @@ export default async function ArticlePage(props: Props) {
         <header className="bg-gradient-to-b from-primary/10 to-white">
           <div className="mx-auto max-w-3xl px-6 pb-10 pt-16 md:pt-20">
             <Link href="/insight" className="inline-flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-primary-dark">
-              <ArrowLeft className="h-4 w-4" /> All insights
+              <ArrowLeft className="h-4 w-4" /> Semua insight
             </Link>
             <div className="mt-8 flex flex-wrap items-center gap-3 text-sm text-gray-600">
               <Link
@@ -102,7 +103,7 @@ export default async function ArticlePage(props: Props) {
                 {a.category}
               </Link>
               <span className="flex items-center gap-1.5">
-                <Clock className="h-4 w-4" /> {a.readingMinutes} min read
+                <Clock className="h-4 w-4" /> {a.readingMinutes} menit baca
               </span>
             </div>
             <h1 className="mt-5 text-4xl font-bold leading-tight tracking-tight text-secondary md:text-5xl">{a.title}</h1>
@@ -112,8 +113,8 @@ export default async function ArticlePage(props: Props) {
                 {(authorName ?? "Arkana").charAt(0)}
               </span>
               <div>
-                <p className="font-semibold text-secondary">{authorName ?? "Arkana team"}</p>
-                <p className="text-gray-500">{a.publishedAt ? formatArticleDate(a.publishedAt) : "Not published yet"}</p>
+                <p className="font-semibold text-secondary">{authorName ?? "Tim Arkana"}</p>
+                <p className="text-gray-500">{a.publishedAt ? formatArticleDate(a.publishedAt) : "Belum diterbitkan"}</p>
               </div>
             </div>
           </div>
@@ -140,13 +141,13 @@ export default async function ArticlePage(props: Props) {
           )}
 
           <div className="mt-12 rounded-2xl bg-secondary p-8 text-white md:p-10">
-            <h2 className="text-2xl font-bold">Need help with this in your organisation?</h2>
+            <h2 className="text-2xl font-bold">Butuh bantuan untuk kebutuhan ini di organisasi Anda?</h2>
             <p className="mt-3 text-white/75">
-              Our team handles IT procurement, infrastructure, and software projects for companies and government agencies.
+              Tim kami menangani pengadaan IT, infrastruktur, dan proyek software untuk perusahaan dan instansi pemerintah.
             </p>
             <Button asChild className="mt-6 bg-primary hover:bg-primary-dark">
               <Link href="/contact">
-                Talk to our team <ArrowRight className="ml-2 h-4 w-4" />
+                Hubungi Tim Kami <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
           </div>
@@ -156,7 +157,7 @@ export default async function ArticlePage(props: Props) {
       {related.length > 0 && (
         <section className="bg-[#F8FAFB] py-20">
           <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
-            <h2 className="text-2xl font-bold text-secondary md:text-3xl">Keep reading</h2>
+            <h2 className="text-2xl font-bold text-secondary md:text-3xl">Baca juga</h2>
             <div className="mt-8 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               {related.map((r) => (
                 <InsightCard key={r.id} article={r} />

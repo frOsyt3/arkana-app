@@ -260,12 +260,12 @@ const PillNav: React.FC<PillNavProps> = ({
     <div className="absolute top-[1em] z-[1000] w-full left-0 md:w-auto md:left-auto">
       <nav
         className={`w-full md:w-max flex items-center justify-between md:justify-start box-border px-4 md:px-0 ${className}`}
-        aria-label="Primary"
+        aria-label="Navigasi utama"
         style={cssVars}
       >
         <Link
           href="/"
-          aria-label="Home"
+          aria-label="Beranda"
           onMouseEnter={handleLogoEnter}
           role="menuitem"
           ref={el => {
@@ -395,7 +395,7 @@ const PillNav: React.FC<PillNavProps> = ({
         <button
           ref={hamburgerRef}
           onClick={toggleMobileMenu}
-          aria-label="Toggle menu"
+          aria-label="Buka menu"
           aria-expanded={isMobileMenuOpen}
           className="md:hidden rounded-full border-0 flex flex-col items-center justify-center gap-1 cursor-pointer p-0 relative"
           style={{

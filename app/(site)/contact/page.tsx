@@ -2,15 +2,15 @@ import { pageMetadata } from "@/lib/seo"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Navbar } from "@/components/navbar"
-import { Mail, Phone, MapPin, Clock, Globe, MessageSquare } from "lucide-react"
+import { Mail, Phone, MapPin, Clock, MessageSquare } from "lucide-react"
 import Link from "next/link"
 import { companyInfo } from "@/lib/company-data"
 import { ContactForm } from "@/components/contact-form"
 
 export const metadata = pageMetadata({
-  title: "Contact Us",
+  title: "Hubungi Kami",
   description:
-    "Talk to Arkana about IT procurement, infrastructure, or software projects. Office in Sarijadi, Bandung. We reply within one working day.",
+    "Konsultasikan kebutuhan pengadaan IT, infrastruktur, atau pengembangan software bersama Arkana. Kantor di Sarijadi, Bandung. Kami membalas dalam satu hari kerja.",
   path: "/contact",
 })
 
@@ -27,16 +27,16 @@ export default function ContactPage() {
           <div className="max-w-3xl mx-auto text-center space-y-6">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium">
               <MessageSquare className="w-4 h-4" />
-              Get in Touch
+              Kontak
             </div>
             
             <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-secondary">
-              Contact Us
+              Hubungi Kami
             </h1>
             
             <p className="text-xl text-gray-600 leading-relaxed">
-              Ready to transform your business with technology? Get in touch with our IT consulting 
-              team to discuss your project, challenges, or opportunities.
+              Ceritakan kebutuhan IT atau pengadaan Anda. Tim kami siap membantu, mulai dari diskusi awal
+              hingga penawaran yang sesuai dengan anggaran dan proses pengadaan Anda.
             </p>
           </div>
         </div>
@@ -50,11 +50,11 @@ export default function ContactPage() {
             <div className="lg:col-span-2 space-y-8">
               <div>
                 <h2 className="text-3xl font-bold text-secondary mb-4">
-                  Let&apos;s Connect
+                  Mari Terhubung
                 </h2>
                 <p className="text-lg text-gray-600 leading-relaxed">
-                  Whether you need cloud migration, software development, or IT strategy consulting, 
-                  our experts are ready to help.
+                  Baik untuk pengadaan perangkat IT, pengembangan software, maupun konsultasi infrastruktur,
+                  tim kami siap membantu.
                 </p>
               </div>
 
@@ -91,7 +91,7 @@ export default function ContactPage() {
                           <Phone className="h-6 w-6 text-white" />
                         </div>
                         <div className="space-y-1">
-                          <CardTitle className="text-lg text-secondary group-hover:text-primary transition-colors">Phone (WhatsApp)</CardTitle>
+                          <CardTitle className="text-lg text-secondary group-hover:text-primary transition-colors">Telepon (WhatsApp)</CardTitle>
                           <CardDescription className="text-base group-hover:text-gray-900 transition-colors">
                             {companyInfo.contact.phone.main}
                           </CardDescription>
@@ -113,7 +113,7 @@ export default function ContactPage() {
                         <MapPin className="h-6 w-6 text-white" />
                       </div>
                       <div className="space-y-1">
-                        <CardTitle className="text-lg text-secondary group-hover:text-primary transition-colors">Office</CardTitle>
+                        <CardTitle className="text-lg text-secondary group-hover:text-primary transition-colors">Kantor</CardTitle>
                         <CardDescription className="text-base group-hover:text-gray-900 transition-colors">
                           {companyInfo.contact.address.fullAddress}
                         </CardDescription>
@@ -128,7 +128,7 @@ export default function ContactPage() {
                       <Clock className="h-6 w-6 text-white" />
                     </div>
                     <div className="space-y-1">
-                      <CardTitle className="text-lg text-secondary">Business Hours</CardTitle>
+                      <CardTitle className="text-lg text-secondary">Jam Operasional</CardTitle>
                       <CardDescription className="text-base text-gray-600">
                         {companyInfo.contact.businessHours.weekdays}<br />
                         {companyInfo.contact.businessHours.saturday}
@@ -138,28 +138,15 @@ export default function ContactPage() {
                 </Card>
               </div>
 
-              <div className="pt-4">
-                <h3 className="text-xl font-semibold text-secondary mb-4">Follow Us</h3>
-                <div className="flex gap-4">
-                  {['LinkedIn', 'Twitter', 'Instagram', 'Facebook'].map((social) => (
-                    <button
-                      key={social}
-                      className="w-12 h-12 rounded-xl border-2 border-border hover:border-primary hover:bg-primary/5 transition-all flex items-center justify-center group"
-                    >
-                      <Globe className="w-5 h-5 text-gray-600 group-hover:text-primary transition-colors" />
-                    </button>
-                  ))}
-                </div>
-              </div>
             </div>
 
             {/* Contact Form */}
             <div className="lg:col-span-3">
               <Card className="border-2 border-primary/20 shadow-xl bg-white">
                 <CardHeader>
-                  <CardTitle className="text-2xl text-secondary text-secondary">Send us a Message</CardTitle>
+                  <CardTitle className="text-2xl text-secondary text-secondary">Kirim Pesan</CardTitle>
                   <CardDescription className="text-base">
-                    Fill out the form below and our team will get back to you within one working day.
+                    Isi formulir di bawah ini dan tim kami akan menghubungi Anda dalam satu hari kerja.
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -176,22 +163,21 @@ export default function ContactPage() {
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <div className="text-center mb-12 space-y-4">
             <h2 className="text-4xl md:text-5xl font-bold text-secondary">
-              Visit Our Office
+              Kunjungi Kantor Kami
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Come meet us in person at our Jakarta office
+              Kantor kami berlokasi di Sarijadi, Bandung
             </p>
           </div>
 
           <Card className="border-2 border-border shadow-xl overflow-hidden bg-white">
-            <div className="aspect-video bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center">
-              <div className="text-center space-y-4">
-                <MapPin className="w-16 h-16 text-primary mx-auto" />
-                <p className="text-lg text-gray-600">
-                  Interactive map will be displayed here
-                </p>
-              </div>
-            </div>
+            <iframe
+              title="Lokasi kantor PT. Arkana Tunas Persada"
+              src={`https://www.google.com/maps?q=${encodeURIComponent(companyInfo.contact.address.fullAddress)}&output=embed`}
+              className="block aspect-video w-full border-0"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
           </Card>
         </div>
       </section>
@@ -201,30 +187,34 @@ export default function ContactPage() {
         <div className="mx-auto max-w-4xl px-6 sm:px-8 lg:px-12">
           <div className="text-center mb-12 space-y-4">
             <h2 className="text-4xl md:text-5xl font-bold text-secondary">
-              Frequently Asked Questions
+              Pertanyaan yang Sering Diajukan
             </h2>
             <p className="text-lg text-gray-600">
-              Quick answers to common questions
+              Jawaban singkat untuk pertanyaan yang paling sering kami terima
             </p>
           </div>
 
           <div className="space-y-4">
             {[
               {
-                question: "What IT consulting services does Arkana provide?",
-                answer: "We specialize in cloud solutions, digital transformation, custom software development, IT infrastructure, cybersecurity, and enterprise application development."
+                question: "Layanan apa saja yang disediakan Arkana?",
+                answer: "Kami menyediakan konsultasi IT dan integrasi sistem, pengembangan software dan aplikasi, infrastruktur server dan jaringan, layanan cloud dan data, keamanan sistem, serta pengadaan barang dan jasa IT."
               },
               {
-                question: "How can I request a consultation?",
-                answer: "Fill out our contact form above or email us directly at info@arkanatunas.co.id with your requirements and we'll schedule a free consultation."
+                question: "Apakah Arkana melayani pengadaan melalui e-Katalog?",
+                answer: "Ya. Kami terdaftar di e-Katalog LKPP, INAPROC, LPSE, dan Digipay Kemenkeu, sehingga instansi pemerintah dapat melakukan pengadaan secara resmi dan terdokumentasi."
               },
               {
-                question: "What is your typical project engagement model?",
-                answer: "We offer flexible engagement models including fixed-price projects, time & materials, dedicated teams, and retainer-based consulting."
+                question: "Bagaimana cara meminta konsultasi atau penawaran harga?",
+                answer: `Isi formulir di atas atau kirim email ke ${companyInfo.contact.email.general} berisi kebutuhan Anda. Tim kami akan merespons dalam satu hari kerja.`
               },
               {
-                question: "Do you provide ongoing support after project completion?",
-                answer: "Yes, we offer comprehensive maintenance, support packages, and managed services to ensure your systems run smoothly."
+                question: "Bagaimana model kerja sama proyek di Arkana?",
+                answer: "Kami menyediakan model kerja sama yang fleksibel, mulai dari proyek dengan harga tetap, skema time and material, tim khusus, hingga konsultasi berbasis retainer."
+              },
+              {
+                question: "Apakah ada dukungan setelah proyek selesai?",
+                answer: "Ya. Kami menyediakan pemeliharaan, paket dukungan teknis, dan managed services agar sistem Anda tetap berjalan lancar."
               }
             ].map((faq, index) => (
               <Card key={index} className="border-2 border-border hover:border-primary/50 transition-all bg-white">
@@ -240,10 +230,10 @@ export default function ContactPage() {
 
           <div className="text-center mt-12">
             <p className="text-gray-600 mb-4">
-              Have more questions?
+              Masih punya pertanyaan?
             </p>
             <Button variant="outline" size="lg" asChild>
-              <Link href="/insight">Visit Our Insights</Link>
+              <Link href="/insight">Baca Insight Kami</Link>
             </Button>
           </div>
         </div>

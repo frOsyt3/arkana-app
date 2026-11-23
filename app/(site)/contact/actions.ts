@@ -24,13 +24,13 @@ const optional = (max: number) =>
     .optional()
 
 const leadSchema = z.object({
-  firstName: z.string().trim().min(1, "Please enter your first name").max(80),
-  lastName: z.string().trim().min(1, "Please enter your last name").max(80),
-  email: z.email("Please enter a valid email address").max(160),
+  firstName: z.string().trim().min(1, "Mohon isi nama depan Anda").max(80),
+  lastName: z.string().trim().min(1, "Mohon isi nama belakang Anda").max(80),
+  email: z.email("Mohon masukkan alamat email yang valid").max(160),
   phone: optional(40),
   company: optional(160),
-  subject: z.string().trim().min(2, "Please add a subject").max(160),
-  message: z.string().trim().min(10, "Please tell us a little more (at least 10 characters)").max(5000),
+  subject: z.string().trim().min(2, "Mohon isi subjek pesan").max(160),
+  message: z.string().trim().min(10, "Mohon jelaskan sedikit lebih detail (minimal 10 karakter)").max(5000),
   utmSource: optional(120),
   utmMedium: optional(120),
   utmCampaign: optional(160),
@@ -53,13 +53,13 @@ export async function submitLead(_prev: ContactFormState, formData: FormData): P
       const key = String(issue.path[0])
       fieldErrors[key] ??= issue.message
     }
-    return { status: "error", message: "Please check the highlighted fields.", fieldErrors }
+    return { status: "error", message: "Mohon periksa kembali kolom yang ditandai.", fieldErrors }
   }
 
   if (!isDatabaseConfigured()) {
     return {
       status: "error",
-      message: `The form is temporarily unavailable. Please email us at ${companyInfo.contact.email.general}.`,
+      message: `Formulir sedang tidak dapat digunakan. Silakan kirim email ke ${companyInfo.contact.email.general}.`,
     }
   }
 
@@ -104,7 +104,7 @@ export async function submitLead(_prev: ContactFormState, formData: FormData): P
     console.error("Failed to save lead", error)
     return {
       status: "error",
-      message: `Something went wrong while sending. Please try again or email ${companyInfo.contact.email.general}.`,
+      message: `Terjadi kendala saat mengirim. Silakan coba lagi atau kirim email ke ${companyInfo.contact.email.general}.`,
     }
   }
 }

@@ -1,7 +1,7 @@
 export const companyInfo = {
   name: "PT. Arkana Tunas Persada",
-  tagline: "Building Excellence, Delivering Innovation",
-  description: "Leading IT consulting firm specializing in digital transformation, cloud solutions, and enterprise technology strategy.",
+  tagline: "Membangun Keunggulan, Menghadirkan Inovasi",
+  description: "Perusahaan solusi IT dan pengadaan barang yang berfokus pada transformasi digital, cloud, infrastruktur, dan strategi teknologi.",
 
   contact: {
     // Phone numbers are hidden on the site while this is false.
@@ -26,9 +26,9 @@ export const companyInfo = {
       googleMapsUrl: "https://maps.app.goo.gl/3S7XNXvHYNNC2JXn6"
     },
     businessHours: {
-      weekdays: "Monday to Friday: 9:00 AM to 6:00 PM",
-      saturday: "Saturday: 9:00 AM to 3:00 PM",
-      sunday: "Sunday: Closed"
+      weekdays: "Senin sampai Jumat: 09.00 sampai 18.00 WIB",
+      saturday: "Sabtu: 09.00 sampai 15.00 WIB",
+      sunday: "Minggu: Tutup"
     }
   },
 
@@ -37,245 +37,138 @@ export const companyInfo = {
     instagram: "https://instagram.com/hexamind.id"
   },
 
-  stats: {
-    projectsCompleted: "100+",
-    activeClients: "50+",
-    yearsExperience: "15+",
-    teamMembers: "75+",
-    successRate: "98%",
-    countries: "5+"
-  },
+  mission: "Memberikan layanan konsultasi Teknologi Informasi, mulai dari analisis kebutuhan sistem, perancangan solusi, hingga pendampingan implementasi bagi pelanggan.",
 
-  mission: "Delivering Information Technology consulting services, including system needs analysis, solution design, and implementation assistance for customers.",
-
-  vision: "Becoming One of the Trusted IT Consultants and Information Technology System Integration.",
+  vision: "Menjadi salah satu konsultan IT dan integrator sistem Teknologi Informasi yang terpercaya.",
 
   coreValues: [
     {
-      title: "Integrity",
-      description: "We uphold integrity in all of our actions.",
+      title: "Integritas",
+      description: "Kami menjunjung integritas dalam setiap tindakan.",
       icon: "ShieldCheck"
     },
     {
-      title: "Innovation",
-      description: "We continuously innovate to deliver the best solutions to our customers using the latest technology.",
+      title: "Inovasi",
+      description: "Kami terus berinovasi untuk menghadirkan solusi terbaik dengan teknologi terkini.",
       icon: "Lightbulb"
     },
     {
-      title: "Customer Satisfaction",
-      description: "We prioritize customer satisfaction in every service we provide.",
+      title: "Kepuasan Pelanggan",
+      description: "Kami mengutamakan kepuasan pelanggan dalam setiap layanan.",
       icon: "Star"
     },
     {
-      title: "Quality",
-      description: "We are committed to delivering the highest quality in everything we do.",
+      title: "Kualitas",
+      description: "Kami berkomitmen menghadirkan kualitas terbaik dalam setiap pekerjaan.",
       icon: "BadgeCheck"
     },
     {
-      title: "Teamwork",
-      description: "We work together as a team to achieve our goals.",
+      title: "Kerja Sama Tim",
+      description: "Kami bekerja sebagai satu tim untuk mencapai tujuan bersama.",
       icon: "Handshake"
     }
   ],
 
+  // Real clients only.
   clients: [
     {
-      name: "Bank Nusantara",
-      logo: "/clients/client-1.png",
-      industry: "Banking"
-    },
-    {
-      name: "Retailindo Group",
-      logo: "/clients/client-2.png",
-      industry: "Retail"
-    },
-    {
-      name: "Garuda Manufacturing",
-      logo: "/clients/client-3.png",
-      industry: "Manufacturing"
-    },
-    {
-      name: "Kementerian Digital",
-      logo: "/clients/client-4.png",
-      industry: "Government"
-    },
-    {
-      name: "HealthTech Indonesia",
-      logo: "/clients/client-5.png",
-      industry: "Healthcare"
-    },
-    {
-      name: "TokoBaik Marketplace",
-      logo: "/clients/client-6.png",
-      industry: "E-commerce"
-    }
-  ],
-
-  testimonials: [
-    {
-      name: "Budi Santoso",
-      role: "CTO",
-      company: "Bank Nusantara",
-      content: "Arkana helped us migrate our entire banking infrastructure to the cloud with zero downtime. Their expertise in AWS and security compliance was exceptional. The project was completed ahead of schedule and under budget.",
-      rating: 5,
-      image: "/testimonials/person-1.jpg"
-    },
-    {
-      name: "Sarah Wijaya",
-      role: "Head of Digital Transformation",
-      company: "Retailindo Group",
-      content: "Working with Arkana was a game-changer for our digital transformation journey. They not only delivered a robust e-commerce platform but also trained our team on best practices. Highly recommended!",
-      rating: 5,
-      image: "/testimonials/person-2.jpg"
-    },
-    {
-      name: "Michael Tan",
-      role: "IT Director",
-      company: "Garuda Manufacturing",
-      content: "The custom ERP solution developed by Arkana transformed our operations. Their team understood our business needs perfectly and delivered a solution that exceeded expectations. Outstanding work!",
-      rating: 5,
-      image: "/testimonials/person-3.jpg"
-    }
-  ],
-
-  team: [
-    {
-      name: "Rama Prasetyo",
-      role: "CEO & Founder",
-      bio: "15+ years leading technology transformations for Fortune 500 companies. Former VP of Engineering at major tech firms.",
-      image: "/team/member-1.jpg",
-      linkedin: "https://linkedin.com/in/rama-prasetyo"
-    },
-    {
-      name: "Diana Kusuma",
-      role: "CTO",
-      bio: "Cloud architecture expert with extensive experience in AWS, Azure, and GCP. Certified Solutions Architect Professional.",
-      image: "/team/member-2.jpg",
-      linkedin: "https://linkedin.com/in/diana-kusuma"
-    },
-    {
-      name: "Arif Wibowo",
-      role: "Head of Operations",
-      bio: "Specialized in agile project delivery and client relationship management. MBA from top business school.",
-      image: "/team/member-3.jpg",
-      linkedin: "https://linkedin.com/in/arif-wibowo"
-    },
-    {
-      name: "Linda Hartono",
-      role: "Head of Technology",
-      bio: "Full-stack architect with passion for building scalable systems. Open source contributor and tech community leader.",
-      image: "/team/member-4.jpg",
-      linkedin: "https://linkedin.com/in/linda-hartono"
+      name: "Direktorat Jenderal Pajak, Kementerian Keuangan",
+      logo: "/images/clients/kemenkeu-djp.png",
+      industry: "Pemerintahan"
     }
   ],
 
   services: [
     {
-      title: "IT Consulting & System Integration",
-      description: "Providing IT consulting, system planning, integration, and optimization to meet client business needs across government and private sectors.",
+      title: "Konsultasi IT & Integrasi Sistem",
+      description: "Konsultasi IT, perencanaan, integrasi, dan optimalisasi sistem sesuai kebutuhan klien di sektor pemerintah maupun swasta.",
       icon: "consulting",
       features: [
-        "System Needs Analysis",
-        "Technology Road Mapping",
-        "Managed Services & Maintenance",
-        "Implementation Assistance"
+        "Analisis Kebutuhan Sistem",
+        "Penyusunan Roadmap Teknologi",
+        "Managed Services & Pemeliharaan",
+        "Pendampingan Implementasi"
       ]
     },
     {
-      title: "Software & Application Development",
-      description: "Developing web-based and mobile applications, information systems, and custom software tailored specifically to client business goals.",
+      title: "Pengembangan Software & Aplikasi",
+      description: "Pengembangan aplikasi web dan mobile, sistem informasi, serta software khusus yang dirancang sesuai tujuan bisnis klien.",
       icon: "software",
       features: [
-        "Web & Mobile Applications",
-        "Custom ERP / Dashboard",
-        "API Development & Integration",
-        "System Modernization"
+        "Aplikasi Web & Mobile",
+        "ERP dan Dashboard Khusus",
+        "Pengembangan & Integrasi API",
+        "Modernisasi Sistem"
       ]
     },
     {
-      title: "IT Infrastructure, Server & Networking",
-      description: "Planning and implementing IT infrastructure including servers, networks, and data centers to ensure reliable and secure system performance.",
+      title: "Infrastruktur IT, Server & Jaringan",
+      description: "Perencanaan dan implementasi infrastruktur IT, mulai dari server, jaringan, hingga data center, agar sistem berjalan andal dan aman.",
       icon: "infrastructure",
       features: [
-        "Server Setup & Management",
-        "Network Architecture",
-        "Data Center Implementation",
-        "Performance Monitoring"
+        "Instalasi & Pengelolaan Server",
+        "Arsitektur Jaringan",
+        "Implementasi Data Center",
+        "Pemantauan Kinerja"
       ]
     },
     {
-      title: "Cloud & Data Services",
-      description: "Providing cloud solutions, data management, hosting, and storage that are flexible, scalable, and secure for any business scale.",
+      title: "Layanan Cloud & Data",
+      description: "Solusi cloud, pengelolaan data, hosting, dan penyimpanan yang fleksibel, mudah dikembangkan, dan aman untuk organisasi dengan skala apa pun.",
       icon: "cloud",
       features: [
-        "Cloud Migration & Strategy",
-        "Data Hosting & Storage",
-        "Scalable Architecture",
-        "Backup & Disaster Recovery"
+        "Strategi & Migrasi Cloud",
+        "Hosting & Penyimpanan Data",
+        "Arsitektur yang Skalabel",
+        "Backup & Pemulihan Bencana"
       ]
     },
     {
-      title: "System Security & UI/UX Design",
-      description: "Ensuring information system security against cyber threats while designing modern, responsive, and user-friendly interfaces.",
+      title: "Keamanan Sistem & Desain UI/UX",
+      description: "Melindungi sistem informasi dari ancaman siber sekaligus merancang antarmuka yang modern, responsif, dan mudah digunakan.",
       icon: "security",
       features: [
-        "Cyber Threat Protection",
-        "Access Control & Monitoring",
-        "UI/UX Research & Design",
-        "Responsive Web Design"
+        "Perlindungan dari Ancaman Siber",
+        "Kontrol Akses & Pemantauan",
+        "Riset & Desain UI/UX",
+        "Desain Web Responsif"
       ]
     },
     {
-      title: "Goods & Services Procurement",
-      description: "Serving procurement of IT equipment, software, office supplies, and operational support through certified government and commercial platforms.",
+      title: "Pengadaan Barang & Jasa",
+      description: "Melayani pengadaan perangkat IT, software, alat tulis kantor, dan kebutuhan operasional melalui platform pengadaan pemerintah dan komersial yang resmi.",
       icon: "procurement",
       features: [
-        "Software & Hardware Supply",
+        "Penyediaan Software & Hardware",
         "e-Katalog & INAPROC",
-        "LPSE & SIPLah Registered",
-        "Office Operational Support"
+        "Terdaftar di LPSE & SIPLah",
+        "Dukungan Operasional Kantor"
       ]
     }
   ],
 
-  certifications: [
-    {
-      name: "AWS Partner",
-      level: "Advanced Consulting Partner",
-      logo: "/certifications/aws.png"
-    },
-    {
-      name: "Microsoft Partner",
-      level: "Gold Partner",
-      logo: "/certifications/microsoft.png"
-    },
-    {
-      name: "ISO Certification",
-      level: "ISO 27001:2013",
-      logo: "/certifications/iso.png"
-    }
-  ],
+  foundedYear: "2026",
 
   companyHistory: [
     {
-      year: "2010",
-      title: "Company Founded",
-      description: "Arkana was established with a vision to transform Indonesian businesses through technology"
+      year: "2026",
+      title: "Perusahaan Berdiri",
+      description: "PT. Arkana Tunas Persada resmi berdiri dan berkantor di Kota Bandung."
     },
     {
-      year: "2015",
-      title: "Regional Expansion",
-      description: "Expanded operations across Southeast Asia with offices in Singapore and Malaysia"
+      year: "2026",
+      title: "Terdaftar di Platform Pengadaan Resmi",
+      description: "Terdaftar di e-Katalog, INAPROC, LPSE, dan Digipay untuk melayani pengadaan instansi pemerintah."
     },
     {
-      year: "2020",
-      title: "Cloud Excellence Award",
-      description: "Recognized as Top Cloud Solutions Provider in Indonesia by industry leaders"
+      year: "2026",
+      title: "Dipercaya Instansi Pemerintah",
+      description: "Melayani Direktorat Jenderal Pajak, Kementerian Keuangan."
     },
     {
-      year: "2025",
-      title: "Digital Innovation Leader",
-      description: "Serving 50+ enterprise clients with 100+ successful digital transformation projects"
+      year: "2026",
+      title: "Lebih dari 5 Website Selesai",
+      description: "Menyelesaikan lebih dari lima proyek website dan aplikasi web untuk klien."
     }
   ]
 }

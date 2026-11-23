@@ -53,9 +53,9 @@ export function ContactForm() {
         <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/10">
           <CheckCircle2 className="h-7 w-7 text-primary" />
         </div>
-        <h3 className="text-2xl font-bold text-secondary">Thank you, your message is in</h3>
+        <h3 className="text-2xl font-bold text-secondary">Terima kasih, pesan Anda sudah kami terima</h3>
         <p className="max-w-md text-gray-600">
-          Our team will review your enquiry and get back to you within one working day.
+          Tim kami akan meninjau permintaan Anda dan menghubungi Anda dalam satu hari kerja.
         </p>
       </div>
     )
@@ -73,37 +73,37 @@ export function ContactForm() {
       )}
 
       <div className="grid gap-6 sm:grid-cols-2">
-        <Field label="First Name" name="firstName" error={err.firstName} required>
-          <input id="firstName" name="firstName" autoComplete="given-name" placeholder="John" className={cn(inputClass, err.firstName && "border-red-400")} required />
+        <Field label="Nama Depan" name="firstName" error={err.firstName} required>
+          <input id="firstName" name="firstName" autoComplete="given-name" placeholder="Budi" className={cn(inputClass, err.firstName && "border-red-400")} required />
         </Field>
-        <Field label="Last Name" name="lastName" error={err.lastName} required>
-          <input id="lastName" name="lastName" autoComplete="family-name" placeholder="Doe" className={cn(inputClass, err.lastName && "border-red-400")} required />
+        <Field label="Nama Belakang" name="lastName" error={err.lastName} required>
+          <input id="lastName" name="lastName" autoComplete="family-name" placeholder="Santoso" className={cn(inputClass, err.lastName && "border-red-400")} required />
         </Field>
       </div>
 
       <div className="grid gap-6 sm:grid-cols-2">
         <Field label="Email" name="email" error={err.email} required>
-          <input id="email" name="email" type="email" autoComplete="email" placeholder="john.doe@example.com" className={cn(inputClass, err.email && "border-red-400")} required />
+          <input id="email" name="email" type="email" autoComplete="email" placeholder="budi@perusahaan.co.id" className={cn(inputClass, err.email && "border-red-400")} required />
         </Field>
-        <Field label="Phone Number" name="phone" error={err.phone}>
+        <Field label="Nomor Telepon" name="phone" error={err.phone}>
           <input id="phone" name="phone" type="tel" autoComplete="tel" placeholder="+62 812 3456 7890" className={inputClass} />
         </Field>
       </div>
 
-      <Field label="Company or Institution" name="company" error={err.company}>
-        <input id="company" name="company" autoComplete="organization" placeholder="PT Example Indonesia" className={inputClass} />
+      <Field label="Perusahaan atau Instansi" name="company" error={err.company}>
+        <input id="company" name="company" autoComplete="organization" placeholder="PT Contoh Indonesia" className={inputClass} />
       </Field>
 
-      <Field label="Subject" name="subject" error={err.subject} required>
-        <input id="subject" name="subject" placeholder="How can we help you?" className={cn(inputClass, err.subject && "border-red-400")} required />
+      <Field label="Subjek" name="subject" error={err.subject} required>
+        <input id="subject" name="subject" placeholder="Apa yang bisa kami bantu?" className={cn(inputClass, err.subject && "border-red-400")} required />
       </Field>
 
-      <Field label="Message" name="message" error={err.message} required>
+      <Field label="Pesan" name="message" error={err.message} required>
         <textarea
           id="message"
           name="message"
           rows={6}
-          placeholder="Tell us more about your needs, timeline, and budget if known."
+          placeholder="Ceritakan kebutuhan, jadwal, dan perkiraan anggaran Anda bila ada."
           className={cn(inputClass, "resize-none", err.message && "border-red-400")}
           required
         />
@@ -133,19 +133,19 @@ export function ContactForm() {
           required
         />
         <label htmlFor="privacy" className="cursor-pointer text-sm text-gray-600">
-          I agree that Arkana may contact me about this enquiry
+          Saya bersedia dihubungi oleh Arkana terkait permintaan ini
         </label>
       </div>
 
       <Button size="lg" className="group w-full" disabled={pending}>
         {pending ? (
           <>
-            Sending
+            Mengirim
             <Loader2 className="ml-2 h-5 w-5 animate-spin" />
           </>
         ) : (
           <>
-            Send Message
+            Kirim Pesan
             <Send className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
           </>
         )}

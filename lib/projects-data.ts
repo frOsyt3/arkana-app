@@ -1,8 +1,8 @@
 export const projectCategories = [
-  "Company Website",
-  "Web Application",
+  "Website Perusahaan",
+  "Aplikasi Web",
   "Dashboard",
-  "Government Portal",
+  "Portal Pemerintah",
 ] as const
 
 export type ProjectCategory = (typeof projectCategories)[number]
@@ -33,12 +33,12 @@ export const projects: Project[] = [
   {
     slug: "arkana-corporate-website",
     title: "Arkana Corporate Website",
-    category: "Company Website",
+    category: "Website Perusahaan",
     description:
-      "A corporate website that positions Arkana as an IT solutions and procurement partner, with clear service pages, procurement credentials, and a downloadable company profile.",
-    sector: "Corporate, IT services",
+      "Website korporat yang menempatkan Arkana sebagai mitra solusi IT dan pengadaan, dengan halaman layanan yang jelas, kredensial pengadaan, dan company profile yang dapat diunduh.",
+    sector: "Korporat, layanan IT",
     year: "2026",
-    scope: "Design, development, launch",
+    scope: "Desain, pengembangan, peluncuran",
     tech: ["Next.js", "Tailwind CSS", "Framer Motion"],
     image: "/images/projects/arkana-corporate-website.png",
     domain: "arkanacorp.id",
@@ -47,12 +47,12 @@ export const projects: Project[] = [
   {
     slug: "qira-store",
     title: "Qira Store",
-    category: "Web Application",
+    category: "Aplikasi Web",
     description:
-      "A used phone trade in app with instant price estimates, seller accounts, and an admin dashboard for the catalog, pricing rules, and submissions.",
-    sector: "Retail, consumer electronics",
+      "Aplikasi trade in HP bekas dengan estimasi harga instan, akun penjual, dan dashboard admin untuk mengelola katalog, aturan harga, serta pengajuan penjualan.",
+    sector: "Ritel, elektronik konsumen",
     year: "2026",
-    scope: "UX design, full stack development, launch",
+    scope: "Desain UX, pengembangan full stack, peluncuran",
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Supabase", "Vercel"],
     image: "/images/projects/qira-store.png",
     domain: "qira-store.vercel.app",

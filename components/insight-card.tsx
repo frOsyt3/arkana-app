@@ -13,7 +13,7 @@ export interface InsightCardData {
 
 export function formatArticleDate(date: Date | null) {
   if (!date) return ""
-  return new Intl.DateTimeFormat("en-GB", { timeZone: "Asia/Jakarta", day: "numeric", month: "long", year: "numeric" }).format(date)
+  return new Intl.DateTimeFormat("id-ID", { timeZone: "Asia/Jakarta", day: "numeric", month: "long", year: "numeric" }).format(date)
 }
 
 export function InsightCover({ src, className = "" }: { src: string | null; className?: string }) {
@@ -43,7 +43,7 @@ export function InsightCard({ article }: { article: InsightCardData }) {
         <div className="flex items-center justify-between gap-3 text-xs">
           <span className="rounded-full bg-primary/10 px-3 py-1 font-semibold text-primary-dark">{article.category}</span>
           <span className="flex items-center gap-1 text-gray-500">
-            <Clock className="h-3.5 w-3.5" /> {article.readingMinutes} min read
+            <Clock className="h-3.5 w-3.5" /> {article.readingMinutes} menit baca
           </span>
         </div>
         <h3 className="mt-4 text-xl font-bold leading-snug text-secondary transition group-hover:text-primary-dark">{article.title}</h3>

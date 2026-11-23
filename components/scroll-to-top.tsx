@@ -56,7 +56,7 @@ export function ScrollToTop() {
             stiffness: 260,
             damping: 20
           }}
-          aria-label="Scroll to top"
+          aria-label="Kembali ke atas"
         >
           <ArrowUp className="w-6 h-6 group-hover:translate-y-[-2px] transition-transform" />
         </motion.button>

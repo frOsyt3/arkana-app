@@ -7,12 +7,12 @@ import type { Article, ArticleStatus } from "@/lib/db/schema"
 const { articles, articleViews, users } = schema
 
 export const DEFAULT_CATEGORIES = [
-  "Procurement",
+  "Pengadaan",
   "Cloud",
-  "Security",
-  "Infrastructure",
-  "Web development",
-  "Case study",
+  "Keamanan",
+  "Infrastruktur",
+  "Pengembangan Web",
+  "Studi Kasus",
 ]
 
 export function slugify(input: string) {

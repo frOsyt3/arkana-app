@@ -3,7 +3,7 @@ import { companyInfo } from "@/lib/company-data"
 
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://arkanacorp.id"
 export const SITE_NAME = "PT. Arkana Tunas Persada"
-const OG_IMAGE = { url: "/opengraph-image", width: 1200, height: 630, alt: "PT. Arkana Tunas Persada, IT solutions and procurement partner" }
+const OG_IMAGE = { url: "/opengraph-image", width: 1200, height: 630, alt: "PT. Arkana Tunas Persada, mitra solusi IT dan pengadaan barang" }
 
 /** Per page metadata with matching canonical, Open Graph, and Twitter tags. */
 export function pageMetadata({ title, description, path }: { title: string; description: string; path: string }): Metadata {
@@ -12,7 +12,7 @@ export function pageMetadata({ title, description, path }: { title: string; desc
     title,
     description,
     alternates: { canonical: path },
-    openGraph: { type: "website", siteName: SITE_NAME, locale: "en_US", title: fullTitle, description, url: path, images: [OG_IMAGE] },
+    openGraph: { type: "website", siteName: SITE_NAME, locale: "id_ID", title: fullTitle, description, url: path, images: [OG_IMAGE] },
     twitter: { card: "summary_large_image", title: fullTitle, description, images: [OG_IMAGE.url] },
   }
 }
@@ -28,11 +28,13 @@ export function organizationJsonLd() {
         "@id": `${SITE_URL}/#organization`,
         name: SITE_NAME,
         alternateName: "Arkana",
+        foundingDate: companyInfo.foundedYear,
+        foundingLocation: { "@type": "Place", name: "Kota Bandung, Jawa Barat" },
         url: SITE_URL,
         logo: `${SITE_URL}/images/arkana-mark.svg`,
         image: `${SITE_URL}/opengraph-image`,
         description:
-          "IT solutions and registered procurement partner for government and enterprise across Indonesia, covering IT procurement, infrastructure, and software development.",
+          "Mitra solusi IT dan pengadaan barang untuk instansi pemerintah dan perusahaan di seluruh Indonesia, meliputi pengadaan IT, infrastruktur, dan pengembangan software.",
         email: email.general,
         address: {
           "@type": "PostalAddress",
@@ -45,12 +47,12 @@ export function organizationJsonLd() {
         hasMap: address.googleMapsUrl,
         areaServed: { "@type": "Country", name: "Indonesia" },
         knowsAbout: [
-          "IT procurement",
+          "Pengadaan barang IT",
           "e-Katalog",
-          "IT infrastructure",
-          "Software development",
-          "Cloud solutions",
-          "Cybersecurity",
+          "Infrastruktur IT",
+          "Pengembangan software",
+          "Solusi cloud",
+          "Keamanan siber",
         ],
       },
       {
@@ -59,7 +61,7 @@ export function organizationJsonLd() {
         url: SITE_URL,
         name: SITE_NAME,
         publisher: { "@id": `${SITE_URL}/#organization` },
-        inLanguage: "en",
+        inLanguage: "id",
       },
     ],
   }

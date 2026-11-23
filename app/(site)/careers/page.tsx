@@ -4,114 +4,113 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Navbar } from "@/components/navbar"
 import { Briefcase, MapPin, Clock, DollarSign, Users, Heart, TrendingUp, Zap, GraduationCap, Coffee, Trophy, Rocket } from "lucide-react"
 import Link from "next/link"
+import { companyInfo } from "@/lib/company-data"
 
 export const metadata = pageMetadata({
-  title: "Careers",
+  title: "Karier",
   description:
-    "Build a career in IT consulting, infrastructure, and software development with PT. Arkana Tunas Persada in Bandung.",
+    "Bangun karier di bidang konsultasi IT, infrastruktur, dan pengembangan software bersama PT. Arkana Tunas Persada di Bandung.",
   path: "/careers",
 })
+
+const careerEmail = companyInfo.contact.email.general
+const applyHref = (position: string) =>
+  `mailto:${careerEmail}?subject=${encodeURIComponent(`Lamaran ${position}`)}`
 
 export default function CareersPage() {
   const jobs = [
     {
       title: "Senior Cloud Architect",
-      department: "Cloud Solutions",
-      location: "Jakarta, Indonesia",
-      type: "Full-time",
-      experience: "7+ years",
-      posted: "2 days ago"
+      department: "Solusi Cloud",
+      location: "Bandung, Indonesia",
+      type: "Penuh waktu",
+      experience: "Minimal 7 tahun"
     },
     {
       title: "Full Stack Developer",
-      department: "Software Development",
-      location: "Jakarta, Indonesia",
-      type: "Full-time",
-      experience: "3+ years",
-      posted: "5 days ago"
+      department: "Pengembangan Software",
+      location: "Bandung, Indonesia",
+      type: "Penuh waktu",
+      experience: "Minimal 3 tahun"
     },
     {
       title: "DevOps Engineer",
-      department: "Infrastructure",
-      location: "Jakarta, Indonesia",
-      type: "Full-time",
-      experience: "4+ years",
-      posted: "1 week ago"
+      department: "Infrastruktur",
+      location: "Bandung, Indonesia",
+      type: "Penuh waktu",
+      experience: "Minimal 4 tahun"
     },
     {
       title: "IT Consultant",
-      department: "Consulting",
-      location: "Jakarta, Indonesia",
-      type: "Full-time",
-      experience: "5+ years",
-      posted: "1 week ago"
+      department: "Konsultasi",
+      location: "Bandung, Indonesia",
+      type: "Penuh waktu",
+      experience: "Minimal 5 tahun"
     },
     {
       title: "Data Engineer",
-      department: "Data & Analytics",
-      location: "Jakarta, Indonesia",
-      type: "Full-time",
-      experience: "3+ years",
-      posted: "2 weeks ago"
+      department: "Data & Analitik",
+      location: "Bandung, Indonesia",
+      type: "Penuh waktu",
+      experience: "Minimal 3 tahun"
     },
     {
       title: "Cybersecurity Specialist",
-      department: "Security",
-      location: "Jakarta, Indonesia",
-      type: "Full-time",
-      experience: "4+ years",
-      posted: "2 weeks ago"
+      department: "Keamanan Siber",
+      location: "Bandung, Indonesia",
+      type: "Penuh waktu",
+      experience: "Minimal 4 tahun"
     }
   ]
 
   const benefits = [
     {
       icon: Heart,
-      title: "Health & Wellness",
-      description: "Comprehensive health insurance for you and your family"
+      title: "Kesehatan & Kesejahteraan",
+      description: "Asuransi kesehatan yang menyeluruh untuk Anda dan keluarga"
     },
     {
       icon: TrendingUp,
-      title: "Career Growth",
-      description: "Clear career paths with regular training and development"
+      title: "Pengembangan Karier",
+      description: "Jenjang karier yang jelas dengan pelatihan dan pengembangan rutin"
     },
     {
       icon: Coffee,
-      title: "Work-Life Balance",
-      description: "Flexible working hours and remote work options"
+      title: "Keseimbangan Kerja",
+      description: "Jam kerja fleksibel dan opsi kerja jarak jauh"
     },
     {
       icon: DollarSign,
-      title: "Competitive Salary",
-      description: "Market-leading compensation and performance bonuses"
+      title: "Gaji Kompetitif",
+      description: "Kompensasi yang bersaing serta bonus berbasis kinerja"
     },
     {
       icon: GraduationCap,
-      title: "Learning & Certifications",
-      description: "Annual budget for AWS, Azure, Google Cloud certifications and courses"
+      title: "Pelatihan & Sertifikasi",
+      description: "Anggaran tahunan untuk sertifikasi dan kursus AWS, Azure, dan Google Cloud"
     },
     {
       icon: Trophy,
-      title: "Recognition",
-      description: "Employee appreciation programs and awards"
+      title: "Apresiasi",
+      description: "Program penghargaan dan apresiasi bagi karyawan"
     }
   ]
 
   const values = [
     {
       icon: Users,
-      title: "Tech-Forward Culture",
-      description: "Work with cutting-edge technologies and modern development practices"
+      title: "Budaya Teknologi",
+      description: "Bekerja dengan teknologi terkini dan praktik pengembangan modern"
     },
     {
       icon: Zap,
-      title: "Innovation Driven",
-      description: "Encouraged to experiment with new technologies and methodologies"
+      title: "Berorientasi Inovasi",
+      description: "Didorong untuk bereksperimen dengan teknologi dan metodologi baru"
     },
     {
       icon: Rocket,
-      title: "Continuous Learning",
-      description: "Access to conferences, certifications, and training programs"
+      title: "Belajar Tanpa Henti",
+      description: "Akses ke konferensi, sertifikasi, dan program pelatihan"
     }
   ]
 
@@ -128,21 +127,21 @@ export default function CareersPage() {
           <div className="max-w-3xl mx-auto text-center space-y-6">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium">
               <Briefcase className="w-4 h-4" />
-              Join Our Team
+              Bergabung Bersama Kami
             </div>
             
             <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-secondary">
-              Build Your Career
-              <span className="block text-primary mt-2">With Arkana</span>
+              Bangun Karier Anda
+              <span className="block text-primary mt-2">Bersama Arkana</span>
             </h1>
             
             <p className="text-xl text-gray-600 leading-relaxed">
-              Join our team of technology experts, innovators, and problem solvers who are 
-              shaping the future of IT consulting in Indonesia.
+              Bergabunglah dengan tim ahli teknologi, inovator, dan pemecah masalah yang turut
+              membentuk masa depan konsultasi IT di Indonesia.
             </p>
 
-            <Button size="lg" className="mt-4">
-              View Open Positions
+            <Button size="lg" className="mt-4" asChild>
+              <a href="#lowongan">Lihat Lowongan</a>
             </Button>
           </div>
         </div>
@@ -153,10 +152,10 @@ export default function CareersPage() {
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <div className="text-center mb-16 space-y-4">
             <h2 className="text-4xl md:text-5xl font-bold text-secondary">
-              Why Work at Arkana?
+              Mengapa Berkarier di Arkana?
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              We believe in creating an environment where talent thrives
+              Kami membangun lingkungan kerja tempat setiap talenta dapat berkembang
             </p>
           </div>
 
@@ -189,10 +188,10 @@ export default function CareersPage() {
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <div className="text-center mb-16 space-y-4">
             <h2 className="text-4xl md:text-5xl font-bold text-secondary">
-              Benefits & Perks
+              Benefit & Fasilitas
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              We take care of our team with comprehensive benefits
+              Kami memperhatikan kesejahteraan tim melalui benefit yang lengkap
             </p>
           </div>
 
@@ -216,14 +215,14 @@ export default function CareersPage() {
       </section>
 
       {/* Open Positions */}
-      <section className="py-24 md:py-32 bg-white">
+      <section id="lowongan" className="scroll-mt-24 py-24 md:py-32 bg-white">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <div className="text-center mb-16 space-y-4">
             <h2 className="text-4xl md:text-5xl font-bold text-secondary">
-              Open Positions
+              Lowongan Tersedia
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Find your next opportunity with us
+              Temukan peluang berikutnya bersama kami
             </p>
           </div>
 
@@ -257,13 +256,10 @@ export default function CareersPage() {
                         <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium">
                           {job.experience}
                         </span>
-                        <span className="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-xs font-medium">
-                          Posted {job.posted}
-                        </span>
                       </div>
                     </div>
-                    <Button className="w-full md:w-auto">
-                      Apply Now
+                    <Button className="w-full md:w-auto" asChild>
+                      <a href={applyHref(job.title)}>Lamar Sekarang</a>
                     </Button>
                   </div>
                 </CardHeader>
@@ -273,10 +269,10 @@ export default function CareersPage() {
 
           <div className="text-center mt-12">
             <p className="text-gray-600 mb-4">
-              Don&apos;t see a position that fits? We&apos;re always looking for talented people.
+              Belum menemukan posisi yang sesuai? Kami selalu terbuka untuk talenta terbaik.
             </p>
-            <Button size="lg" variant="outline">
-              Send Us Your CV
+            <Button size="lg" variant="outline" asChild>
+              <a href={applyHref("Umum")}>Kirim CV Anda</a>
             </Button>
           </div>
         </div>
@@ -288,18 +284,18 @@ export default function CareersPage() {
           <Card className="max-w-4xl mx-auto border-2 border-primary/20 shadow-2xl bg-white">
             <CardHeader className="text-center space-y-4 pb-8">
               <CardTitle className="text-3xl md:text-4xl text-secondary text-secondary">
-                Ready to Join Our Team?
+                Siap Bergabung dengan Tim Kami?
               </CardTitle>
               <CardDescription className="text-lg">
-                Take the first step towards an exciting career with Arkana
+                Ambil langkah pertama menuju karier yang menantang bersama Arkana
               </CardDescription>
             </CardHeader>
             <CardContent className="flex flex-col sm:flex-row gap-4 justify-center pb-8">
-              <Button size="lg">
-                View All Positions
+              <Button size="lg" asChild>
+                <a href="#lowongan">Lihat Semua Lowongan</a>
               </Button>
               <Button size="lg" variant="outline" asChild>
-                <Link href="/about">Learn About Our Culture</Link>
+                <Link href="/about">Kenali Arkana Lebih Dekat</Link>
               </Button>
             </CardContent>
           </Card>

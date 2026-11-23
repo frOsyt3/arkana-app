@@ -13,7 +13,7 @@ import {
   type ProjectCategory,
 } from "@/lib/projects-data"
 
-type Filter = "All" | ProjectCategory
+type Filter = "Semua" | ProjectCategory
 
 function BrowserDots({ size = "sm" }: { size?: "sm" | "md" }) {
   const dot = size === "md" ? "h-2.5 w-2.5" : "h-1.5 w-1.5"
@@ -145,7 +145,7 @@ function CardThumbnail({ project }: { project: Project }) {
           {project.image ? (
             <Image
               src={project.image}
-              alt={`${project.title} preview`}
+              alt={`Tampilan ${project.title}`}
               fill
               sizes="(min-width: 1024px) 320px, 90vw"
               className="object-cover object-left-top"
@@ -195,9 +195,9 @@ function ProjectCard({ project }: { project: Project }) {
 
 function FeaturedProject({ project }: { project: Project }) {
   const meta = [
-    { label: "Sector", value: project.sector },
-    { label: "Year", value: project.year },
-    { label: "Scope", value: project.scope },
+    { label: "Sektor", value: project.sector },
+    { label: "Tahun", value: project.year },
+    { label: "Lingkup", value: project.scope },
   ]
 
   return (
@@ -215,7 +215,7 @@ function FeaturedProject({ project }: { project: Project }) {
           {project.image && (
             <Image
               src={project.image}
-              alt={`${project.title} homepage`}
+              alt={`Halaman utama ${project.title}`}
               fill
               priority
               sizes="(min-width: 1024px) 700px, 100vw"
@@ -227,7 +227,7 @@ function FeaturedProject({ project }: { project: Project }) {
 
       <div>
         <span className="inline-flex rounded-full bg-primary/10 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.12em] text-primary-dark">
-          Featured project
+          Proyek unggulan
         </span>
         <h3 className="mt-4 text-3xl font-bold leading-tight text-secondary md:text-[34px]">
           {project.title}
@@ -261,7 +261,7 @@ function FeaturedProject({ project }: { project: Project }) {
             rel="noopener noreferrer"
             className="group mt-7 inline-flex items-center gap-2 font-bold text-primary-dark"
           >
-            Visit website
+            Kunjungi website
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </a>
         ) : (
@@ -269,7 +269,7 @@ function FeaturedProject({ project }: { project: Project }) {
             href="/contact"
             className="group mt-7 inline-flex items-center gap-2 font-bold text-primary-dark"
           >
-            Discuss a similar project
+            Diskusikan proyek serupa
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>
         )}
@@ -279,10 +279,10 @@ function FeaturedProject({ project }: { project: Project }) {
 }
 
 export function ProjectsShowcase() {
-  const [filter, setFilter] = useState<Filter>("All")
-  const filters: Filter[] = ["All", ...projectCategories.filter((c) => projects.some((p) => p.category === c))]
+  const [filter, setFilter] = useState<Filter>("Semua")
+  const filters: Filter[] = ["Semua", ...projectCategories.filter((c) => projects.some((p) => p.category === c))]
 
-  const inFilter = projects.filter((p) => filter === "All" || p.category === filter)
+  const inFilter = projects.filter((p) => filter === "Semua" || p.category === filter)
   const featured = inFilter.filter((p) => p.featured)
   const gridProjects = inFilter.filter((p) => !p.featured)
 
@@ -294,20 +294,20 @@ export function ProjectsShowcase() {
         {/* Header */}
         <div className="grid gap-6 lg:grid-cols-[640px_1fr] lg:gap-20">
           <div>
-            <p className="text-sm font-bold uppercase tracking-[0.2em] text-primary">Our work</p>
+            <p className="text-sm font-bold uppercase tracking-[0.2em] text-primary">Portofolio</p>
             <h1 className="mt-4 text-4xl font-bold leading-[1.15] tracking-tight text-secondary md:text-[52px]">
-              Selected projects we have delivered
+              Proyek pilihan yang telah kami kerjakan
             </h1>
           </div>
           <p className="text-lg leading-relaxed text-gray-600 lg:pt-11">
-            Websites, web applications, and dashboards built for government and enterprise
-            clients. Every project runs from discovery and design through launch and ongoing
-            support.
+            Website, aplikasi web, dan dashboard untuk klien pemerintah dan perusahaan. Setiap
+            proyek kami tangani mulai dari riset dan desain hingga peluncuran serta dukungan
+            berkelanjutan.
           </p>
         </div>
 
         {/* Filters */}
-        <div className="mt-12 flex flex-wrap gap-2.5" role="group" aria-label="Filter projects">
+        <div className="mt-12 flex flex-wrap gap-2.5" role="group" aria-label="Filter proyek">
           {filters.map((item) => (
             <button
               key={item}
@@ -321,7 +321,7 @@ export function ProjectsShowcase() {
                   : "border-gray-200 bg-white text-secondary hover:border-primary hover:text-primary-dark"
               )}
             >
-              {item === "All" ? "All projects" : item}
+              {item === "Semua" ? "Semua proyek" : item}
             </button>
           ))}
         </div>
@@ -345,7 +345,7 @@ export function ProjectsShowcase() {
         )}
         {inFilter.length === 0 && (
           <p className="mt-10 rounded-[20px] border border-dashed border-gray-200 p-10 text-center text-gray-500">
-            Projects in this category will be published soon.
+            Proyek di kategori ini akan segera ditampilkan.
           </p>
         )}
 
@@ -354,14 +354,14 @@ export function ProjectsShowcase() {
           <div className="pointer-events-none absolute -right-20 -top-32 h-80 w-80 rounded-full bg-primary/[0.12]" />
           <div className="relative flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
             <div>
-              <h2 className="text-2xl font-bold text-white md:text-[28px]">Have a project in mind?</h2>
+              <h2 className="text-2xl font-bold text-white md:text-[28px]">Punya rencana proyek?</h2>
               <p className="mt-2 text-white/70">
-                Tell us what you need and our team will prepare a tailored proposal.
+                Ceritakan kebutuhan Anda, tim kami akan menyiapkan proposal yang sesuai.
               </p>
             </div>
             <Button asChild size="lg" className="h-13 shrink-0 rounded-[10px] px-7 text-base font-bold">
               <Link href="/contact">
-                Schedule a Consultation
+                Jadwalkan Konsultasi
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>

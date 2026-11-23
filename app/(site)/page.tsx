@@ -19,7 +19,7 @@ const companyProfilePdf = "/files/company-profile-pt-arkana-tunas-persada.pdf"
 const procurementPlatforms = [
   {
     name: "e-Katalog",
-    detail: "LKPP electronic catalogue",
+    detail: "Katalog elektronik LKPP",
     logo: "/images/platforms/e-katalog.png",
     width: 512,
     height: 151,
@@ -28,7 +28,7 @@ const procurementPlatforms = [
   },
   {
     name: "INAPROC",
-    detail: "National e-procurement portal",
+    detail: "Portal pengadaan nasional",
     logo: "/images/platforms/inaproc.png",
     width: 252,
     height: 252,
@@ -37,7 +37,7 @@ const procurementPlatforms = [
   },
   {
     name: "LPSE",
-    detail: "Electronic procurement service",
+    detail: "Layanan pengadaan secara elektronik",
     logo: "/images/platforms/lpse.png",
     width: 287,
     height: 117,
@@ -46,7 +46,7 @@ const procurementPlatforms = [
   },
   {
     name: "Digipay",
-    detail: "Kemenkeu government marketplace",
+    detail: "Marketplace pemerintah Kemenkeu",
     logo: "/images/platforms/digipay.png",
     width: 312,
     height: 453,
@@ -56,9 +56,9 @@ const procurementPlatforms = [
 ]
 
 const procurementCommitments = [
-  "Transparent, documented process",
-  "Goods matched to your specifications",
-  "On-time delivery and after-sales support",
+  "Proses transparan dan terdokumentasi",
+  "Barang sesuai spesifikasi yang Anda minta",
+  "Pengiriman tepat waktu dan layanan purna jual",
 ]
 
 // Real client logos. Add new entries here (logos live in public/images/clients).
@@ -79,20 +79,20 @@ const sliderClients = Array.from(
 
 const advantages = [
   {
-    title: "Tailored Solutions",
-    description: "Every client is different. We design IT solutions specifically for your needs so they are on target, effective, and add real value to your business.",
+    title: "Solusi Sesuai Kebutuhan",
+    description: "Setiap klien memiliki kebutuhan yang berbeda. Kami merancang solusi IT khusus untuk Anda agar tepat sasaran, efektif, dan memberi nilai nyata bagi organisasi.",
   },
   {
-    title: "Continuous Innovation",
-    description: "We keep up with technology and apply current methods and tools so every solution stays relevant, efficient, and competitive.",
+    title: "Inovasi Berkelanjutan",
+    description: "Kami terus mengikuti perkembangan teknologi serta menerapkan metode dan perangkat terkini agar setiap solusi tetap relevan, efisien, dan kompetitif.",
   },
   {
-    title: "Product & Service Quality",
-    description: "Structured planning, implementation, and testing ensure every product and service meets high standards of quality and reliability.",
+    title: "Kualitas Produk & Layanan",
+    description: "Perencanaan, implementasi, dan pengujian yang terstruktur memastikan setiap produk dan layanan memenuhi standar kualitas dan keandalan yang tinggi.",
   },
   {
-    title: "Professional Customer Service",
-    description: "Responsive and communicative support, from the first consultation through after-sales assistance.",
+    title: "Layanan Pelanggan Profesional",
+    description: "Dukungan yang responsif dan komunikatif, sejak konsultasi pertama hingga layanan purna jual.",
   },
 ]
 
@@ -131,7 +131,7 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.6 }}
               >
-                IT Solutions &amp; <span className="text-primary">Procurement Partner</span> for Government and Enterprise
+                Mitra Solusi IT &amp; <span className="text-primary">Pengadaan Barang</span> untuk Pemerintah dan Perusahaan
               </motion.h1>
 
               <motion.p
@@ -140,8 +140,8 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.6 }}
               >
-                Consulting, software development, IT infrastructure, and registered procurement. We support you from
-                planning and implementation through after-sales service, for public and private sectors across Indonesia.
+                Konsultasi, pengembangan software, infrastruktur IT, dan pengadaan barang melalui platform resmi. Kami
+                mendampingi Anda sejak perencanaan dan implementasi hingga layanan purna jual, untuk sektor pemerintah maupun swasta di seluruh Indonesia.
               </motion.p>
 
               <motion.div
@@ -152,7 +152,7 @@ export default function Home() {
               >
                 <Button size="lg" className="group" asChild>
                   <Link href="/contact">
-                    Schedule a Consultation
+                    Jadwalkan Konsultasi
                     <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </Button>
@@ -164,7 +164,7 @@ export default function Home() {
                 >
                   <a href={companyProfilePdf} download>
                     <Download className="mr-2 h-5 w-5" />
-                    Download Company Profile
+                    Unduh Company Profile
                   </a>
                 </Button>
               </motion.div>
@@ -177,7 +177,7 @@ export default function Home() {
                 transition={{ delay: 0.7, duration: 0.6 }}
               >
                 <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-gray-500">
-                  Registered on
+                  Terdaftar di
                 </p>
                 <div className="flex flex-wrap items-center gap-x-8 gap-y-4">
                   {procurementPlatforms.map((platform) => (
@@ -208,7 +208,7 @@ export default function Home() {
                 <div className="relative aspect-square overflow-hidden rounded-3xl shadow-2xl shadow-secondary/20 ring-1 ring-black/5">
                   <Image
                     src="/images/hero-team.jpg"
-                    alt="Arkana team working on IT infrastructure and software projects"
+                    alt="Tim Arkana mengerjakan proyek infrastruktur IT dan software"
                     fill
                     priority
                     sizes="(min-width: 1024px) 45vw, 100vw"
@@ -224,8 +224,8 @@ export default function Home() {
                       <MapPin className="h-5 w-5 text-primary" />
                     </div>
                     <div>
-                      <p className="text-sm font-semibold text-secondary">Based in Bandung, Indonesia</p>
-                      <p className="text-xs text-gray-500">Serving clients nationwide</p>
+                      <p className="text-sm font-semibold text-secondary">Berbasis di Bandung, Indonesia</p>
+                      <p className="text-xs text-gray-500">Melayani klien di seluruh Indonesia</p>
                     </div>
                   </div>
                 </div>
@@ -236,11 +236,11 @@ export default function Home() {
       </section>
 
       {/* Trusted Clients Strip */}
-      <section aria-label="Trusted by" className="border-y border-slate-100 bg-white py-10">
+      <section aria-label="Dipercaya oleh" className="border-y border-slate-100 bg-white py-10">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <div className="flex flex-col items-center gap-6 md:flex-row md:gap-10">
             <p className="shrink-0 text-center text-xs font-semibold uppercase tracking-[0.2em] text-gray-500 md:w-48 md:text-left">
-              Trusted by
+              Dipercaya oleh
             </p>
             <InfiniteSlider
               gap={72}
@@ -269,10 +269,10 @@ export default function Home() {
           <FadeInWhenVisible>
             <div className="text-center mb-16 space-y-4">
               <h2 className="text-4xl md:text-5xl font-bold text-secondary">
-                Why Choose Arkana?
+                Mengapa Memilih Arkana?
               </h2>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                We combine expertise, innovation, and dedication to deliver exceptional results.
+                Kami memadukan keahlian, inovasi, dan dedikasi untuk menghadirkan hasil terbaik.
               </p>
             </div>
           </FadeInWhenVisible>
@@ -284,21 +284,21 @@ export default function Home() {
                   <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg shadow-primary/20">
                     <Building2 className="h-7 w-7 text-white" />
                   </div>
-                  <CardTitle className="text-2xl text-secondary">Technology Expertise</CardTitle>
+                  <CardTitle className="text-2xl text-secondary">Keahlian Teknologi</CardTitle>
                   <CardDescription className="text-base leading-relaxed">
-                    Deep technical knowledge across cloud platforms, enterprise systems,
-                    and modern development frameworks.
+                    Pemahaman teknis yang mendalam di platform cloud, sistem enterprise,
+                    dan framework pengembangan modern.
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-3">
                     <li className="flex items-start gap-2 text-sm">
                       <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span>Certified cloud & enterprise architects</span>
+                      <span>Tim berpengalaman di cloud dan sistem enterprise</span>
                     </li>
                     <li className="flex items-start gap-2 text-sm">
                       <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span>Agile development methodologies</span>
+                      <span>Metodologi pengembangan agile</span>
                     </li>
                   </ul>
                 </CardContent>
@@ -311,21 +311,21 @@ export default function Home() {
                   <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg shadow-primary/20">
                     <Lightbulb className="h-7 w-7 text-white" />
                   </div>
-                  <CardTitle className="text-2xl text-secondary">Digital Innovation</CardTitle>
+                  <CardTitle className="text-2xl text-secondary">Inovasi Digital</CardTitle>
                   <CardDescription className="text-base leading-relaxed">
-                    Transforming businesses through AI, cloud computing, and
-                    cutting-edge digital solutions.
+                    Membantu organisasi bertransformasi melalui AI, cloud computing,
+                    dan solusi digital terkini.
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-3">
                     <li className="flex items-start gap-2 text-sm">
                       <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span>AI & Machine Learning integration</span>
+                      <span>Integrasi AI & Machine Learning</span>
                     </li>
                     <li className="flex items-start gap-2 text-sm">
                       <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span>Cloud-native architecture design</span>
+                      <span>Perancangan arsitektur cloud native</span>
                     </li>
                   </ul>
                 </CardContent>
@@ -338,21 +338,21 @@ export default function Home() {
                   <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg shadow-primary/20">
                     <Users className="h-7 w-7 text-white" />
                   </div>
-                  <CardTitle className="text-2xl text-secondary">Strategic Partnership</CardTitle>
+                  <CardTitle className="text-2xl text-secondary">Kemitraan Strategis</CardTitle>
                   <CardDescription className="text-base leading-relaxed">
-                    Working alongside your team to understand business goals and
-                    deliver measurable technology outcomes.
+                    Bekerja berdampingan dengan tim Anda untuk memahami tujuan organisasi
+                    dan menghadirkan hasil teknologi yang terukur.
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-3">
                     <li className="flex items-start gap-2 text-sm">
                       <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span>Business-aligned IT strategy</span>
+                      <span>Strategi IT yang selaras dengan tujuan bisnis</span>
                     </li>
                     <li className="flex items-start gap-2 text-sm">
                       <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span>Ongoing technical advisory</span>
+                      <span>Pendampingan teknis berkelanjutan</span>
                     </li>
                   </ul>
                 </CardContent>
@@ -368,10 +368,10 @@ export default function Home() {
           <FadeInWhenVisible>
             <div className="text-center mb-16 space-y-4">
               <h2 className="text-4xl md:text-5xl font-bold text-secondary">
-                Our Services
+                Layanan Kami
               </h2>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                End-to-end IT solutions, from consulting to implementation, tailored to your business needs.
+                Solusi IT menyeluruh, dari konsultasi hingga implementasi, sesuai kebutuhan organisasi Anda.
               </p>
             </div>
           </FadeInWhenVisible>
@@ -422,15 +422,15 @@ export default function Home() {
             <FadeInWhenVisible>
               <div className="space-y-7">
                 <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
-                  Procurement Credentials
+                  Kredensial Pengadaan
                 </p>
                 <h2 className="text-4xl font-bold leading-tight text-secondary md:text-5xl">
-                  Registered on Indonesia&apos;s official procurement platforms
+                  Terdaftar di platform pengadaan resmi Indonesia
                 </h2>
                 <p className="text-lg leading-relaxed text-gray-600">
-                  We supply software, licences, IT equipment, electronics, and supporting goods through certified
-                  government and commercial channels, with a process that is transparent, specification-compliant,
-                  and on time.
+                  Kami menyediakan software, lisensi, perangkat IT, elektronik, dan barang penunjang melalui kanal
+                  pengadaan pemerintah dan komersial yang resmi, dengan proses yang transparan, sesuai spesifikasi,
+                  dan tepat waktu.
                 </p>
                 <ul className="space-y-3 pt-1">
                   {procurementCommitments.map((item) => (
@@ -445,7 +445,7 @@ export default function Home() {
                 <div className="pt-2">
                   <Button size="lg" asChild className="group">
                     <Link href="/contact">
-                      Request a Quotation
+                      Minta Penawaran Harga
                       <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
                     </Link>
                   </Button>
@@ -461,13 +461,13 @@ export default function Home() {
                     <div className="group relative flex h-full flex-col rounded-2xl border border-slate-200/80 bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/10 sm:p-6">
                       <span className="absolute right-4 top-4 inline-flex items-center gap-1 rounded-full bg-primary/10 px-2.5 py-1 text-[11px] font-semibold text-primary">
                         <BadgeCheck className="h-3.5 w-3.5" />
-                        Registered
+                        Terdaftar
                       </span>
 
                       <div className="flex h-32 items-center justify-center pt-6 sm:pt-4">
                         <Image
                           src={platform.logo}
-                          alt={`${platform.name} logo`}
+                          alt={`Logo ${platform.name}`}
                           width={platform.width}
                           height={platform.height}
                           className={`${platform.logoClass} w-auto max-w-[85%] object-contain transition-transform duration-300 group-hover:scale-105`}
@@ -492,12 +492,12 @@ export default function Home() {
           <div className="grid gap-16 lg:grid-cols-[1fr_1.4fr] lg:gap-24">
             <FadeInWhenVisible>
               <div className="space-y-6 lg:sticky lg:top-32">
-                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">Our Advantages</p>
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">Keunggulan Kami</p>
                 <h2 className="text-4xl md:text-5xl font-bold leading-tight">
-                  Why clients work with Arkana
+                  Alasan klien memilih Arkana
                 </h2>
                 <p className="text-lg leading-relaxed text-white/70">
-                  From the first consultation to after-sales support, we focus on solutions that fit, last, and deliver measurable value.
+                  Sejak konsultasi pertama hingga layanan purna jual, kami fokus pada solusi yang tepat guna, tahan lama, dan memberi nilai yang terukur.
                 </p>
               </div>
             </FadeInWhenVisible>
@@ -533,20 +533,22 @@ export default function Home() {
                 <ArrowRight className="w-8 h-8 text-white" />
               </div>
               <CardTitle className="text-3xl md:text-4xl text-secondary text-secondary">
-                Ready to Work Together?
+                Siap Bekerja Sama?
               </CardTitle>
               <CardDescription className="text-lg max-w-2xl mx-auto">
-                Let&apos;s discuss how we can help bring your vision to life.
-                Our team is ready to collaborate on your next project.
+                Mari diskusikan bagaimana kami dapat membantu mewujudkan rencana Anda.
+                Tim kami siap mendukung proyek Anda berikutnya.
               </CardDescription>
             </CardHeader>
             <CardContent className="flex flex-col sm:flex-row gap-4 justify-center pb-8">
-              <Button size="lg" className="text-base">
-                Start a Conversation
-                <ArrowRight className="ml-2 h-5 w-5" />
+              <Button size="lg" className="text-base" asChild>
+                <Link href="/contact">
+                  Mulai Diskusi
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
               </Button>
               <Button size="lg" variant="outline" asChild className="text-base">
-                <Link href="/projects">View Our Work</Link>
+                <Link href="/projects">Lihat Portofolio</Link>
               </Button>
             </CardContent>
           </Card>

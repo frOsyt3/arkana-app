@@ -2,14 +2,14 @@ import { pageMetadata } from "@/lib/seo"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Navbar } from "@/components/navbar"
-import { Target, Users, Award, TrendingUp, Globe, Heart, Shield, Zap, Linkedin, Calendar } from "lucide-react"
+import { Target, Award, TrendingUp, Globe, Heart, Shield, Zap, Calendar, MapPin } from "lucide-react"
 import Link from "next/link"
 import { companyInfo } from "@/lib/company-data"
 
 export const metadata = pageMetadata({
-  title: "About Us",
+  title: "Tentang Kami",
   description:
-    "Meet PT. Arkana Tunas Persada, an IT solutions and procurement company in Bandung serving government agencies and enterprises across Indonesia.",
+    "Kenali PT. Arkana Tunas Persada, perusahaan solusi IT dan pengadaan barang di Bandung yang melayani instansi pemerintah dan perusahaan di seluruh Indonesia.",
   path: "/about",
 })
 
@@ -26,16 +26,16 @@ export default function AboutPage() {
           <div className="max-w-3xl mx-auto text-center space-y-6">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium">
               <Award className="w-4 h-4" />
-              Our Story
+              Tentang Kami
             </div>
 
             <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-secondary">
-              About Arkana
+              Tentang Arkana
             </h1>
 
             <p className="text-xl text-gray-600 leading-relaxed">
-              PT. Arkana Tunas Persada is a leading IT consulting firm specializing in
-              digital transformation, cloud solutions, and enterprise technology strategy.
+              PT. Arkana Tunas Persada adalah perusahaan konsultan dan solusi IT yang berfokus pada transformasi
+              digital, cloud, infrastruktur, serta pengadaan barang IT untuk instansi pemerintah dan perusahaan.
             </p>
           </div>
         </div>
@@ -50,13 +50,11 @@ export default function AboutPage() {
                 <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center shadow-lg shadow-primary/20">
                   <Target className="h-7 w-7 text-white" />
                 </div>
-                <CardTitle className="text-3xl text-secondary">Our Mission</CardTitle>
+                <CardTitle className="text-3xl text-secondary">Misi Kami</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-lg text-gray-600 leading-relaxed">
-                  To empower businesses through cutting-edge technology solutions and strategic
-                  IT consulting. We transform complex technical challenges into competitive advantages,
-                  enabling our clients to innovate, scale, and succeed in the digital era.
+                  {companyInfo.mission}
                 </p>
               </CardContent>
             </Card>
@@ -66,13 +64,11 @@ export default function AboutPage() {
                 <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-secondary to-secondary/80 flex items-center justify-center shadow-lg shadow-secondary/20">
                   <Globe className="h-7 w-7 text-white" />
                 </div>
-                <CardTitle className="text-3xl text-secondary">Our Vision</CardTitle>
+                <CardTitle className="text-3xl text-secondary">Visi Kami</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-lg text-gray-600 leading-relaxed">
-                  To be Indonesia&apos;s most trusted IT consulting partner, renowned for delivering
-                  transformative technology solutions that drive business growth. We envision a future
-                  where every organization harnesses the full potential of digital innovation.
+                  {companyInfo.vision}
                 </p>
               </CardContent>
             </Card>
@@ -85,10 +81,10 @@ export default function AboutPage() {
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <div className="text-center mb-16 space-y-4">
             <h2 className="text-4xl md:text-5xl font-bold text-secondary">
-              Our Core Values
+              Nilai Utama Kami
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              The principles that guide everything we do at Arkana
+              Prinsip yang menjadi pegangan kami dalam setiap pekerjaan
             </p>
           </div>
 
@@ -98,11 +94,11 @@ export default function AboutPage() {
                 <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center mx-auto group-hover:scale-110 transition-transform shadow-lg shadow-primary/20">
                   <Award className="h-7 w-7 text-white" />
                 </div>
-                <CardTitle className="text-xl text-secondary">Technical Excellence</CardTitle>
+                <CardTitle className="text-xl text-secondary">Keunggulan Teknis</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
-                  Mastering the latest technologies to deliver superior solutions
+                  Menguasai teknologi terkini untuk menghadirkan solusi terbaik
                 </p>
               </CardContent>
             </Card>
@@ -112,11 +108,11 @@ export default function AboutPage() {
                 <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center mx-auto group-hover:scale-110 transition-transform shadow-lg shadow-primary/20">
                   <Zap className="h-7 w-7 text-white" />
                 </div>
-                <CardTitle className="text-xl text-secondary">Digital Innovation</CardTitle>
+                <CardTitle className="text-xl text-secondary">Inovasi Digital</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
-                  Pioneering next-generation technology solutions and strategies
+                  Merintis solusi dan strategi teknologi generasi berikutnya
                 </p>
               </CardContent>
             </Card>
@@ -126,11 +122,11 @@ export default function AboutPage() {
                 <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center mx-auto group-hover:scale-110 transition-transform shadow-lg shadow-primary/20">
                   <Shield className="h-7 w-7 text-white" />
                 </div>
-                <CardTitle className="text-xl text-secondary">Integrity</CardTitle>
+                <CardTitle className="text-xl text-secondary">Integritas</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
-                  Upholding transparency and ethical practices always
+                  Menjunjung transparansi dan etika dalam setiap tindakan
                 </p>
               </CardContent>
             </Card>
@@ -140,11 +136,11 @@ export default function AboutPage() {
                 <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center mx-auto group-hover:scale-110 transition-transform shadow-lg shadow-primary/20">
                   <Heart className="h-7 w-7 text-white" />
                 </div>
-                <CardTitle className="text-xl text-secondary">Client Partnership</CardTitle>
+                <CardTitle className="text-xl text-secondary">Kemitraan dengan Klien</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600">
-                  Co-creating solutions that align with business objectives
+                  Merancang solusi bersama yang selaras dengan tujuan organisasi
                 </p>
               </CardContent>
             </Card>
@@ -157,10 +153,10 @@ export default function AboutPage() {
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <div className="text-center mb-16 space-y-4">
             <h2 className="text-4xl md:text-5xl font-bold text-secondary">
-              Our Impact
+              Arkana dalam Angka
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Numbers that reflect our commitment and growth
+              Gambaran singkat perjalanan kami sejauh ini
             </p>
           </div>
 
@@ -169,32 +165,32 @@ export default function AboutPage() {
               <div className="mb-4">
                 <TrendingUp className="w-12 h-12 text-primary mx-auto" />
               </div>
-              <div className="text-5xl font-bold text-secondary mb-2">100+</div>
-              <div className="text-lg text-gray-600">Projects Delivered</div>
+              <div className="text-5xl font-bold text-secondary mb-2">5+</div>
+              <div className="text-lg text-gray-600">Website Selesai</div>
             </Card>
 
             <Card className="border-2 border-primary/20 bg-gradient-to-br from-primary/5 to-white text-center p-8 hover:shadow-xl transition-shadow">
               <div className="mb-4">
-                <Users className="w-12 h-12 text-primary mx-auto" />
+                <Shield className="w-12 h-12 text-primary mx-auto" />
               </div>
-              <div className="text-5xl font-bold text-secondary mb-2">50+</div>
-              <div className="text-lg text-gray-600">Happy Clients</div>
+              <div className="text-5xl font-bold text-secondary mb-2">4</div>
+              <div className="text-lg text-gray-600">Platform Pengadaan Resmi</div>
             </Card>
 
             <Card className="border-2 border-primary/20 bg-gradient-to-br from-primary/5 to-white text-center p-8 hover:shadow-xl transition-shadow">
               <div className="mb-4">
-                <Award className="w-12 h-12 text-primary mx-auto" />
+                <Calendar className="w-12 h-12 text-primary mx-auto" />
               </div>
-              <div className="text-5xl font-bold text-secondary mb-2">15+</div>
-              <div className="text-lg text-gray-600">Years Experience</div>
+              <div className="text-5xl font-bold text-secondary mb-2">2026</div>
+              <div className="text-lg text-gray-600">Tahun Berdiri</div>
             </Card>
 
             <Card className="border-2 border-primary/20 bg-gradient-to-br from-primary/5 to-white text-center p-8 hover:shadow-xl transition-shadow">
               <div className="mb-4">
-                <Globe className="w-12 h-12 text-primary mx-auto" />
+                <MapPin className="w-12 h-12 text-primary mx-auto" />
               </div>
-              <div className="text-5xl font-bold text-secondary mb-2">20+</div>
-              <div className="text-lg text-gray-600">Technology Partners</div>
+              <div className="text-5xl font-bold text-secondary mb-2">Bandung</div>
+              <div className="text-lg text-gray-600">Kantor Pusat</div>
             </Card>
           </div>
         </div>
@@ -205,10 +201,10 @@ export default function AboutPage() {
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <div className="text-center mb-16 space-y-4">
             <h2 className="text-4xl md:text-5xl font-bold text-secondary">
-              Our Journey
+              Perjalanan Kami
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              A timeline of milestones and achievements that shaped Arkana
+              Langkah awal yang membentuk Arkana
             </p>
           </div>
 
@@ -253,101 +249,24 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Leadership Team */}
-      <section className="py-24 md:py-32 bg-white">
-        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
-          <div className="text-center mb-20 space-y-3">
-            <p className="text-sm font-semibold tracking-widest text-primary uppercase">The People</p>
-            <h2 className="text-4xl md:text-5xl font-bold text-secondary">
-              Our Team
-            </h2>
-            <div className="w-12 h-px bg-primary mx-auto mt-2" />
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-12">
-            {companyInfo.team.map((member, index) => (
-              <div
-                key={index}
-                className="group flex flex-col items-center text-center space-y-5 transition-all duration-300"
-              >
-                {/* Circular Avatar */}
-                <div className="relative w-28 h-28 rounded-full bg-gradient-to-br from-primary/15 to-secondary/15 flex items-center justify-center ring-1 ring-primary/10 group-hover:ring-primary/40 transition-all duration-300 group-hover:shadow-lg group-hover:shadow-primary/10">
-                  <Users className="w-12 h-12 text-primary/40" />
-                  {/* LinkedIn on hover */}
-                  <a
-                    href={member.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="absolute inset-0 rounded-full bg-primary/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  >
-                    <Linkedin className="w-6 h-6 text-white" />
-                  </a>
-                </div>
-
-                {/* Info */}
-                <div className="space-y-1">
-                  <h3 className="text-lg font-semibold text-secondary tracking-tight">{member.name}</h3>
-                  <p className="text-sm font-medium text-primary">{member.role}</p>
-                </div>
-
-                {/* Divider */}
-                <div className="w-8 h-px bg-primary/20 group-hover:w-16 group-hover:bg-primary/50 transition-all duration-300" />
-
-                {/* Bio */}
-                <p className="text-sm text-gray-500 leading-relaxed">{member.bio}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Certifications & Awards */}
-      <section className="py-24 md:py-32 bg-white">
-        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
-          <div className="text-center mb-16 space-y-4">
-            <h2 className="text-4xl md:text-5xl font-bold text-secondary">
-              Certifications & Partnerships
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Industry recognition and strategic technology partnerships
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {companyInfo.certifications.map((cert, index) => (
-              <Card
-                key={index}
-                className="border-2 border-border hover:border-primary/50 transition-all hover:shadow-xl bg-white text-center p-8"
-              >
-                <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center">
-                  <Award className="w-10 h-10 text-primary" />
-                </div>
-                <h3 className="text-xl font-bold text-secondary mb-2">{cert.name}</h3>
-                <p className="text-primary font-medium">{cert.level}</p>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
       <section className="py-24 md:py-32 bg-gradient-to-b from-muted/30 to-white">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
           <Card className="max-w-4xl mx-auto border-2 border-primary/20 shadow-2xl bg-white">
             <CardHeader className="text-center space-y-4 pb-8">
               <CardTitle className="text-3xl md:text-4xl text-secondary">
-                Join Us on Our Journey
+                Tumbuh Bersama Kami
               </CardTitle>
               <CardDescription className="text-lg">
-                Discover how Arkana can help bring your vision to life
+                Temukan bagaimana Arkana dapat membantu mewujudkan rencana Anda
               </CardDescription>
             </CardHeader>
             <CardContent className="flex flex-col sm:flex-row gap-4 justify-center pb-8">
               <Button size="lg" asChild>
-                <Link href="/contact">Contact Us</Link>
+                <Link href="/contact">Hubungi Kami</Link>
               </Button>
               <Button size="lg" variant="outline" asChild>
-                <Link href="/projects">View Our Projects</Link>
+                <Link href="/projects">Lihat Proyek Kami</Link>
               </Button>
             </CardContent>
           </Card>

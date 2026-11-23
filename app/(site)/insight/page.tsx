@@ -7,9 +7,9 @@ import { InsightCard, InsightCover, formatArticleDate } from "@/components/insig
 import { listPublishedArticles } from "@/lib/articles"
 
 export const metadata = pageMetadata({
-  title: "Insights",
+  title: "Insight & Artikel",
   description:
-    "Practical articles on IT procurement, cloud, security, and infrastructure for companies and government agencies in Indonesia.",
+    "Artikel praktis seputar pengadaan IT, e-Katalog, cloud, keamanan, dan infrastruktur untuk instansi pemerintah dan perusahaan di Indonesia.",
   path: "/insight",
 })
 
@@ -29,11 +29,11 @@ export default async function InsightPage({ searchParams }: { searchParams: Prom
           <div className="mx-auto max-w-3xl space-y-6 text-center">
             <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary">
               <BookOpen className="h-4 w-4" />
-              Knowledge Hub
+              Pusat Pengetahuan
             </div>
-            <h1 className="text-5xl font-bold tracking-tight text-secondary md:text-6xl">Insights & Articles</h1>
+            <h1 className="text-5xl font-bold tracking-tight text-secondary md:text-6xl">Insight & Artikel</h1>
             <p className="text-xl leading-relaxed text-gray-600">
-              Practical notes from our team on IT procurement, cloud, security, and infrastructure.
+              Catatan praktis dari tim kami seputar pengadaan IT, cloud, keamanan, dan infrastruktur.
             </p>
           </div>
         </div>
@@ -45,14 +45,14 @@ export default async function InsightPage({ searchParams }: { searchParams: Prom
             <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10">
               <BookOpen className="h-6 w-6 text-primary-dark" />
             </div>
-            <h2 className="mt-5 text-2xl font-bold text-secondary">Our first articles are on the way</h2>
+            <h2 className="mt-5 text-2xl font-bold text-secondary">Artikel pertama kami segera hadir</h2>
             <p className="mt-3 leading-relaxed text-gray-600">
-              We are writing guides on e-Katalog procurement, cloud migration, and office IT. In the meantime, our team is happy
-              to answer your questions directly.
+              Kami sedang menyiapkan panduan seputar pengadaan melalui e-Katalog, migrasi cloud, dan IT perkantoran. Sementara
+              itu, tim kami siap menjawab pertanyaan Anda secara langsung.
             </p>
             <Button asChild className="mt-7">
               <Link href="/contact">
-                Talk to our team <ArrowRight className="ml-2 h-4 w-4" />
+                Hubungi Tim Kami <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
           </div>
@@ -69,10 +69,10 @@ export default async function InsightPage({ searchParams }: { searchParams: Prom
                   <InsightCover src={featured.coverUrl} className="aspect-[1200/630] lg:aspect-auto lg:min-h-[360px]" />
                   <div className="flex flex-col justify-center gap-5 p-8 lg:p-12">
                     <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600">
-                      <span className="rounded-full bg-primary/10 px-3 py-1 font-semibold text-primary-dark">Latest</span>
+                      <span className="rounded-full bg-primary/10 px-3 py-1 font-semibold text-primary-dark">Terbaru</span>
                       <span>{featured.category}</span>
                       <span className="flex items-center gap-1.5">
-                        <Clock className="h-4 w-4" /> {featured.readingMinutes} min read
+                        <Clock className="h-4 w-4" /> {featured.readingMinutes} menit baca
                       </span>
                     </div>
                     <h2 className="text-3xl font-bold leading-tight text-secondary transition group-hover:text-primary-dark md:text-4xl">
@@ -80,7 +80,7 @@ export default async function InsightPage({ searchParams }: { searchParams: Prom
                     </h2>
                     <p className="text-lg leading-relaxed text-gray-600">{featured.excerpt}</p>
                     <span className="flex items-center gap-2 font-semibold text-primary-dark">
-                      Read the article
+                      Baca artikel
                       <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
                     </span>
                     <span className="text-sm text-gray-500">{formatArticleDate(featured.publishedAt)}</span>
@@ -99,7 +99,7 @@ export default async function InsightPage({ searchParams }: { searchParams: Prom
                     !category ? "border-secondary bg-secondary text-white" : "border-border text-gray-600 hover:border-primary"
                   }`}
                 >
-                  All <span className="ml-1 opacity-70">{total}</span>
+                  Semua <span className="ml-1 opacity-70">{total}</span>
                 </Link>
                 {categories.map((c) => (
                   <Link
@@ -123,7 +123,7 @@ export default async function InsightPage({ searchParams }: { searchParams: Prom
                   {rest.map((a) => a && <InsightCard key={a.id} article={a} />)}
                 </div>
               ) : (
-                category && <p className="py-12 text-center text-gray-600">No articles in this category yet.</p>
+                category && <p className="py-12 text-center text-gray-600">Belum ada artikel di kategori ini.</p>
               )}
             </div>
           </section>
@@ -132,13 +132,13 @@ export default async function InsightPage({ searchParams }: { searchParams: Prom
 
       <section className="bg-secondary py-20">
         <div className="mx-auto flex max-w-5xl flex-col items-center gap-6 px-6 text-center">
-          <h2 className="text-3xl font-bold text-white md:text-4xl">Planning an IT purchase or project?</h2>
+          <h2 className="text-3xl font-bold text-white md:text-4xl">Merencanakan pengadaan atau proyek IT?</h2>
           <p className="max-w-2xl text-lg text-white/75">
-            Tell us what you need. We reply within one working day with options that fit your budget and procurement process.
+            Ceritakan kebutuhan Anda. Kami akan membalas dalam satu hari kerja dengan pilihan yang sesuai dengan anggaran dan proses pengadaan Anda.
           </p>
           <Button asChild size="lg" className="bg-primary hover:bg-primary-dark">
             <Link href="/contact">
-              Contact our team <ArrowRight className="ml-2 h-4 w-4" />
+              Hubungi Tim Kami <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>
         </div>

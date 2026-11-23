@@ -5,11 +5,11 @@ import { motion, useScroll, useMotionValueEvent } from "framer-motion"
 import PillNav from "./pill-nav"
 
 const navItems = [
-  { label: "About", href: "/about" },
-  { label: "Projects", href: "/projects" },
+  { label: "Tentang", href: "/about" },
+  { label: "Proyek", href: "/projects" },
   { label: "Insight", href: "/insight" },
-  { label: "Careers", href: "/careers" },
-  { label: "Contact", href: "/contact" },
+  { label: "Karier", href: "/careers" },
+  { label: "Kontak", href: "/contact" },
 ]
 
 export function Navbar() {

@@ -15,12 +15,12 @@ const geistMono = Geist_Mono({
 });
 
 const description =
-  "IT solutions and registered procurement partner in Bandung for government and enterprise across Indonesia. IT procurement through e-Katalog, infrastructure, and software development.";
+  "Mitra solusi IT dan pengadaan barang IT di Bandung untuk instansi pemerintah dan perusahaan di seluruh Indonesia. Terdaftar di e-Katalog, INAPROC, LPSE, dan Digipay.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "PT. Arkana Tunas Persada | IT Solutions & Procurement Partner",
+    default: "PT. Arkana Tunas Persada | Solusi IT & Pengadaan Barang IT",
     template: "%s | Arkana Tunas Persada",
   },
   description,
@@ -29,9 +29,9 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: SITE_NAME,
-    locale: "en_US",
+    locale: "id_ID",
     url: "/",
-    title: "PT. Arkana Tunas Persada | IT Solutions & Procurement Partner",
+    title: "PT. Arkana Tunas Persada | Solusi IT & Pengadaan Barang IT",
     description,
   },
   twitter: { card: "summary_large_image" },
@@ -48,7 +48,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="id">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {children}
         {gaId && (
