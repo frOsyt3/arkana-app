@@ -27,8 +27,6 @@ export interface Project {
   url?: string
   thumbnail?: ProjectThumbnail
   featured?: boolean
-  /** Example content from the mockup. Replace with a real project before launch. */
-  isExample?: boolean
 }
 
 export const projects: Project[] = [
@@ -47,42 +45,18 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    slug: "government-procurement-dashboard",
-    title: "Government Procurement Dashboard",
-    category: "Dashboard",
-    description:
-      "Real time monitoring of tenders, budgets, and vendor performance for a regional agency.",
-    sector: "Government",
-    year: "2025",
-    scope: "Design, development",
-    tech: ["Laravel", "Vue", "PostgreSQL"],
-    thumbnail: "dashboard",
-    isExample: true,
-  },
-  {
-    slug: "public-service-information-portal",
-    title: "Public Service Information Portal",
-    category: "Government Portal",
-    description:
-      "A citizen facing portal for announcements, service requests, and open data publication.",
-    sector: "Government",
-    year: "2025",
-    scope: "Design, development, launch",
-    tech: ["Next.js", "Node.js", "MySQL"],
-    thumbnail: "portal",
-    isExample: true,
-  },
-  {
-    slug: "inventory-asset-management-system",
-    title: "Inventory and Asset Management System",
+    slug: "qira-store",
+    title: "Qira Store",
     category: "Web Application",
     description:
-      "Tracks IT assets across offices, with procurement records, maintenance schedules, and reports.",
-    sector: "Enterprise",
-    year: "2024",
-    scope: "Development, maintenance",
-    tech: ["React", "Laravel", "MySQL"],
-    thumbnail: "table",
-    isExample: true,
+      "A used phone trade in app with instant price estimates, seller accounts, and an admin dashboard for the catalog, pricing rules, and submissions.",
+    sector: "Retail, consumer electronics",
+    year: "2026",
+    scope: "UX design, full stack development, launch",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Supabase", "Vercel"],
+    image: "/images/projects/qira-store.png",
+    domain: "qira-store.vercel.app",
+    url: "https://qira-store.vercel.app",
+    featured: true,
   },
 ]

@@ -148,7 +148,7 @@ function CardThumbnail({ project }: { project: Project }) {
               alt={`${project.title} preview`}
               fill
               sizes="(min-width: 1024px) 320px, 90vw"
-              className="object-cover object-top"
+              className="object-cover object-left-top"
             />
           ) : (
             Preview && <Preview />
@@ -280,13 +280,11 @@ function FeaturedProject({ project }: { project: Project }) {
 
 export function ProjectsShowcase() {
   const [filter, setFilter] = useState<Filter>("All")
-  const filters: Filter[] = ["All", ...projectCategories]
+  const filters: Filter[] = ["All", ...projectCategories.filter((c) => projects.some((p) => p.category === c))]
 
-  const featured = projects.find((p) => p.featured)
-  const showFeatured = filter === "All" && featured
-  const gridProjects = projects.filter((p) =>
-    filter === "All" ? p !== featured : p.category === filter
-  )
+  const inFilter = projects.filter((p) => filter === "All" || p.category === filter)
+  const featured = inFilter.filter((p) => p.featured)
+  const gridProjects = inFilter.filter((p) => !p.featured)
 
   return (
     <section className="relative overflow-hidden bg-white pb-24 pt-32 md:pb-32 md:pt-40">
@@ -329,20 +327,23 @@ export function ProjectsShowcase() {
         </div>
 
         {/* Featured */}
-        {showFeatured && (
-          <div className="mt-10">
-            <FeaturedProject project={featured} />
+        {featured.length > 0 && (
+          <div className="mt-10 space-y-10">
+            {featured.map((project) => (
+              <FeaturedProject key={project.slug} project={project} />
+            ))}
           </div>
         )}
 
         {/* Grid */}
-        {gridProjects.length > 0 ? (
+        {gridProjects.length > 0 && (
           <div className="mt-10 grid gap-9 md:grid-cols-2 lg:grid-cols-3">
             {gridProjects.map((project) => (
               <ProjectCard key={project.slug} project={project} />
             ))}
           </div>
-        ) : (
+        )}
+        {inFilter.length === 0 && (
           <p className="mt-10 rounded-[20px] border border-dashed border-gray-200 p-10 text-center text-gray-500">
             Projects in this category will be published soon.
           </p>
