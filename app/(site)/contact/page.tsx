@@ -173,7 +173,7 @@ export default function ContactPage() {
           <Card className="border-2 border-border shadow-xl overflow-hidden bg-white">
             <iframe
               title="Lokasi kantor PT. Arkana Tunas Persada"
-              src={`https://www.google.com/maps?q=${encodeURIComponent(companyInfo.contact.address.fullAddress)}&output=embed`}
+              src={`https://www.google.com/maps?q=${companyInfo.contact.address.coordinates.latitude},${companyInfo.contact.address.coordinates.longitude}&z=17&output=embed`}
               className="block aspect-video w-full border-0"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

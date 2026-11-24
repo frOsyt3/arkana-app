@@ -23,7 +23,8 @@ export const companyInfo = {
       postalCode: "40164",
       country: "Indonesia",
       fullAddress: "Jl. Sarijadi Blok 24 No 155, Kota Bandung 40164, Indonesia",
-      googleMapsUrl: "https://maps.app.goo.gl/3S7XNXvHYNNC2JXn6"
+      googleMapsUrl: "https://maps.app.goo.gl/t3b4k29LJe5QXETcA",
+      coordinates: { latitude: -6.8859405, longitude: 107.5752994 }
     },
     businessHours: {
       weekdays: "Senin sampai Jumat: 09.00 sampai 18.00 WIB",
