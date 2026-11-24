@@ -45,6 +45,11 @@ export function organizationJsonLd() {
           addressCountry: "ID",
         },
         hasMap: address.googleMapsUrl,
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: address.coordinates.latitude,
+          longitude: address.coordinates.longitude,
+        },
         areaServed: { "@type": "Country", name: "Indonesia" },
         knowsAbout: [
           "Pengadaan barang IT",
