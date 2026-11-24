@@ -59,4 +59,19 @@ export const projects: Project[] = [
     url: "https://qira-store.vercel.app",
     featured: true,
   },
+  {
+    slug: "martensite-workwear",
+    title: "Martensite Workwear",
+    category: "Website Perusahaan",
+    description:
+      "Website company profile untuk workshop produksi celana yang melayani brand lokal dengan minimum order 24 pcs, menampilkan layanan, arsip produk, klien, dan jalur kontak untuk pemesanan.",
+    sector: "Fashion, produksi garmen",
+    year: "2026",
+    scope: "Desain, pengembangan, peluncuran",
+    tech: ["Next.js", "Tailwind CSS", "Vercel"],
+    image: "/images/projects/martensite-workwear.png",
+    domain: "martensiteworkwear.com",
+    url: "https://martensiteworkwear.com",
+    featured: true,
+  },
 ]
