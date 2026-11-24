@@ -2,6 +2,7 @@ import { Footer } from "@/components/footer";
 import { PageTransitionLayout } from "@/components/page-transition-layout";
 import { ScrollToTop } from "@/components/scroll-to-top";
 import { AttributionTracker } from "@/components/attribution-tracker";
+import { WhatsAppButton } from "@/components/whatsapp-button";
 import { organizationJsonLd } from "@/lib/seo";
 
 export default function SiteLayout({ children }: { children: React.ReactNode }) {
@@ -13,6 +14,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
       />
       <AttributionTracker />
       <ScrollToTop />
+      <WhatsAppButton />
       <PageTransitionLayout>{children}</PageTransitionLayout>
       <Footer />
     </>

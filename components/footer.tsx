@@ -2,7 +2,8 @@
 
 import Link from "next/link"
 import { Mail, Phone, MapPin, Linkedin, Instagram } from "lucide-react"
-import { companyInfo } from "@/lib/company-data"
+import { companyInfo, whatsappUrl } from "@/lib/company-data"
+import { WhatsAppIcon } from "@/components/whatsapp-icon"
 import { FadeInWhenVisible } from "@/components/animations"
 
 export function Footer() {
@@ -118,6 +119,20 @@ export function Footer() {
                     </div>
                   </li>
                 )}
+                <li>
+                  <a
+                    href={whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-start gap-3 group"
+                  >
+                    <WhatsAppIcon className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <div className="text-sm text-gray-300 group-hover:text-white transition-colors">
+                      <div className="font-medium text-white mb-1">WhatsApp</div>
+                      {companyInfo.contact.phone.whatsapp}
+                    </div>
+                  </a>
+                </li>
                 <li className="flex items-start gap-3">
                   <Mail className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                   <div className="text-sm text-gray-300">
