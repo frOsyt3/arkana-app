@@ -187,3 +187,8 @@ export const getFullAddress = () => {
 export const getSocialMediaLinks = () => {
   return companyInfo.socialMedia
 }
+
+/** Opens a WhatsApp chat with the sales number, with a greeting already typed. */
+export const whatsappUrl = `https://wa.me/${companyInfo.contact.phone.whatsapp.replace(/\D/g, "")}?text=${encodeURIComponent(
+  "Halo Arkana, saya ingin bertanya tentang layanan Anda."
+)}`

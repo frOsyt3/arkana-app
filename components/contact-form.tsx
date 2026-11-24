@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { submitLead, type ContactFormState } from "@/app/(site)/contact/actions"
 import { readAttribution, type StoredAttribution } from "@/components/attribution-tracker"
+import { trackEvent } from "@/lib/analytics"
 
 const inputClass =
   "w-full px-4 py-3 rounded-lg border-2 border-border hover:border-primary/50 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300 text-gray-900 placeholder:text-gray-500 bg-white"
@@ -46,6 +47,11 @@ export function ContactForm() {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setAttribution(readAttribution())
   }, [])
+
+  useEffect(() => {
+    // GA4 recommended event for a submitted enquiry; mark it as a key event in GA to count conversions.
+    if (state.status === "success") trackEvent("generate_lead", { form: "contact" })
+  }, [state.status])
 
   if (state.status === "success") {
     return (

@@ -2,9 +2,10 @@ import { pageMetadata } from "@/lib/seo"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Navbar } from "@/components/navbar"
-import { Mail, Phone, MapPin, Clock, MessageSquare } from "lucide-react"
+import { Mail, MapPin, Clock, MessageSquare } from "lucide-react"
 import Link from "next/link"
-import { companyInfo } from "@/lib/company-data"
+import { companyInfo, whatsappUrl } from "@/lib/company-data"
+import { WhatsAppIcon } from "@/components/whatsapp-icon"
 import { ContactForm } from "@/components/contact-form"
 
 export const metadata = pageMetadata({
@@ -78,28 +79,26 @@ export default function ContactPage() {
                   </Card>
                 </a>
 
-                {companyInfo.contact.showPhone && (
-                  <a 
-                    href={`https://wa.me/${companyInfo.contact.phone.main.replace(/\D/g, '')}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block group"
-                  >
-                    <Card className="border-2 border-border group-hover:border-primary/50 group-hover:shadow-md transition-all bg-white cursor-pointer h-full">
-                      <CardHeader className="flex-row items-start gap-4 space-y-0">
-                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                          <Phone className="h-6 w-6 text-white" />
-                        </div>
-                        <div className="space-y-1">
-                          <CardTitle className="text-lg text-secondary group-hover:text-primary transition-colors">Telepon (WhatsApp)</CardTitle>
-                          <CardDescription className="text-base group-hover:text-gray-900 transition-colors">
-                            {companyInfo.contact.phone.main}
-                          </CardDescription>
-                        </div>
-                      </CardHeader>
-                    </Card>
-                  </a>
-                )}
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block group"
+                >
+                  <Card className="border-2 border-border group-hover:border-primary/50 group-hover:shadow-md transition-all bg-white cursor-pointer h-full">
+                    <CardHeader className="flex-row items-start gap-4 space-y-0">
+                      <div className="w-12 h-12 rounded-xl bg-[#25D366] flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                        <WhatsAppIcon className="h-6 w-6 text-white" />
+                      </div>
+                      <div className="space-y-1">
+                        <CardTitle className="text-lg text-secondary group-hover:text-primary transition-colors">WhatsApp</CardTitle>
+                        <CardDescription className="text-base group-hover:text-gray-900 transition-colors">
+                          {companyInfo.contact.phone.whatsapp}
+                        </CardDescription>
+                      </div>
+                    </CardHeader>
+                  </Card>
+                </a>
 
                 <a 
                   href={companyInfo.contact.address.googleMapsUrl}
