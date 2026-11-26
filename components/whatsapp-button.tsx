@@ -1,11 +1,10 @@
-import { whatsappUrl } from "@/lib/company-data"
 import { WhatsAppIcon } from "@/components/whatsapp-icon"
 
 /** Floating WhatsApp chat button shown on every public page. */
-export function WhatsAppButton() {
+export function WhatsAppButton({ href }: { href: string }) {
   return (
     <a
-      href={whatsappUrl}
+      href={href}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat dengan kami di WhatsApp"

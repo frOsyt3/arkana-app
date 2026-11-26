@@ -1,3 +1,4 @@
+import { requireArea } from "@/lib/admin/access"
 import Link from "next/link"
 import { Suspense } from "react"
 import { ArrowUpRight, FileText, Plus } from "lucide-react"
@@ -45,6 +46,7 @@ function Stat({ label, value, note }: { label: string; value: string | number; n
 }
 
 export default async function InsightsAdminPage({ searchParams }: { searchParams: Promise<Search> }) {
+  await requireArea("content")
   const sp = await searchParams
   const tab = (TABS.some((t) => t.key === sp.tab) ? sp.tab : "all") as ArticleTab
   const page = Math.max(1, Number.parseInt(sp.page ?? "1", 10) || 1)

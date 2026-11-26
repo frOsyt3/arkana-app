@@ -1,5 +1,6 @@
 import { isDatabaseConfigured } from "@/lib/db"
 import { requireUser } from "@/lib/auth"
+import { canAccess } from "@/lib/admin/roles"
 import { countNewLeads } from "@/lib/admin/queries"
 import { AdminSidebar, MobileNav } from "@/components/admin/sidebar"
 import { SetupNotice } from "@/components/admin/setup-notice"
@@ -8,13 +9,13 @@ export default async function PanelLayout({ children }: { children: React.ReactN
   if (!isDatabaseConfigured()) return <SetupNotice />
 
   const user = await requireUser()
-  const newLeads = await countNewLeads()
+  const newLeads = canAccess(user.role, "leads") ? await countNewLeads() : 0
 
   return (
     <div className="flex min-h-screen">
       <AdminSidebar user={user} newLeads={newLeads} />
       <div className="min-w-0 flex-1">
-        <MobileNav />
+        <MobileNav role={user.role} />
         {children}
       </div>
     </div>

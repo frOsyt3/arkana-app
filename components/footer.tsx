@@ -2,12 +2,14 @@
 
 import Link from "next/link"
 import { Mail, Phone, MapPin, Linkedin, Instagram } from "lucide-react"
-import { companyInfo, whatsappUrl } from "@/lib/company-data"
+import { companyInfo } from "@/lib/company-data"
+import { useContact, waLink } from "@/components/site-settings-provider"
 import { WhatsAppIcon } from "@/components/whatsapp-icon"
 import { FadeInWhenVisible } from "@/components/animations"
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
+  const contact = useContact()
 
   return (
     <footer className="bg-secondary text-white">
@@ -27,8 +29,9 @@ export function Footer() {
               
               {/* Social Media */}
               <div className="flex gap-3 pt-4">
+                {contact.linkedin && (
                 <a 
-                  href={companyInfo.socialMedia.linkedin}
+                  href={contact.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-lg bg-white/10 hover:bg-primary flex items-center justify-center transition-all duration-300 hover:scale-110 hover:rotate-6 hover:shadow-lg"
@@ -36,8 +39,10 @@ export function Footer() {
                 >
                   <Linkedin className="w-5 h-5" />
                 </a>
+                )}
+                {contact.instagram && (
                 <a 
-                  href={companyInfo.socialMedia.instagram}
+                  href={contact.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-lg bg-white/10 hover:bg-primary flex items-center justify-center transition-all duration-300 hover:scale-110 hover:rotate-6 hover:shadow-lg"
@@ -45,6 +50,7 @@ export function Footer() {
                 >
                   <Instagram className="w-5 h-5" />
                 </a>
+                )}
               </div>
             </div>
           </FadeInWhenVisible>
@@ -107,21 +113,21 @@ export function Footer() {
                   <MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                   <div className="text-sm text-gray-300">
                     <div className="font-medium text-white mb-1">Alamat</div>
-                    {companyInfo.contact.address.fullAddress}
+                    {contact.address}
                   </div>
                 </li>
-                {companyInfo.contact.showPhone && (
+                {contact.showPhone && (
                   <li className="flex items-start gap-3">
                     <Phone className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                     <div className="text-sm text-gray-300">
                       <div className="font-medium text-white mb-1">Telepon</div>
-                      {companyInfo.contact.phone.main}
+                      {contact.phone}
                     </div>
                   </li>
                 )}
                 <li>
                   <a
-                    href={whatsappUrl}
+                    href={waLink(contact.whatsapp)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-start gap-3 group"
@@ -129,7 +135,7 @@ export function Footer() {
                     <WhatsAppIcon className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                     <div className="text-sm text-gray-300 group-hover:text-white transition-colors">
                       <div className="font-medium text-white mb-1">WhatsApp</div>
-                      {companyInfo.contact.phone.whatsapp}
+                      {contact.whatsapp}
                     </div>
                   </a>
                 </li>
@@ -137,7 +143,7 @@ export function Footer() {
                   <Mail className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                   <div className="text-sm text-gray-300">
                     <div className="font-medium text-white mb-1">Email</div>
-                    {companyInfo.contact.email.general}
+                    {contact.email}
                   </div>
                 </li>
               </ul>

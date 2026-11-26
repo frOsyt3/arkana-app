@@ -6,14 +6,9 @@ import Link from "next/link"
 import { ArrowRight, ArrowUpRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
-import {
-  projectCategories,
-  projects,
-  type Project,
-  type ProjectCategory,
-} from "@/lib/projects-data"
+import { projectCategories, type Project } from "@/lib/projects-data"
 
-type Filter = "Semua" | ProjectCategory
+type Filter = string
 
 function BrowserDots({ size = "sm" }: { size?: "sm" | "md" }) {
   const dot = size === "md" ? "h-2.5 w-2.5" : "h-1.5 w-1.5"
@@ -134,7 +129,8 @@ const previews = {
 }
 
 function CardThumbnail({ project }: { project: Project }) {
-  const Preview = project.thumbnail ? previews[project.thumbnail] : null
+  // Without a screenshot, fall back to a drawn preview so the frame is never empty.
+  const Preview = previews[project.thumbnail ?? "portal"]
   return (
     <div className="relative h-[220px] overflow-hidden bg-[#EAF4F5]">
       <div className="absolute inset-x-7 top-7 h-[230px] overflow-hidden rounded-[10px] bg-white shadow-[0_12px_28px_rgba(61,90,108,0.15)] transition-transform duration-500 group-hover:-translate-y-1.5">
@@ -151,7 +147,7 @@ function CardThumbnail({ project }: { project: Project }) {
               className="object-cover object-left-top"
             />
           ) : (
-            Preview && <Preview />
+            <Preview />
           )}
         </div>
       </div>
@@ -278,9 +274,11 @@ function FeaturedProject({ project }: { project: Project }) {
   )
 }
 
-export function ProjectsShowcase() {
+export function ProjectsShowcase({ projects }: { projects: Project[] }) {
   const [filter, setFilter] = useState<Filter>("Semua")
-  const filters: Filter[] = ["Semua", ...projectCategories.filter((c) => projects.some((p) => p.category === c))]
+  const used = Array.from(new Set(projects.map((p) => p.category)))
+  const known: string[] = projectCategories.filter((c) => used.includes(c))
+  const filters: Filter[] = ["Semua", ...known, ...used.filter((c) => !known.includes(c))]
 
   const inFilter = projects.filter((p) => filter === "Semua" || p.category === filter)
   const featured = inFilter.filter((p) => p.featured)

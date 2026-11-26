@@ -4,7 +4,8 @@ import { revalidatePath } from "next/cache"
 import { redirect } from "next/navigation"
 import { eq } from "drizzle-orm"
 import { z } from "zod"
-import { createSession, destroySession, requireUser, verifyPassword } from "@/lib/auth"
+import { createSession, destroySession, verifyPassword } from "@/lib/auth"
+import { assertArea } from "@/lib/admin/access"
 import { getDb, schema } from "@/lib/db"
 import { isLeadStatus } from "@/lib/admin/queries"
 import { STATUS_META } from "@/lib/admin/format"
@@ -48,7 +49,7 @@ function leadIdFrom(formData: FormData) {
 }
 
 export async function updateLeadStatus(formData: FormData) {
-  const user = await requireUser()
+  const user = await assertArea("leads")
   const leadId = leadIdFrom(formData)
   const status = formData.get("status")
   if (!leadId || !isLeadStatus(status)) return
@@ -73,7 +74,7 @@ export async function updateLeadStatus(formData: FormData) {
 }
 
 export async function updateLeadOwner(formData: FormData) {
-  const user = await requireUser()
+  const user = await assertArea("leads")
   const leadId = leadIdFrom(formData)
   const ownerRaw = String(formData.get("ownerId") ?? "")
   const ownerId = /^[0-9a-f-]{36}$/i.test(ownerRaw) ? ownerRaw : null
@@ -102,7 +103,7 @@ export async function updateLeadOwner(formData: FormData) {
 }
 
 export async function addLeadNote(formData: FormData) {
-  const user = await requireUser()
+  const user = await assertArea("leads")
   const leadId = leadIdFrom(formData)
   const note = String(formData.get("note") ?? "").trim().slice(0, 2000)
   if (!leadId || !note) return

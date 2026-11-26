@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Navbar } from "@/components/navbar"
 import { CheckCircle2 } from "lucide-react"
 import { ProjectsShowcase } from "@/components/projects-showcase"
+import { getPublicProjects } from "@/lib/projects"
 
 export const metadata = pageMetadata({
   title: "Portofolio Proyek",
@@ -11,12 +12,13 @@ export const metadata = pageMetadata({
   path: "/projects",
 })
 
-export default function ProjectsPage() {
+export default async function ProjectsPage() {
+  const projects = await getPublicProjects()
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
 
-      <ProjectsShowcase />
+      <ProjectsShowcase projects={projects} />
 
       {/* Process Section */}
       <section className="py-24 md:py-32 bg-white">

@@ -15,6 +15,13 @@
       "when": 1795176039554,
       "tag": "0001_insights",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1795693335328,
+      "tag": "0002_admin_modules",
+      "breakpoints": true
     }
   ]
 }

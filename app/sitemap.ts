@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next"
 import { sitemapArticles } from "@/lib/articles"
+import { getOpenJobs } from "@/lib/careers"
 
 export const revalidate = 3600
 
@@ -21,5 +22,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   } catch (error) {
     console.error("Sitemap could not load articles", error)
   }
-  return [...pages, ...articles]
+  const jobs = (await getOpenJobs()).map((j) => ({
+    url: `${site}/careers/${j.slug}`,
+    lastModified: j.updatedAt,
+    changeFrequency: "weekly" as const,
+    priority: 0.6,
+  }))
+  return [...pages, ...articles, ...jobs]
 }

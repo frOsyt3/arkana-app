@@ -1,3 +1,4 @@
+import { requireArea } from "@/lib/admin/access"
 import { notFound } from "next/navigation"
 import { articleCategories, getArticleForEdit } from "@/lib/articles"
 import { listTeam } from "@/lib/admin/queries"
@@ -7,6 +8,7 @@ import { ArticleEditor } from "@/components/admin/article-editor"
 export const metadata = { title: "Edit article" }
 
 export default async function EditArticlePage({ params }: { params: Promise<{ id: string }> }) {
+  await requireArea("content")
   const { id } = await params
   const [article, team, categories] = await Promise.all([getArticleForEdit(id), listTeam(), articleCategories()])
   if (!article) notFound()
