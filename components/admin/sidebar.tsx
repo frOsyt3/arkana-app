@@ -5,13 +5,15 @@ import { usePathname } from "next/navigation"
 import { LogOut } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { adminModules, moduleGroups } from "@/lib/admin/modules"
+import { canAccess } from "@/lib/admin/roles"
+import type { UserRole } from "@/lib/db/schema"
 import { logout } from "@/app/admin/actions"
 
 export function AdminSidebar({
   user,
   newLeads,
 }: {
-  user: { name: string; email: string }
+  user: { name: string; email: string; role: UserRole }
   newLeads: number
 }) {
   const pathname = usePathname()
@@ -38,7 +40,7 @@ export function AdminSidebar({
           <div key={group} className="mt-4 first:mt-1">
             <p className="px-3 pb-1.5 text-[11px] font-bold uppercase tracking-[0.1em] text-[#A3B1BA]">{group}</p>
             {adminModules
-              .filter((m) => m.group === group)
+              .filter((m) => m.group === group && canAccess(user.role, m.area))
               .map((m) => {
                 const active = m.href === "/admin" ? pathname === "/admin" : pathname.startsWith(m.href)
                 const Icon = m.icon
@@ -99,12 +101,12 @@ export function AdminSidebar({
   )
 }
 
-export function MobileNav() {
+export function MobileNav({ role }: { role: UserRole }) {
   const pathname = usePathname()
   return (
     <nav className="flex gap-1 overflow-x-auto border-b border-[#E7ECEF] bg-white px-4 py-2 lg:hidden">
       {adminModules
-        .filter((m) => m.ready)
+        .filter((m) => m.ready && canAccess(role, m.area))
         .map((m) => {
           const active = m.href === "/admin" ? pathname === "/admin" : pathname.startsWith(m.href)
           return (

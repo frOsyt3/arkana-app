@@ -40,6 +40,18 @@ const leadSchema = z.object({
   landingPage: optional(300),
 })
 
+/** Reads the optional consultation request. Times typed by visitors are Jakarta time. */
+function meetingRequest(formData: FormData): { at: Date; mode: string } | { error: string } | null {
+  if (formData.get("wantsMeeting") !== "on") return null
+  const value = String(formData.get("preferredAt") ?? "")
+  const at = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/.test(value) ? new Date(`${value}:00+07:00`) : null
+  if (!at || Number.isNaN(at.getTime())) return { error: "Mohon pilih tanggal dan jam konsultasi" }
+  if (at.getTime() < Date.now() + 60 * 60 * 1000) return { error: "Pilih waktu paling cepat satu jam dari sekarang" }
+  if (at.getTime() > Date.now() + 120 * 24 * 60 * 60 * 1000) return { error: "Pilih waktu dalam empat bulan ke depan" }
+  const mode = String(formData.get("meetingMode") ?? "online")
+  return { at, mode: ["online", "office", "phone"].includes(mode) ? mode : "online" }
+}
+
 export async function submitLead(_prev: ContactFormState, formData: FormData): Promise<ContactFormState> {
   // Honeypot: real visitors never see or fill this field.
   if (String(formData.get("website") ?? "").length > 0) {
@@ -47,12 +59,14 @@ export async function submitLead(_prev: ContactFormState, formData: FormData): P
   }
 
   const parsed = leadSchema.safeParse(Object.fromEntries(formData))
-  if (!parsed.success) {
+  const meeting = meetingRequest(formData)
+  if (!parsed.success || (meeting && "error" in meeting)) {
     const fieldErrors: Record<string, string> = {}
-    for (const issue of parsed.error.issues) {
+    for (const issue of parsed.error?.issues ?? []) {
       const key = String(issue.path[0])
       fieldErrors[key] ??= issue.message
     }
+    if (meeting && "error" in meeting) fieldErrors.preferredAt = meeting.error
     return { status: "error", message: "Mohon periksa kembali kolom yang ditandai.", fieldErrors }
   }
 
@@ -95,8 +109,23 @@ export async function submitLead(_prev: ContactFormState, formData: FormData): P
     await db.insert(schema.leadActivities).values({
       leadId: lead.id,
       type: "created",
-      body: "Contact form submitted",
+      body: meeting ? "Contact form submitted with a consultation request" : "Contact form submitted",
     })
+
+    if (meeting && !("error" in meeting)) {
+      await db.insert(schema.consultations).values({
+        leadId: lead.id,
+        name: `${data.firstName} ${data.lastName}`,
+        email: data.email,
+        phone: data.phone ?? null,
+        company: data.company ?? null,
+        topic: data.subject,
+        scheduledAt: meeting.at,
+        mode: meeting.mode,
+        notes: data.message,
+        status: "requested",
+      })
+    }
 
     await notifyNewLead(lead)
     return { status: "success" }

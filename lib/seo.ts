@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { companyInfo } from "@/lib/company-data"
+import type { ContactSettings } from "@/lib/site-settings"
 
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://arkanacorp.id"
 export const SITE_NAME = "PT. Arkana Tunas Persada"
@@ -18,8 +19,8 @@ export function pageMetadata({ title, description, path }: { title: string; desc
 }
 
 /** Organization and WebSite structured data, rendered once on every public page. */
-export function organizationJsonLd() {
-  const { address, email } = companyInfo.contact
+export function organizationJsonLd(contact: ContactSettings) {
+  const { address } = companyInfo.contact
   return {
     "@context": "https://schema.org",
     "@graph": [
@@ -35,7 +36,7 @@ export function organizationJsonLd() {
         image: `${SITE_URL}/opengraph-image`,
         description:
           "Mitra solusi IT dan pengadaan barang untuk instansi pemerintah dan perusahaan di seluruh Indonesia, meliputi pengadaan IT, infrastruktur, dan pengembangan software.",
-        email: email.general,
+        email: contact.email,
         address: {
           "@type": "PostalAddress",
           streetAddress: address.street,
@@ -44,11 +45,11 @@ export function organizationJsonLd() {
           postalCode: address.postalCode,
           addressCountry: "ID",
         },
-        hasMap: address.googleMapsUrl,
+        hasMap: contact.mapsUrl,
         geo: {
           "@type": "GeoCoordinates",
-          latitude: address.coordinates.latitude,
-          longitude: address.coordinates.longitude,
+          latitude: contact.latitude,
+          longitude: contact.longitude,
         },
         areaServed: { "@type": "Country", name: "Indonesia" },
         knowsAbout: [

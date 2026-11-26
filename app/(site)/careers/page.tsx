@@ -2,9 +2,9 @@ import { pageMetadata } from "@/lib/seo"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Navbar } from "@/components/navbar"
-import { Briefcase, Clock, DollarSign, Users, Heart, TrendingUp, Zap, GraduationCap, Coffee, Trophy, Rocket } from "lucide-react"
+import { ArrowRight, Briefcase, Clock, DollarSign, MapPin, Users, Heart, TrendingUp, Zap, GraduationCap, Coffee, Trophy, Rocket } from "lucide-react"
 import Link from "next/link"
-import { companyInfo } from "@/lib/company-data"
+import { getOpenJobs } from "@/lib/careers"
 
 export const metadata = pageMetadata({
   title: "Karier",
@@ -13,11 +13,9 @@ export const metadata = pageMetadata({
   path: "/careers",
 })
 
-const careerEmail = companyInfo.contact.email.general
-const applyHref = (position: string) =>
-  `mailto:${careerEmail}?subject=${encodeURIComponent(`Lamaran ${position}`)}`
+export default async function CareersPage() {
+  const jobs = await getOpenJobs()
 
-export default function CareersPage() {
   const benefits = [
     {
       icon: Heart,
@@ -172,27 +170,61 @@ export default function CareersPage() {
       {/* Open Positions */}
       <section id="lowongan" className="scroll-mt-24 py-24 md:py-32 bg-white">
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
-          <Card className="mx-auto max-w-3xl border-2 border-primary/20 bg-gradient-to-br from-primary/5 to-white text-center shadow-xl">
-            <CardHeader className="items-center space-y-5 px-8 pb-4 pt-12">
-              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-primary/80 shadow-lg shadow-primary/20">
-                <Briefcase className="h-8 w-8 text-white" />
+          {jobs.length > 0 ? (
+            <>
+              <div className="mb-12 space-y-4 text-center">
+                <h2 className="text-4xl font-bold text-secondary md:text-5xl">Posisi yang Sedang Dibuka</h2>
+                <p className="mx-auto max-w-2xl text-lg text-gray-600">Pilih posisi yang sesuai lalu kirim lamaran Anda langsung dari halaman ini</p>
               </div>
-              <span className="mx-auto inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-sm font-semibold text-primary">
-                <Clock className="h-4 w-4" />
-                Segera Dibuka
-              </span>
-              <CardTitle className="text-3xl text-secondary md:text-4xl">Lowongan akan segera kami buka</CardTitle>
-              <CardDescription className="mx-auto max-w-xl text-lg leading-relaxed">
-                Saat ini kami belum membuka posisi baru. Anda tetap dapat mengirimkan CV sekarang, dan kami
-                akan menghubungi Anda ketika ada posisi yang sesuai.
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="pb-12">
-              <Button size="lg" asChild>
-                <a href={applyHref("Umum")}>Kirim CV Anda</a>
-              </Button>
-            </CardContent>
-          </Card>
+              <div className="mx-auto grid max-w-5xl gap-5">
+                {jobs.map((job) => (
+                  <Link
+                    key={job.id}
+                    href={`/careers/${job.slug}`}
+                    className="group flex flex-col gap-4 rounded-2xl border-2 border-border bg-white p-6 transition-all hover:border-primary/50 hover:shadow-lg md:flex-row md:items-center md:justify-between"
+                  >
+                    <div>
+                      {job.department && <p className="text-xs font-bold uppercase tracking-[0.12em] text-primary">{job.department}</p>}
+                      <h3 className="mt-1 text-xl font-bold text-secondary">{job.title}</h3>
+                      <p className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-gray-600">
+                        <span className="inline-flex items-center gap-1.5"><MapPin className="h-4 w-4" />{job.location}</span>
+                        <span className="inline-flex items-center gap-1.5"><Clock className="h-4 w-4" />{job.employmentType}, {job.workMode}</span>
+                      </p>
+                    </div>
+                    <span className="inline-flex items-center gap-2 font-bold text-primary">
+                      Lihat dan lamar <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </span>
+                  </Link>
+                ))}
+              </div>
+              <p className="mt-8 text-center text-gray-600">
+                Tidak menemukan posisi yang cocok?{" "}
+                <Link href="/careers/kirim-cv" className="font-bold text-primary hover:underline">Kirim CV Anda</Link>
+              </p>
+            </>
+          ) : (
+        <Card className="mx-auto max-w-3xl border-2 border-primary/20 bg-gradient-to-br from-primary/5 to-white text-center shadow-xl">
+              <CardHeader className="items-center space-y-5 px-8 pb-4 pt-12">
+                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-primary/80 shadow-lg shadow-primary/20">
+                  <Briefcase className="h-8 w-8 text-white" />
+                </div>
+                <span className="mx-auto inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-sm font-semibold text-primary">
+                  <Clock className="h-4 w-4" />
+                  Segera Dibuka
+                </span>
+                <CardTitle className="text-3xl text-secondary md:text-4xl">Lowongan akan segera kami buka</CardTitle>
+                <CardDescription className="mx-auto max-w-xl text-lg leading-relaxed">
+                  Saat ini kami belum membuka posisi baru. Anda tetap dapat mengirimkan CV sekarang, dan kami
+                  akan menghubungi Anda ketika ada posisi yang sesuai.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="pb-12">
+                <Button size="lg" asChild>
+                  <Link href="/careers/kirim-cv">Kirim CV Anda</Link>
+                </Button>
+              </CardContent>
+            </Card>
+          )}
         </div>
       </section>
 
@@ -210,7 +242,7 @@ export default function CareersPage() {
             </CardHeader>
             <CardContent className="flex flex-col sm:flex-row gap-4 justify-center pb-8">
               <Button size="lg" asChild>
-                <a href={applyHref("Umum")}>Kirim CV Anda</a>
+                <Link href="/careers/kirim-cv">Kirim CV Anda</Link>
               </Button>
               <Button size="lg" variant="outline" asChild>
                 <Link href="/about">Kenali Arkana Lebih Dekat</Link>

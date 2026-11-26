@@ -1,4 +1,4 @@
-import { requireUser } from "@/lib/auth"
+import { requireArea } from "@/lib/admin/access"
 import { exportLeads } from "@/lib/admin/queries"
 
 export const dynamic = "force-dynamic"
@@ -12,7 +12,7 @@ function cell(value: unknown) {
 }
 
 export async function GET() {
-  await requireUser()
+  await requireArea("leads")
   const rows = await exportLeads()
   const headers = [
     "Received",

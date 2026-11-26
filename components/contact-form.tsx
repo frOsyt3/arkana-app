@@ -41,6 +41,7 @@ function Field({
 export function ContactForm() {
   const [state, formAction, pending] = useActionState(submitLead, initialState)
   const [attribution, setAttribution] = useState<StoredAttribution | null>(null)
+  const [wantsMeeting, setWantsMeeting] = useState(false)
 
   useEffect(() => {
     // localStorage is only readable after mount.
@@ -114,6 +115,36 @@ export function ContactForm() {
           required
         />
       </Field>
+
+      <div className="rounded-lg border-2 border-border p-4">
+        <label className="flex cursor-pointer items-start gap-3">
+          <input
+            type="checkbox"
+            name="wantsMeeting"
+            checked={wantsMeeting}
+            onChange={(e) => setWantsMeeting(e.target.checked)}
+            className="mt-1 h-4 w-4 cursor-pointer accent-primary"
+          />
+          <span>
+            <span className="block text-sm font-medium text-secondary">Saya ingin menjadwalkan konsultasi</span>
+            <span className="block text-sm text-gray-500">Pilih waktu yang Anda inginkan, tim kami akan mengonfirmasi jadwalnya.</span>
+          </span>
+        </label>
+        {wantsMeeting && (
+          <div className="mt-4 grid gap-4 sm:grid-cols-2">
+            <Field label="Waktu yang diinginkan (WIB)" name="preferredAt" error={err.preferredAt} required>
+              <input id="preferredAt" name="preferredAt" type="datetime-local" className={cn(inputClass, err.preferredAt && "border-red-400")} />
+            </Field>
+            <Field label="Cara bertemu" name="meetingMode">
+              <select id="meetingMode" name="meetingMode" defaultValue="online" className={inputClass}>
+                <option value="online">Online (Google Meet atau Zoom)</option>
+                <option value="office">Di kantor Arkana, Bandung</option>
+                <option value="phone">Telepon atau WhatsApp</option>
+              </select>
+            </Field>
+          </div>
+        )}
+      </div>
 
       {/* Honeypot for bots, hidden from people and screen readers. */}
       <div aria-hidden="true" className="absolute -left-[9999px] h-0 w-0 overflow-hidden">

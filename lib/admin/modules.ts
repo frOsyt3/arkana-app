@@ -11,6 +11,7 @@ import {
   Users,
   type LucideIcon,
 } from "lucide-react"
+import type { Area } from "@/lib/admin/roles"
 
 export interface AdminModule {
   slug: string
@@ -19,19 +20,22 @@ export interface AdminModule {
   icon: LucideIcon
   group: "Main" | "Content" | "Growth" | "System"
   ready: boolean
+  /** Who can open it. Null means every signed in member. */
+  area: Area | null
   summary: string
 }
 
 export const adminModules: AdminModule[] = [
-  { slug: "", href: "/admin", label: "Overview", icon: LayoutDashboard, group: "Main", ready: true, summary: "" },
-  { slug: "leads", href: "/admin/leads", label: "Leads", icon: Inbox, group: "Main", ready: true, summary: "" },
+  { slug: "", href: "/admin", label: "Overview", icon: LayoutDashboard, group: "Main", ready: true, area: null, summary: "" },
+  { slug: "leads", href: "/admin/leads", label: "Leads", icon: Inbox, group: "Main", ready: true, area: "leads", summary: "" },
   {
     slug: "consultations",
     href: "/admin/consultations",
     label: "Consultations",
     icon: CalendarDays,
     group: "Main",
-    ready: false,
+    ready: true,
+    area: "consultations",
     summary: "Requests from Schedule a Consultation in a calendar view, with confirm, reschedule, and done states.",
   },
   {
@@ -41,6 +45,7 @@ export const adminModules: AdminModule[] = [
     icon: FileText,
     group: "Content",
     ready: true,
+    area: "content",
     summary: "Write articles with a rich text editor, cover image, category, and SEO fields, then publish or schedule them.",
   },
   {
@@ -49,7 +54,8 @@ export const adminModules: AdminModule[] = [
     label: "Projects",
     icon: BriefcaseBusiness,
     group: "Content",
-    ready: false,
+    ready: true,
+    area: "content",
     summary: "Add portfolio entries with screenshots, category, featured toggle, and display order without touching code.",
   },
   {
@@ -58,7 +64,8 @@ export const adminModules: AdminModule[] = [
     label: "Careers",
     icon: Users,
     group: "Content",
-    ready: false,
+    ready: true,
+    area: "careers",
     summary: "Publish job openings and review applicants with CV download and hiring status.",
   },
   {
@@ -67,7 +74,8 @@ export const adminModules: AdminModule[] = [
     label: "Traffic & SEO",
     icon: TrendingUp,
     group: "Growth",
-    ready: false,
+    ready: true,
+    area: "growth",
     summary: "Visitors by page, city, device, and channel from Google Analytics, plus keywords and rankings from Search Console.",
   },
   {
@@ -76,7 +84,8 @@ export const adminModules: AdminModule[] = [
     label: "Campaigns",
     icon: Megaphone,
     group: "Growth",
-    ready: false,
+    ready: true,
+    area: "growth",
     summary: "UTM link builder for Meta Ads and LinkedIn, ad spend, and leads and cost per lead for each campaign.",
   },
   {
@@ -85,7 +94,8 @@ export const adminModules: AdminModule[] = [
     label: "Company settings",
     icon: SlidersHorizontal,
     group: "System",
-    ready: false,
+    ready: true,
+    area: "settings",
     summary: "Contact details, phone visibility, business hours, social links, and the company profile PDF.",
   },
   {
@@ -94,7 +104,8 @@ export const adminModules: AdminModule[] = [
     label: "Team & access",
     icon: ShieldCheck,
     group: "System",
-    ready: false,
+    ready: true,
+    area: null,
     summary: "Invite team members as Owner, Admin, Editor, or Sales, with an audit log of every change.",
   },
 ]

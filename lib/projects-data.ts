@@ -13,7 +13,8 @@ export type ProjectThumbnail = "dashboard" | "portal" | "table"
 export interface Project {
   slug: string
   title: string
-  category: ProjectCategory
+  /** One of projectCategories, or a custom label typed in the admin. */
+  category: string
   description: string
   sector: string
   year: string
@@ -29,6 +30,7 @@ export interface Project {
   featured?: boolean
 }
 
+/** Fallback list used only when the database is not configured. Edit projects in Admin, Projects. */
 export const projects: Project[] = [
   {
     slug: "arkana-corporate-website",

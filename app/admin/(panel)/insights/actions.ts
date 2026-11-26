@@ -5,7 +5,7 @@ import { revalidatePath } from "next/cache"
 import { redirect } from "next/navigation"
 import { and, eq, ne } from "drizzle-orm"
 import { z } from "zod"
-import { requireUser } from "@/lib/auth"
+import { assertArea } from "@/lib/admin/access"
 import { getDb, schema } from "@/lib/db"
 import { readingMinutes, sanitizeArticleHtml, slugify } from "@/lib/articles"
 import type { ArticleStatus } from "@/lib/db/schema"
@@ -20,7 +20,7 @@ function revalidateArticle(slug?: string) {
 }
 
 export async function createArticle() {
-  const user = await requireUser()
+  const user = await assertArea("content")
   const [row] = await getDb()
     .insert(articles)
     .values({ slug: `untitled-${randomBytes(3).toString("hex")}`, authorId: user.id })
@@ -50,7 +50,7 @@ export type SaveArticleResult =
   | { ok: false; error: string }
 
 export async function saveArticle(input: SaveArticleInput): Promise<SaveArticleResult> {
-  await requireUser()
+  await assertArea("content")
   const parsed = saveSchema.safeParse(input)
   if (!parsed.success) return { ok: false, error: "Some fields are too long or invalid. Check the form and try again." }
   const data = parsed.data
@@ -127,7 +127,7 @@ function idFrom(formData: FormData) {
 }
 
 export async function deleteArticle(formData: FormData) {
-  await requireUser()
+  await assertArea("content")
   const id = idFrom(formData)
   if (!id) return
   const [row] = await getDb().delete(articles).where(eq(articles.id, id)).returning({ slug: articles.slug })
@@ -136,7 +136,7 @@ export async function deleteArticle(formData: FormData) {
 }
 
 export async function duplicateArticle(formData: FormData) {
-  const user = await requireUser()
+  const user = await assertArea("content")
   const id = idFrom(formData)
   if (!id) return
   const db = getDb()
@@ -166,7 +166,7 @@ const MAX_UPLOAD = 2.5 * 1024 * 1024
 const IMAGE_TYPES = ["image/webp", "image/jpeg", "image/png", "image/gif"]
 
 export async function uploadImage(formData: FormData): Promise<{ url: string } | { error: string }> {
-  const user = await requireUser()
+  const user = await assertArea("content")
   const file = formData.get("file")
   if (!(file instanceof File)) return { error: "No file received." }
   if (!IMAGE_TYPES.includes(file.type)) return { error: "Use a JPG, PNG, WebP, or GIF image." }

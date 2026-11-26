@@ -4,7 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Navbar } from "@/components/navbar"
 import { Mail, MapPin, Clock, MessageSquare } from "lucide-react"
 import Link from "next/link"
-import { companyInfo, whatsappUrl } from "@/lib/company-data"
+import { getContactSettings, whatsappLink } from "@/lib/site-settings"
 import { WhatsAppIcon } from "@/components/whatsapp-icon"
 import { ContactForm } from "@/components/contact-form"
 
@@ -15,7 +15,8 @@ export const metadata = pageMetadata({
   path: "/contact",
 })
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const contact = await getContactSettings()
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Navbar />
@@ -61,7 +62,7 @@ export default function ContactPage() {
 
               <div className="space-y-6">
                 <a 
-                  href={`mailto:${companyInfo.contact.email.general}`}
+                  href={`mailto:${contact.email}`}
                   className="block group"
                 >
                   <Card className="border-2 border-border group-hover:border-primary/50 group-hover:shadow-md transition-all bg-white cursor-pointer h-full">
@@ -72,7 +73,7 @@ export default function ContactPage() {
                       <div className="space-y-1">
                         <CardTitle className="text-lg text-secondary group-hover:text-primary transition-colors">Email</CardTitle>
                         <CardDescription className="text-base group-hover:text-gray-900 transition-colors">
-                          {companyInfo.contact.email.general}
+                          {contact.email}
                         </CardDescription>
                       </div>
                     </CardHeader>
@@ -80,7 +81,7 @@ export default function ContactPage() {
                 </a>
 
                 <a
-                  href={whatsappUrl}
+                  href={whatsappLink(contact.whatsapp)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block group"
@@ -93,7 +94,7 @@ export default function ContactPage() {
                       <div className="space-y-1">
                         <CardTitle className="text-lg text-secondary group-hover:text-primary transition-colors">WhatsApp</CardTitle>
                         <CardDescription className="text-base group-hover:text-gray-900 transition-colors">
-                          {companyInfo.contact.phone.whatsapp}
+                          {contact.whatsapp}
                         </CardDescription>
                       </div>
                     </CardHeader>
@@ -101,7 +102,7 @@ export default function ContactPage() {
                 </a>
 
                 <a 
-                  href={companyInfo.contact.address.googleMapsUrl}
+                  href={contact.mapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="block group"
@@ -114,7 +115,7 @@ export default function ContactPage() {
                       <div className="space-y-1">
                         <CardTitle className="text-lg text-secondary group-hover:text-primary transition-colors">Kantor</CardTitle>
                         <CardDescription className="text-base group-hover:text-gray-900 transition-colors">
-                          {companyInfo.contact.address.fullAddress}
+                          {contact.address}
                         </CardDescription>
                       </div>
                     </CardHeader>
@@ -129,8 +130,8 @@ export default function ContactPage() {
                     <div className="space-y-1">
                       <CardTitle className="text-lg text-secondary">Jam Operasional</CardTitle>
                       <CardDescription className="text-base text-gray-600">
-                        {companyInfo.contact.businessHours.weekdays}<br />
-                        {companyInfo.contact.businessHours.saturday}
+                        {contact.hoursWeekdays}<br />
+                        {contact.hoursSaturday}
                       </CardDescription>
                     </div>
                   </CardHeader>
@@ -172,7 +173,7 @@ export default function ContactPage() {
           <Card className="border-2 border-border shadow-xl overflow-hidden bg-white">
             <iframe
               title="Lokasi kantor PT. Arkana Tunas Persada"
-              src={`https://www.google.com/maps?q=${companyInfo.contact.address.coordinates.latitude},${companyInfo.contact.address.coordinates.longitude}&z=17&output=embed`}
+              src={`https://www.google.com/maps?q=${contact.latitude},${contact.longitude}&z=17&output=embed`}
               className="block aspect-video w-full border-0"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
@@ -205,7 +206,7 @@ export default function ContactPage() {
               },
               {
                 question: "Bagaimana cara meminta konsultasi atau penawaran harga?",
-                answer: `Isi formulir di atas atau kirim email ke ${companyInfo.contact.email.general} berisi kebutuhan Anda. Tim kami akan merespons dalam satu hari kerja.`
+                answer: `Isi formulir di atas atau kirim email ke ${contact.email} berisi kebutuhan Anda. Tim kami akan merespons dalam satu hari kerja.`
               },
               {
                 question: "Bagaimana model kerja sama proyek di Arkana?",

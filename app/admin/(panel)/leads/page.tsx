@@ -1,3 +1,4 @@
+import { requireArea } from "@/lib/admin/access"
 import Link from "next/link"
 import { Suspense } from "react"
 import { CalendarPlus, Download, Mail, MessageCircle, X } from "lucide-react"
@@ -37,6 +38,7 @@ function Field({ label, children }: { label: string; children: React.ReactNode }
 }
 
 export default async function LeadsPage({ searchParams }: { searchParams: Promise<Search> }) {
+  await requireArea("leads")
   const sp = await searchParams
   const status = isLeadStatus(sp.status) ? sp.status : undefined
   const page = Math.max(1, Number.parseInt(sp.page ?? "1", 10) || 1)
@@ -254,16 +256,12 @@ export default async function LeadsPage({ searchParams }: { searchParams: Promis
                       <MessageCircle className="h-4 w-4" /> WhatsApp
                     </a>
                   )}
-                  <a
-                    href={`https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(
-                      `Arkana x ${lead.company ?? `${lead.firstName} ${lead.lastName}`}`
-                    )}&add=${encodeURIComponent(lead.email)}`}
-                    target="_blank"
-                    rel="noreferrer"
+                  <Link
+                    href={`/admin/consultations/new?lead=${lead.id}`}
                     className="flex flex-1 items-center justify-center gap-1.5 rounded-[9px] border border-[#E7ECEF] py-2 text-[13px] font-bold transition hover:border-primary"
                   >
                     <CalendarPlus className="h-4 w-4" /> Schedule
-                  </a>
+                  </Link>
                 </div>
               </div>
 
