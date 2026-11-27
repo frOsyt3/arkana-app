@@ -142,6 +142,21 @@ export const articleViews = pgTable(
   (t) => [primaryKey({ columns: [t.articleId, t.day] })]
 )
 
+/**
+ * Daily page view counts for the public site. `visitors` counts a browser once
+ * per day, on the first page it opens, so summing it gives unique daily visitors.
+ */
+export const pageViews = pgTable(
+  "page_views",
+  {
+    day: date("day").notNull(),
+    path: text("path").notNull(),
+    views: integer("views").notNull().default(0),
+    visitors: integer("visitors").notNull().default(0),
+  },
+  (t) => [primaryKey({ columns: [t.day, t.path] })]
+)
+
 /** Uploaded images, kept in Postgres as base64 so no extra storage service is needed. */
 export const media = pgTable("media", {
   id: uuid("id").primaryKey().defaultRandom(),

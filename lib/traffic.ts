@@ -69,3 +69,50 @@ export async function getTrafficReport(days: number) {
     },
   }
 }
+
+/** Visitors and page views the site records itself, per day and per page. */
+export async function getVisitorReport(days: number) {
+  const { pageViews } = schema
+  const db = getDb()
+  const today = sql`(now() at time zone 'Asia/Jakarta')::date`
+  const inRange = sql`${pageViews.day} > ${today} - ${days}::int`
+
+  const [daily, topPages, [todayRow]] = await Promise.all([
+    db
+      .select({ day: sql<string>`${pageViews.day}::text`, visitors: sum(pageViews.visitors), views: sum(pageViews.views) })
+      .from(pageViews)
+      .where(inRange)
+      .groupBy(pageViews.day)
+      .orderBy(pageViews.day),
+    db
+      .select({ label: pageViews.path, total: sum(pageViews.views) })
+      .from(pageViews)
+      .where(inRange)
+      .groupBy(pageViews.path)
+      .orderBy(desc(sum(pageViews.views)))
+      .limit(8),
+    db
+      .select({ visitors: sum(pageViews.visitors), views: sum(pageViews.views) })
+      .from(pageViews)
+      .where(eq(pageViews.day, sql`${today}` as unknown as string)),
+  ])
+
+  const num = (v: unknown) => Number(v ?? 0)
+  const byDay = new Map(daily.map((d) => [d.day, { visitors: num(d.visitors), views: num(d.views) }]))
+  // Fill every day in the range so quiet days show as zero.
+  const series: { day: string; visitors: number; views: number }[] = []
+  const end = new Date(new Date().toLocaleDateString("en-CA", { timeZone: "Asia/Jakarta" }) + "T00:00:00Z")
+  for (let i = days - 1; i >= 0; i--) {
+    const d = new Date(end.getTime() - i * 86400000).toISOString().slice(0, 10)
+    series.push({ day: d, ...(byDay.get(d) ?? { visitors: 0, views: 0 }) })
+  }
+
+  return {
+    series,
+    topPages: topPages.map((p) => ({ label: p.label, total: num(p.total) })),
+    visitors: series.reduce((a, d) => a + d.visitors, 0),
+    views: series.reduce((a, d) => a + d.views, 0),
+    todayVisitors: num(todayRow?.visitors),
+    todayViews: num(todayRow?.views),
+  }
+}

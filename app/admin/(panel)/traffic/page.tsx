@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { ArrowUpRight, CheckCircle2, CircleAlert } from "lucide-react"
 import { requireArea } from "@/lib/admin/access"
-import { getTrafficReport } from "@/lib/traffic"
+import { getTrafficReport, getVisitorReport } from "@/lib/traffic"
 import { SITE_URL } from "@/lib/seo"
 import { formatRelative } from "@/lib/admin/format"
 import { AdminTopbar, PageTitle, Panel } from "@/components/admin/page-header"
@@ -58,11 +58,37 @@ function Check({ ok, title, detail, href }: { ok: boolean; title: string; detail
   )
 }
 
+function DailyChart({ series }: { series: { day: string; visitors: number; views: number }[] }) {
+  const max = Math.max(1, ...series.map((d) => d.views))
+  const fmt = (day: string) => new Date(day + "T00:00:00Z").toLocaleDateString("en-GB", { day: "numeric", month: "short", timeZone: "UTC" })
+  return (
+    <div className="px-6 pb-6 pt-4">
+      <div className="flex h-40 items-end gap-[3px]">
+        {series.map((d) => (
+          <div key={d.day} className="group relative flex h-full flex-1 flex-col justify-end" title={`${fmt(d.day)}: ${d.visitors} visitors, ${d.views} page views`}>
+            <div className="relative w-full rounded-t-[3px] bg-primary/25" style={{ height: `${(d.views / max) * 100}%` }}>
+              <div className="absolute inset-x-0 bottom-0 rounded-t-[3px] bg-primary" style={{ height: d.views ? `${(d.visitors / d.views) * 100}%` : 0 }} />
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="mt-2 flex justify-between text-[11px] text-[#8A9AA6]">
+        <span>{fmt(series[0].day)}</span>
+        <span>{fmt(series[series.length - 1].day)}</span>
+      </div>
+      <div className="mt-3 flex gap-4 text-[12px] text-[#6B7C88]">
+        <span className="flex items-center gap-1.5"><span className="h-2.5 w-2.5 rounded-sm bg-primary" /> Visitors</span>
+        <span className="flex items-center gap-1.5"><span className="h-2.5 w-2.5 rounded-sm bg-primary/25" /> Page views</span>
+      </div>
+    </div>
+  )
+}
+
 export default async function TrafficPage({ searchParams }: { searchParams: Promise<{ days?: string }> }) {
   await requireArea("growth")
   const sp = await searchParams
   const days = RANGES.includes(Number(sp.days)) ? Number(sp.days) : 30
-  const r = await getTrafficReport(days)
+  const [r, v] = await Promise.all([getTrafficReport(days), getVisitorReport(days)])
   const c = r.counts
   const gaId = process.env.NEXT_PUBLIC_GA_ID
 
@@ -117,7 +143,7 @@ export default async function TrafficPage({ searchParams }: { searchParams: Prom
       <div className="space-y-5 px-6 py-8 lg:px-8">
         <PageTitle
           title="Traffic & SEO"
-          description="Where your leads come from, which pages bring them in, and what to fix for Google."
+          description="How many people visit the site, where your leads come from, and what to fix for Google."
           actions={
             <>
               <nav className="flex gap-1 rounded-[10px] bg-[#EAEFF2] p-[3px]">
@@ -145,6 +171,29 @@ export default async function TrafficPage({ searchParams }: { searchParams: Prom
             </>
           }
         />
+
+        <div className="grid gap-4 sm:grid-cols-3">
+          {[
+            { label: "Visitors today", value: v.todayVisitors.toLocaleString("en-US"), note: `${v.todayViews.toLocaleString("en-US")} page views` },
+            { label: `Visitors, last ${days} days`, value: v.visitors.toLocaleString("en-US"), note: "Each browser counted once a day" },
+            { label: `Page views, last ${days} days`, value: v.views.toLocaleString("en-US"), note: v.visitors ? `${(v.views / v.visitors).toFixed(1)} pages per visitor` : undefined },
+          ].map((s) => (
+            <div key={s.label} className="rounded-[14px] border border-[#E7ECEF] bg-white px-5 py-4">
+              <p className="text-[13px] text-[#6B7C88]">{s.label}</p>
+              <p className="mt-1.5 text-[26px] font-bold leading-none">{s.value}</p>
+              {s.note && <p className="mt-2 text-[12px] text-[#8A9AA6]">{s.note}</p>}
+            </div>
+          ))}
+        </div>
+
+        <div className="grid gap-5 xl:grid-cols-[1fr_420px]">
+          <Panel title="Visitors per day" description="Hover a bar to see the numbers for that day.">
+            <DailyChart series={v.series} />
+          </Panel>
+          <Panel title="Most visited pages" description="Page views in this period.">
+            <Bars rows={v.topPages} empty="No visits recorded in this period yet." />
+          </Panel>
+        </div>
 
         <div className="grid gap-4 sm:grid-cols-3">
           {[
@@ -198,7 +247,7 @@ export default async function TrafficPage({ searchParams }: { searchParams: Prom
           </Panel>
         </div>
         <p className="text-xs text-[#8A9AA6]">
-          Visitor counts, cities, and Google keywords are in Google Analytics and Search Console. This page uses data the website records itself.
+          Visitor numbers here are recorded by the website itself and skip bots. Cities, traffic sources, and Google keywords are in Google Analytics and Search Console.
         </p>
       </div>
     </>
