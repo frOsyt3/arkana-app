@@ -16,12 +16,12 @@ const geistMono = Geist_Mono({
 });
 
 const description =
-  "Mitra solusi IT dan pengadaan barang IT di Bandung untuk instansi pemerintah dan perusahaan di seluruh Indonesia. Terdaftar di e-Katalog, INAPROC, LPSE, dan Digipay.";
+  "Mitra teknologi di Bandung untuk instansi, perusahaan, UMKM, sekolah, dan perorangan di seluruh Indonesia. Konsultasi IT, website dan aplikasi, infrastruktur, serta pengadaan perangkat IT.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "PT. Arkana Tunas Persada | Solusi IT & Pengadaan Barang IT",
+    default: "PT. Arkana Tunas Persada | Jasa IT, Website & Pengadaan Perangkat",
     template: "%s | Arkana Tunas Persada",
   },
   description,
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     siteName: SITE_NAME,
     locale: "id_ID",
     url: "/",
-    title: "PT. Arkana Tunas Persada | Solusi IT & Pengadaan Barang IT",
+    title: "PT. Arkana Tunas Persada | Jasa IT, Website & Pengadaan Perangkat",
     description,
   },
   twitter: { card: "summary_large_image" },

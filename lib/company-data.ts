@@ -7,10 +7,10 @@ export const companyInfo = {
     // Phone numbers are hidden on the site while this is false.
     showPhone: false,
     email: {
-      general: "admin@arkanacorp.id",
-      sales: "sales@arkanacorp.co.id",
-      support: "support@arkanacorp.co.id",
-      career: "career@arkanacorp.co.id"
+      general: "arkanatunaspersada@gmail.com",
+      sales: "arkanatunaspersada@gmail.com",
+      support: "arkanatunaspersada@gmail.com",
+      career: "arkanatunaspersada@gmail.com"
     },
     phone: {
       main: "+62 22 8202 5644",

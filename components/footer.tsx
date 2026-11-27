@@ -24,7 +24,7 @@ export function Footer() {
                 {companyInfo.tagline}
               </p>
               <p className="text-sm text-gray-300 leading-relaxed">
-                Mitra solusi IT dan pengadaan barang untuk instansi pemerintah dan perusahaan di seluruh Indonesia.
+                Mitra teknologi untuk instansi, perusahaan, UMKM, sekolah, dan perorangan di seluruh Indonesia.
               </p>
               
               {/* Social Media */}

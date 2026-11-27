@@ -143,7 +143,7 @@ export default async function ArticlePage(props: Props) {
           <div className="mt-12 rounded-2xl bg-secondary p-8 text-white md:p-10">
             <h2 className="text-2xl font-bold">Butuh bantuan untuk kebutuhan ini di organisasi Anda?</h2>
             <p className="mt-3 text-white/75">
-              Tim kami menangani pengadaan IT, infrastruktur, dan proyek software untuk perusahaan dan instansi pemerintah.
+              Tim kami membantu instansi, perusahaan, UMKM, dan perorangan, mulai dari website dan aplikasi, infrastruktur, hingga pengadaan perangkat IT.
             </p>
             <Button asChild className="mt-6 bg-primary hover:bg-primary-dark">
               <Link href="/contact">

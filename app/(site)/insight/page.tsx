@@ -9,7 +9,7 @@ import { listPublishedArticles } from "@/lib/articles"
 export const metadata = pageMetadata({
   title: "Insight & Artikel",
   description:
-    "Artikel praktis seputar pengadaan IT, e-Katalog, cloud, keamanan, dan infrastruktur untuk instansi pemerintah dan perusahaan di Indonesia.",
+    "Artikel praktis seputar pengadaan IT, e-Katalog, cloud, keamanan, dan infrastruktur untuk instansi, perusahaan, UMKM, dan sekolah di Indonesia.",
   path: "/insight",
 })
 
@@ -33,7 +33,7 @@ export default async function InsightPage({ searchParams }: { searchParams: Prom
             </div>
             <h1 className="text-5xl font-bold tracking-tight text-secondary md:text-6xl">Insight & Artikel</h1>
             <p className="text-xl leading-relaxed text-gray-600">
-              Catatan praktis dari tim kami seputar pengadaan IT, cloud, keamanan, dan infrastruktur.
+              Catatan praktis dari tim kami seputar website, perangkat IT, cloud, keamanan, dan pengadaan.
             </p>
           </div>
         </div>
@@ -132,9 +132,9 @@ export default async function InsightPage({ searchParams }: { searchParams: Prom
 
       <section className="bg-secondary py-20">
         <div className="mx-auto flex max-w-5xl flex-col items-center gap-6 px-6 text-center">
-          <h2 className="text-3xl font-bold text-white md:text-4xl">Merencanakan pengadaan atau proyek IT?</h2>
+          <h2 className="text-3xl font-bold text-white md:text-4xl">Punya kebutuhan teknologi?</h2>
           <p className="max-w-2xl text-lg text-white/75">
-            Ceritakan kebutuhan Anda. Kami akan membalas dalam satu hari kerja dengan pilihan yang sesuai dengan anggaran dan proses pengadaan Anda.
+            Ceritakan kebutuhan Anda. Kami akan membalas dalam satu hari kerja dengan pilihan yang sesuai dengan anggaran Anda.
           </p>
           <Button asChild size="lg" className="bg-primary hover:bg-primary-dark">
             <Link href="/contact">

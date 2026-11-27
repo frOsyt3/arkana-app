@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Navbar } from "@/components/navbar"
-import { Building2, Users, Lightbulb, ArrowRight, CheckCircle2, Code, BadgeCheck, Download, MapPin } from "lucide-react"
+import { Building2, Users, Lightbulb, ArrowRight, CheckCircle2, Code, BadgeCheck, Download, MapPin, Landmark, Store, GraduationCap, UserRound } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { companyInfo } from "@/lib/company-data"
@@ -13,6 +13,15 @@ import { serviceIcons } from "@/components/service-icons"
 import { InfiniteSlider } from "@/components/ui/infinite-slider"
 
 const companyProfilePdf = "/files/company-profile-pt-arkana-tunas-persada.pdf"
+
+// Who Arkana works with, each with the kind of request they usually bring.
+const audiences = [
+  { icon: Landmark, title: "Instansi Pemerintah", need: "Pengadaan lewat e-Katalog dan LPSE, sistem informasi, dan infrastruktur kantor dinas." },
+  { icon: Building2, title: "Perusahaan", need: "Laptop dan perangkat kantor, jaringan, server, cloud, dan aplikasi untuk operasional." },
+  { icon: Store, title: "UMKM dan Toko", need: "Website, toko online, sistem kasir, dan perangkat untuk mulai go digital." },
+  { icon: GraduationCap, title: "Sekolah dan Kampus", need: "Laboratorium komputer, jaringan sekolah, dan pengadaan lewat SIPLah." },
+  { icon: UserRound, title: "Perorangan", need: "Website pribadi atau portofolio, rakit dan rekomendasi perangkat, serta konsultasi IT." },
+]
 
 // Procurement platforms Arkana is registered on (logos live in public/images/platforms).
 // logoClass/miniClass set each logo's height (card / hero row) so wide, square, and tall marks look the same size.
@@ -131,7 +140,7 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.6 }}
               >
-                Mitra Solusi IT &amp; <span className="text-primary">Pengadaan Barang</span> untuk Pemerintah dan Perusahaan
+                Satu Mitra untuk <span className="text-primary">Semua Kebutuhan Teknologi</span> Anda
               </motion.h1>
 
               <motion.p
@@ -140,8 +149,8 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.6 }}
               >
-                Konsultasi, pengembangan software, infrastruktur IT, dan pengadaan barang melalui platform resmi. Kami
-                mendampingi Anda sejak perencanaan dan implementasi hingga layanan purna jual, untuk sektor pemerintah maupun swasta di seluruh Indonesia.
+                Konsultasi IT, pembuatan website dan aplikasi, infrastruktur, hingga pengadaan perangkat. Untuk instansi pemerintah,
+                perusahaan, UMKM, sekolah, maupun perorangan. Ceritakan kebutuhan Anda, kami bantu dari perencanaan sampai purna jual.
               </motion.p>
 
               <motion.div
@@ -259,6 +268,44 @@ export default function Home() {
                 />
               ))}
             </InfiniteSlider>
+          </div>
+        </div>
+      </section>
+
+      {/* Audiences */}
+      <section className="bg-white py-24 md:py-28">
+        <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-12">
+          <FadeInWhenVisible>
+            <div className="mb-14 space-y-4 text-center">
+              <h2 className="text-4xl font-bold text-secondary md:text-5xl">Siapa yang Kami Bantu</h2>
+              <p className="mx-auto max-w-2xl text-lg text-gray-600">
+                Besar atau kecil kebutuhannya, selama berhubungan dengan teknologi, kami siap membantu.
+              </p>
+            </div>
+          </FadeInWhenVisible>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+            {audiences.map((item, index) => {
+              const Icon = item.icon
+              return (
+                <FadeInWhenVisible key={item.title} delay={index * 0.05}>
+                  <div className="h-full rounded-2xl border-2 border-border bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-lg">
+                    <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
+                      <Icon className="h-6 w-6 text-primary" />
+                    </span>
+                    <h3 className="mt-5 text-lg font-bold text-secondary">{item.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-gray-600">{item.need}</p>
+                  </div>
+                </FadeInWhenVisible>
+              )
+            })}
+          </div>
+          <div className="mt-10 text-center">
+            <Button size="lg" variant="outline" className="group" asChild>
+              <Link href="/contact">
+                Ceritakan kebutuhan Anda
+                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </Button>
           </div>
         </div>
       </section>

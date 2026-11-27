@@ -298,7 +298,7 @@ export function ProjectsShowcase({ projects }: { projects: Project[] }) {
             </h1>
           </div>
           <p className="text-lg leading-relaxed text-gray-600 lg:pt-11">
-            Website, aplikasi web, dan dashboard untuk klien pemerintah dan perusahaan. Setiap
+            Website, aplikasi web, dan dashboard untuk klien dari berbagai bidang, mulai dari instansi dan perusahaan hingga UMKM. Setiap
             proyek kami tangani mulai dari riset dan desain hingga peluncuran serta dukungan
             berkelanjutan.
           </p>

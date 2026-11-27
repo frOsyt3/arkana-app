@@ -11,7 +11,7 @@ import { ContactForm } from "@/components/contact-form"
 export const metadata = pageMetadata({
   title: "Hubungi Kami",
   description:
-    "Konsultasikan kebutuhan pengadaan IT, infrastruktur, atau pengembangan software bersama Arkana. Kantor di Sarijadi, Bandung. Kami membalas dalam satu hari kerja.",
+    "Konsultasikan kebutuhan IT Anda bersama Arkana, dari pembuatan website dan aplikasi, perangkat dan jaringan, hingga pengadaan. Kantor di Sarijadi, Bandung. Kami membalas dalam satu hari kerja.",
   path: "/contact",
 })
 
@@ -37,8 +37,8 @@ export default async function ContactPage() {
             </h1>
             
             <p className="text-xl text-gray-600 leading-relaxed">
-              Ceritakan kebutuhan IT atau pengadaan Anda. Tim kami siap membantu, mulai dari diskusi awal
-              hingga penawaran yang sesuai dengan anggaran dan proses pengadaan Anda.
+              Ceritakan kebutuhan teknologi Anda, besar maupun kecil. Tim kami siap membantu, mulai dari diskusi awal
+              hingga penawaran yang sesuai dengan anggaran Anda.
             </p>
           </div>
         </div>
@@ -55,7 +55,7 @@ export default async function ContactPage() {
                   Mari Terhubung
                 </h2>
                 <p className="text-lg text-gray-600 leading-relaxed">
-                  Baik untuk pengadaan perangkat IT, pengembangan software, maupun konsultasi infrastruktur,
+                  Baik untuk pembuatan website, pengadaan perangkat IT, maupun konsultasi jaringan dan infrastruktur,
                   tim kami siap membantu.
                 </p>
               </div>
@@ -199,6 +199,10 @@ export default async function ContactPage() {
               {
                 question: "Layanan apa saja yang disediakan Arkana?",
                 answer: "Kami menyediakan konsultasi IT dan integrasi sistem, pengembangan software dan aplikasi, infrastruktur server dan jaringan, layanan cloud dan data, keamanan sistem, serta pengadaan barang dan jasa IT."
+              },
+              {
+                question: "Apakah Arkana melayani UMKM dan perorangan?",
+                answer: "Tentu. Selain instansi dan perusahaan, kami membantu UMKM, sekolah, dan perorangan, misalnya pembuatan website, toko online, rekomendasi dan pengadaan perangkat, hingga konsultasi IT."
               },
               {
                 question: "Apakah Arkana melayani pengadaan melalui e-Katalog?",

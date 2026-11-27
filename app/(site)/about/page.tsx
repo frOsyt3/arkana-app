@@ -9,7 +9,7 @@ import { companyInfo } from "@/lib/company-data"
 export const metadata = pageMetadata({
   title: "Tentang Kami",
   description:
-    "Kenali PT. Arkana Tunas Persada, perusahaan solusi IT dan pengadaan barang di Bandung yang melayani instansi pemerintah dan perusahaan di seluruh Indonesia.",
+    "Kenali PT. Arkana Tunas Persada, perusahaan solusi IT dan pengadaan barang di Bandung yang melayani instansi, perusahaan, UMKM, sekolah, dan perorangan di seluruh Indonesia.",
   path: "/about",
 })
 
@@ -35,7 +35,7 @@ export default function AboutPage() {
 
             <p className="text-xl text-gray-600 leading-relaxed">
               PT. Arkana Tunas Persada adalah perusahaan konsultan dan solusi IT yang berfokus pada transformasi
-              digital, cloud, infrastruktur, serta pengadaan barang IT untuk instansi pemerintah dan perusahaan.
+              digital, cloud, infrastruktur, serta pengadaan barang IT untuk siapa saja yang punya kebutuhan teknologi, dari instansi pemerintah dan perusahaan hingga UMKM, sekolah, dan perorangan.
             </p>
           </div>
         </div>

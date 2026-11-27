@@ -4,7 +4,7 @@ import type { ContactSettings } from "@/lib/site-settings"
 
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://arkanacorp.id"
 export const SITE_NAME = "PT. Arkana Tunas Persada"
-const OG_IMAGE = { url: "/opengraph-image", width: 1200, height: 630, alt: "PT. Arkana Tunas Persada, mitra solusi IT dan pengadaan barang" }
+const OG_IMAGE = { url: "/opengraph-image", width: 1200, height: 630, alt: "PT. Arkana Tunas Persada, satu mitra untuk semua kebutuhan teknologi" }
 
 /** Per page metadata with matching canonical, Open Graph, and Twitter tags. */
 export function pageMetadata({ title, description, path }: { title: string; description: string; path: string }): Metadata {
@@ -35,7 +35,7 @@ export function organizationJsonLd(contact: ContactSettings) {
         logo: `${SITE_URL}/images/arkana-mark.svg`,
         image: `${SITE_URL}/opengraph-image`,
         description:
-          "Mitra solusi IT dan pengadaan barang untuk instansi pemerintah dan perusahaan di seluruh Indonesia, meliputi pengadaan IT, infrastruktur, dan pengembangan software.",
+          "Mitra teknologi untuk instansi, perusahaan, UMKM, sekolah, dan perorangan di seluruh Indonesia, meliputi pengadaan IT, infrastruktur, dan pengembangan software.",
         email: contact.email,
         address: {
           "@type": "PostalAddress",
@@ -53,10 +53,11 @@ export function organizationJsonLd(contact: ContactSettings) {
         },
         areaServed: { "@type": "Country", name: "Indonesia" },
         knowsAbout: [
-          "Pengadaan barang IT",
+          "Jasa pembuatan website",
+          "Pengembangan aplikasi",
+          "Pengadaan perangkat IT",
           "e-Katalog",
           "Infrastruktur IT",
-          "Pengembangan software",
           "Solusi cloud",
           "Keamanan siber",
         ],

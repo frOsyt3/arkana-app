@@ -2,7 +2,7 @@ import { readFile } from "node:fs/promises"
 import { join } from "node:path"
 import { ImageResponse } from "next/og"
 
-export const alt = "PT. Arkana Tunas Persada, mitra solusi IT dan pengadaan barang"
+export const alt = "PT. Arkana Tunas Persada, satu mitra untuk semua kebutuhan teknologi"
 export const size = { width: 1200, height: 630 }
 export const contentType = "image/png"
 
@@ -56,18 +56,18 @@ export default async function OpengraphImage() {
         </div>
 
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <span style={{ fontSize: 76, fontWeight: 700, lineHeight: 1.05, letterSpacing: -2 }}>Mitra Solusi IT &amp;</span>
-          <span style={{ fontSize: 76, fontWeight: 700, lineHeight: 1.05, letterSpacing: -2, color: "#5DB8BA" }}>
-            Pengadaan Barang
+          <span style={{ fontSize: 68, fontWeight: 700, lineHeight: 1.08, letterSpacing: -2 }}>Satu Mitra untuk</span>
+          <span style={{ fontSize: 68, fontWeight: 700, lineHeight: 1.08, letterSpacing: -2, color: "#5DB8BA" }}>
+            Semua Kebutuhan Teknologi
           </span>
           <span style={{ marginTop: 18, fontSize: 34, color: "rgba(255,255,255,0.88)" }}>
-            untuk Pemerintah dan Perusahaan di Seluruh Indonesia
+            Untuk instansi, perusahaan, UMKM, sekolah, dan perorangan
           </span>
         </div>
 
         <div style={{ display: "flex", alignItems: "center", gap: 16, fontSize: 24, color: "rgba(255,255,255,0.7)" }}>
           <div style={{ width: 48, height: 4, borderRadius: 4, background: "#5DB8BA" }} />
-          Pengadaan IT, infrastruktur, dan pengembangan software. Berbasis di Bandung.
+          Konsultasi IT, website dan aplikasi, infrastruktur, dan pengadaan perangkat. Bandung.
         </div>
       </div>
     ),
