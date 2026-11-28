@@ -34,8 +34,8 @@ export const companyInfo = {
   },
 
   socialMedia: {
-    linkedin: "https://linkedin.com/company/pt-arkana-tunas-persada",
-    instagram: "https://instagram.com/hexamind.id"
+    linkedin: "",
+    instagram: ""
   },
 
   mission: "Memberikan layanan konsultasi Teknologi Informasi, mulai dari analisis kebutuhan sistem, perancangan solusi, hingga pendampingan implementasi bagi pelanggan.",

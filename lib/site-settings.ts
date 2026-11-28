@@ -58,7 +58,7 @@ const readContact = unstable_cache(
       .limit(1)
     return row?.value
   },
-  ["site-settings-contact"],
+  ["site-settings-contact-v2"],
   { tags: [SETTINGS_TAG] }
 )
 

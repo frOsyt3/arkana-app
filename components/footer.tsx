@@ -28,6 +28,7 @@ export function Footer() {
               </p>
               
               {/* Social Media */}
+              {(contact.linkedin || contact.instagram) && (
               <div className="flex gap-3 pt-4">
                 {contact.linkedin && (
                 <a 
@@ -52,6 +53,7 @@ export function Footer() {
                 </a>
                 )}
               </div>
+              )}
             </div>
           </FadeInWhenVisible>
 
